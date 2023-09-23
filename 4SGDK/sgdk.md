@@ -122,13 +122,13 @@ Puedes consultar las versiones de este juego en el kickstarter del mismo:
 
 ### Demons of Asteborg
 
-Demons of Astebord [^30] es un juego para Sega Mega Drive, que tiene una estética de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego esta publicado por Neofid-studios.
+Demons of Asteborg [^30] es un juego para Sega Mega Drive, que tiene una estética de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego esta publicado por Neofid-studios.
 
-En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, como en Steam.
+En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, en Steam e incluso Nintendo Switch.
 
-Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponible para su compra.
+Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponible para su compra y han sacado un nuevo KickStarter para portar un juego llamado _Demons of Clawn_.
 
-Se está trabajando en una versión para Nintendo Switch. Puede encontrarse más información en su página web:
+Puede encontrarse más información en su página web:
 
 [https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
 
