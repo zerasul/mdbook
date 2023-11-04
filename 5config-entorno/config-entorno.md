@@ -168,7 +168,7 @@ Este emulador tiene las siguientes características:
 * Soporte para Controlador (Joystick).
 * Emulación de Mega/Sega Mouse.
 * Soporte para teclado Saturn.
-* Soporte para Lock con de Sonic & Knuckles y algunos mappers como Sega Standard Mapper.
+* Soporte para Lock-on de Sonic & Knuckles y algunos mappers como Sega Standard Mapper.
 * Soporte para mappers de distintos juegos Homebrew.
 * Soporte para SRAM y EEPROM.
 * Soporte para Shaders y otros filtros.
@@ -192,7 +192,7 @@ A la hora de trabajar en un videojuego, es igualmente importante trabajar el có
 
 GIMP (Gnu Image Manipulation Program), es un programa de edición de imágenes en forma de mapa de bits; este programa es de código abierto y tiene una licencia GPLv3.
 
-La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^40]. GIMP, nos va a ayudar a modificar las imagenes para poder usarlas en nuestros proyectos.
+La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^40]. GIMP, nos va a ayudar a modificar las imágenes para poder usarlas en nuestros proyectos.
 
 [^40]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
@@ -203,7 +203,7 @@ Además de las herramientas que trae integradas, se pueden añadir más herramie
 ![GIMP](5config-entorno/img/GIMP2.png "GIMP")
 _GIMP_
 
-Puede descargarse GIMP, desde su página web Oficial:
+Puede descargarse GIMP desde su página web Oficial:
 
 [https://www.gimp.org/](https://www.gimp.org/)
 
@@ -215,7 +215,7 @@ Para ello, se utilizan programas como Aseprite el cual es un programa que nos va
 
 Además, también nos va a permitir manejar la paleta de colores para nuestros gráficos. Por lo que podremos ver en todo momento los colores que estamos utilizando para crear nuestros gráficos.
 
-Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patron que podamos utilizar posteriormente en nuestro juego.
+Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patrón que podamos utilizar posteriormente en nuestro juego.
 
 Aseprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
 
