@@ -48,7 +48,7 @@ _Capas_
 
 Como podemos ver en la imagen anterior, vemos las dos capas separadas que al juntarlas y configurar el color transparente, se conforman la imagen anterior; de tal forma que la información de ambas capas se puede guardar en un TileMap que es generado por el mismo TileSet.
 
-Ambas capas se pueden almacenar en el mismo fichero _TMX_; los ficheros Tmx, almacenan la información de los mapas asociados a un fichero _tsx_ que almacena la información de los TileSet.
+Ambas capas se pueden almacenar en el mismo fichero _TMX_; los ficheros Tmx, almacenan la información de los mapas asociados a un fichero _.tsx_ que almacena la información de los TileSet.
 
 Para más información acerca de los ficheros TMX o TSX, puede consultar la documentación de _Tiled_.
 
@@ -100,7 +100,7 @@ En primer lugar, veremos como se importa un tilemap a partir de una imagen:
 * name: nombre del recurso.
 * file: nombre del fichero de la imagen a cargar.
 * tileset_id: identificador que tendrá este tilemap.
-* Compresión a utilizar; puede tener los siguientes valores:
+* compression: Compresión a utilizar; puede tener los siguientes valores:
     * -1/BEST/AUTO: automática; utiliza la mejor compresión disponible.
     * 0/NONE: ninguna compresión.
     * 1/APLIB: compresión usando _ApLib_.
@@ -118,7 +118,7 @@ En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguien
 * name: nombre del recurso.
 * file: nombre del fichero TMX del mapa.
 * layer: nombre de la capa a cargar; esto es importante si se tiene un fichero tmx con varias capas.
-* Compresión a utilizar; puede tener los siguientes valores:
+* compression: Compresión a utilizar; puede tener los siguientes valores:
     * -1/BEST/AUTO: automática; utiliza la mejor compresión disponible.
     * 0/NONE: ninguna compresión.
     * 1/APLIB: compresión usando _ApLib_.
@@ -135,7 +135,7 @@ En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguien
 
 A partir de la versión 1.90 de SGDK, se dispone la posibilidad de obtener información de los objetos añadidos desde Tiled en un TMX usando rescomp; aunque ya lo añadía en la anterior versión, se ha mejorado en la última versión. Vamos a mostrar la sintaxis para añadirlo:
 
-```OBJECTS name tmx_file layer_id fields_defs [decl_type [type_fiter]]```; donde:
+```OBJECTS name tmx_file layer_id fields_defs [decl_type [type_filter]]```; donde:
 
 * name: Nombre del recurso.
 * tmx_file: fichero TMX.
@@ -184,7 +184,7 @@ En este caso, vamos a mostrar dos ejemplos; para poder importar y utilizar los r
 
 Comenzaremos con el ejemplo utilizando un fichero TMX; recuerda que esta versión, solo funcionará si usas la versión de SGDK 1.80 o superior. Este ejemplo llamado _ej9.tilesets1_ se encuentra en el repositorio de ejemplos que acompaña a este libro.
 
-En este ejemplo, vamos a cargar un Tilset, y luego los correspondientes TileMaps; que hemos importado usando rescomp; con la siguiente configuración:
+En este ejemplo, vamos a cargar un Tileset, y luego los correspondientes TileMaps; que hemos importado usando rescomp; con la siguiente configuración:
 
 ```res
 PALETTE palbosque   "tilesetbosque.png"
@@ -259,7 +259,7 @@ _Ejemplo 9: Uso de TileSets usando fichero TMX_
 
 ### Ejemplo a mano
 
-Si por el contrario no se puede utilizar un fichero TMX, podemos cargar a mano la información; creando a mano el fichero .h (o utilizando la extensión _Genesis Code_); de tal forma que podamos cargar dicha información en nuestro juego y mostrarlo por pantalla. Este ejemplo llamado _ej10.tileset2_, puedes encontrarlo en el repositorio de ejemplos que acompaña a este libro.
+Si por el contrario no se puede utilizar un fichero TMX, podemos cargar a mano la información; creando un fichero .h (o utilizando la extensión _Genesis Code_); de tal forma que podamos cargar dicha información en nuestro juego y mostrarlo por pantalla. Este ejemplo llamado _ej10.tileset2_, puedes encontrarlo en el repositorio de ejemplos que acompaña a este libro.
 
 En primer lugar, vamos a mostrar como importaremos en este ejemplo la información; primero el Tileset y la información de la paleta, serán importados usando _rescomp_:
 
