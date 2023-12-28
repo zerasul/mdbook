@@ -12,7 +12,7 @@ Hasta ahora hemos comentado, que Sega Mega Drive, puede mostrar hasta 64 colores
 
 Sin embargo, no hemos podido ver cuantos colores en total, puede mostrar Sega Mega Drive. Sega Mega Drive, almacena los colores en una paleta de colores de 9bits RGB. Esto quiere decir, que puede mostrar 512 colores que es capaz de manejar Sega Mega Drive. Pero recordamos que solo podremos ver 64 colores por pantalla debido a las 4 paletas de 16 colores.
 
-![Paleta de Colores](11Paletas/img/RGB_9bits_palette.png "Ejemplo 7: Colisiones")
+![Paleta de Colores](11Paletas/img/RGB_9bits_palette.png "Paleta de Colores")
 _Paleta de Colores (Wikipedia)_
 
 Como podemos ver en la anterior imagen, se muestran los distintos colores que es capaz de mostrar la Sega Mega Drive. y es importante tener esto en cuenta, ya que a la hora de trabajar los distintos gráficos, debemos saber a que color correspondería en Sega Mega Drive si estamos trabajando con RGB desde nuestro equipo de desarrollo.
