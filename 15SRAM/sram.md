@@ -54,7 +54,7 @@ La función ```SRAM_writeWord``` almacena 1 palabra (de 2 bytes) en la SRAM. Rec
 * _offset_: Indica el offset con el que se almacenará.
 * _value_: Indica el valor a almacenar (dos bytes).
 
-Por último, la función SRAM_writeLong escribe un entero largo (32 bits) en la SRAM. Recibe los siguientes parámetros:
+Por último, la función ```SRAM_writeLong``` escribe un entero largo (32 bits) en la SRAM. Recibe los siguientes parámetros:
 
 * _offset_: Indica el offset con el que se almacenará.
 * _value_: Indica el valor a almacenar (4 bytes).
@@ -254,7 +254,7 @@ Podemos observar que se comprueba el valor leído del mando 1 (```JOY_1```), y s
 
 Ahora podemos compilar y ejecutar el ejemplo, donde podemos ver como se puede mover el personaje; de tal forma que es más eficiente que en otros ejemplos. Ya hemos podido ver el contenido de este capítulo; donde hemos visto dos aspectos importantes a la hora de trabajar creando juegos; el uso de la SRAM por si queremos almacenar el progreso del juego, y por otro lado el uso de interrupciones.
 
-![Ejemplo 16: Interrupciones](15SRAM/img/ej16.png "Ejemplo 16")
+![Ejemplo 16: Interrupciones](15SRAM/img/ej16.png "Ejemplo 16: Interrupciones")
 _Ejemplo 16: Interrupciones_
 
 ## Referencias

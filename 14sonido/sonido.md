@@ -17,7 +17,7 @@ Comenzaremos hablando del Sistema de Sonido de la Sega Mega Drive; como hemos po
 * Chip Yamaha YM2612; con sonido FM[^57] (6 canales).
 * Chip PSG (SN76496); sonido 8 bits con capacidad de emitir 3 ondas de pulso y 1 canal de ruido. Esta dentro del VDP.
 
-Estos dos chips, son orquestados por el procesador Zilog z80; este es quien envía o recibe la información del sonido, ayudandose de la Ram de sonido (8Kb); a través del bus de 8 bits que conecta ambos chips.
+Estos dos chips, son orquestados por el procesador Zilog z80; este es quien envía o recibe la información del sonido, ayudándose de la Ram de sonido (8Kb); a través del bus de 8 bits que conecta ambos chips.
 
 [^57]: Sonido FM; se refiere al sonido generado a través de la variación de su frecuencia; de tal forma que se genera una señal variando dicha frecuencia.
 
@@ -62,7 +62,7 @@ printc:               ; Routine print character
  rst 16               ; Spectrum:Print character in 'A'
 ```
 
-En el fragmento anterior, vemos un poco de ensamblador para el z80 (en este caso, es para ZX Sepectrum); la creación de un programa para el Z80 para orquestar los chips de sonido, es lo que comúnmente se llama Driver de sonido.
+En el fragmento anterior, vemos un poco de ensamblador para el z80 (en este caso, es para ZX Spectrum); la creación de un programa para el Z80 para orquestar los chips de sonido, es lo que comúnmente se llama Driver de sonido.
 
 Existen varias implementaciones de Drivers para sonido para Sega Mega Drive; como puede ser GEMS [^59], MUCOM88 [^60], 4PCM o XGM. Cada uno ha sido utilizado en varios juegos y utilizado para componer música ya que traían herramientas para ello, como un tracker [^61] para componer.
 
@@ -72,7 +72,7 @@ Existen varias implementaciones de Drivers para sonido para Sega Mega Drive; com
 
 ### XGM
 
-Aunque hemos nombrado varios Drivers, vamos a centrarnos en el Driver _XGM_; este driver es uno de los utilizados por SGDK, y que viene por defecto. Aunque podemos utilizar otros, en este caso nos centrarnos en este Driver. Fue desarrollado para usarse íntegramente con el procesador z80; por lo que podemos utilizar el Motorola 68000 para otros usos. Ha sido desarrollado para usarse con el SGDK ya que ha sido hecho por el propio _Stephane Dallongeville_ (el propio autor de SGDK).
+Aunque hemos nombrado varios Drivers, vamos a centrarnos en el Driver _XGM_; este driver es uno de los utilizados por SGDK, y que viene por defecto. Aunque podemos utilizar otros, en este caso nos centraremos en este Driver. Fue desarrollado para usarse íntegramente con el procesador z80; por lo que podemos utilizar el Motorola 68000 para otros usos. Ha sido desarrollado para usarse con el SGDK ya que ha sido hecho por el propio _Stephane Dallongeville_ (el propio autor de SGDK).
 
 Entre sus características, tiene:
 
@@ -277,7 +277,7 @@ Por otro lado, la función ```XGM_stopPlayPCM```; para la reproducción del efec
 
 * _channel_: canal que parará la reproducción del sonido. Tiene los mismos datos que en la anterior función. Consulta la documentación de SGDK, para saber todos los canales disponibles.
 
-Por otro lado, al pulsar los botones izquierda o derecha, se seleccionará el anterior o siguiente efecto de sonido; pero no lo reproducirá.
+Para finalizar, al pulsar los botones izquierda o derecha, se seleccionará el anterior o siguiente efecto de sonido; pero no lo reproducirá.
 
 ```c
  if(changed & state & BUTTON_RIGHT){
