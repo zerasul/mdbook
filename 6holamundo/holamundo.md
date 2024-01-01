@@ -14,6 +14,8 @@ El primer paso para poder comenzar a escribir nuestro código, es crear un nuevo
 
 Para crear un nuevo proyecto, vamos a utilizar la extensión _Genesis Code_ para Visual Studio code; aunque puede crearse manualmente si se requiere. Para crear un proyecto con esta extensión, usaremos la paleta de comandos usando el atajo de teclado <kbd>ctrl</kbd>+<kbd>⇧ mayus</kbd>+<kbd>p</kbd>. Y seleccionando la opción _Genesis Code: Create Project_.
 
+**NOTA**: Recuerda que puedes crear manualmente el proyecto sin necesidad de Genesis Code.
+
 Al seleccionar esta opción, se nos preguntará por donde se creará el proyecto. Una vez seleccionado, se generarán los ficheros y carpetas necesarios y se abrirá con Visual Studio Code. Podemos visualizar los siguientes ficheros y carpetas:
 
 * _.vscode_ (carpeta): Esta carpeta es especifica de Visual Studio code y contiene configuración para el proyecto. No se debería de modificar esta carpeta directamente.
