@@ -89,7 +89,7 @@ La función ```JOY_getPortType```, tiene los siguientes parámetros:
     * ```PORT_1```: indica el primer puerto de la consola.
     * ```PORT_2```: indica el segundo puerto de la consola.
 
-Esta función devuelve un valor entero ```u8``` la cual nos puede indicar el tipo de dispositivo, usando el operador &. Por ejemplo:
+Esta función devuelve un valor entero ```u8``` la cual nos puede indicar el tipo de dispositivo, usando el operador ```&```. Por ejemplo:
 
 ```c
 u8 value = JOY_getPortType(PORT_1);
@@ -144,7 +144,7 @@ Si observamos el código, podemos ver que se utilizan la función ```JOY_readJoy
     * ...
     * ```JOY_8```: Para indicar el controlador número 8.
 
-Esta función, devuelve un número entero ```u16```; el cual contiene el estado actual del controlador; puede usarse el operador & para saber que botones se están utilizando; como podemos ver en el ejemplo:
+Esta función, devuelve un número entero ```u16```; el cual contiene el estado actual del controlador; puede usarse el operador ```&``` para saber que botones se están utilizando; como podemos ver en el ejemplo:
 
 ```c
   if (value & BUTTON_UP)
