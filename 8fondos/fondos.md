@@ -48,7 +48,7 @@ En este apartado, solo hablaremos sobre los fondos y como podemos utilizarlos pa
 
 Es importante saber, que un fondo se dibuja de arriba a abajo y de izquierda a derecha. De tal forma, que es más fácil de trabajar con ellos. Además, no podemos olvidar que los fondos trabajan a nivel de Tile no a nivel de píxel.
 
-Por último, aunque la Sega Mega Drive tiene una resolución de pantalla de 320x224 (320x240 NTSC) que corresponden a 40x28 tiles en PAL, sí que se pueden almacenar más Tiles por fondo de tal forma que podemos almacenar hasta 64x32 Tiles; de tal forma que podríamos utilizar este sobrante para realizar scroll; que veremos en más detalle en un próximo capítulo.
+Por último, aunque la Sega Mega Drive tiene una resolución de pantalla de 320x240 (320x224 NTSC) que corresponden a 40x28 tiles en PAL, sí que se pueden almacenar más Tiles por fondo de tal forma que podemos almacenar hasta 64x32 Tiles; de tal forma que podríamos utilizar este sobrante para realizar scroll; que veremos en más detalle en un próximo capítulo.
 
 ### Fondo A, B y Window
 
