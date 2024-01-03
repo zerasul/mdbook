@@ -66,11 +66,11 @@ void savePlayerProgress(){
 
     SRAM_writeByte(0,player.lives);
     SRAM_writeByte(1,player.scene);
-    SRAM_writeByte(2,player.score);
+    SRAM_writeLong(2,player.score);
     u32 checksum= player.lives+
         player.scene+player.score;
     player.checksum=checksum;
-    SRAM_writeByte(6,player.checksum);
+    SRAM_writeLong(6,player.checksum);
 }
 ```
 
@@ -102,8 +102,8 @@ Tras ver las funciones que leen desde la memoria SRAM, podemos crear una funció
 void readGameProgress(){
     player.lives = SRAM_readByte(0);
     player.scene = SRAM_readByte(1);
-    player.score = SRAM_readByte(2);
-    player.checksum= SRAM_readByte(6);
+    player.score = SRAM_readLong(2);
+    player.checksum= SRAM_readLong(6);
 }
 ```
 
