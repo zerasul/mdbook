@@ -8,6 +8,8 @@ Este libro contiene lo mínimo e imprescindible para poder crear juegos a partir
 
 Puedes pedir una copia impresa en [Amazon](https://www.amazon.es/dp/B0CF4J4WFL?_encoding=UTF8&psc=1&ref_=cm_sw_r_cp_ud_dp_AY474ME3A50P5A4VMJFM).
 
+English Edition : [https://github.com/zerasul/mdbook_en](https://github.com/zerasul/mdbook_en)
+
 ## Contenido de este libro
 
 1. [Introducción.](1introduccion/introduccion.md)
