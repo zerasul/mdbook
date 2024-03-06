@@ -69,7 +69,7 @@ La lectura de este cartucho, se hace por el slot de la parte superior de la Mega
 
 El cartucho básico que estamos acostumbrados a ver en Mega Drive tiene una capacidad de 32Mb (4MB), y además puede tener una pequeña RAM (SRAM) a través de una pila de botón CR2302. Existen cartuchos con más funcionalidades, como el conocido _Sonic & Knuckles_ que tenía la ranura superior Lock On. Además de otros cartuchos con algunas funcionalidades extendidas como puede ser el _Virtua Racing [^17]_; que ampliaba la capacidad de la Mega Drive, gracias a un chip con un DSP [^18] personalizado.
 
-Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podía cambiar de banco de memoria ROM. Este "Mapper" conocido como _Sega Standard Mapper_, ha sido reutilizado en algunos juegos homebrew actuales y permiten ampliar el tamaño disponible.
+Como hemos dicho, por defecto un cartucho de Mega Drive tiene un tamaño máximo de 32Mb, sin embargo, esto era ampliable añadiendo funcionalidad extra al cartucho, como es el caso del _Street Fighter_ el cual ampliaba el cartucho añadiendo distintos chips y usando un mapper, podía cambiar de banco de memoria ROM. Este "Mapper" conocido como _Sega Standard Mapper_, ha sido reutilizado en algunos juegos Homebrew actuales y permiten ampliar el tamaño disponible.
 
 ![PCB ROM Mega Drive](3Arquitectura/img/cartuchopcb.png "PCB ROM Mega Drive")
 _Cartucho ROM PCB_

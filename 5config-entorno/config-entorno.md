@@ -1,6 +1,6 @@
 # 5. Configurar Entorno de Desarrollo
 
-Ya hemos podido ver, el marco de trabajo o librerías que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudaran a acelerar el proceso de creación de nuestro juego.
+Ya hemos podido ver el marco de trabajo o librerías que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudaran a acelerar el proceso de creación de nuestro juego.
 
 En este capítulo, vamos a ver las herramientas que se pueden utilizar a la hora de crear no sólo el código de nuestro juego; sino también, todos los recursos necesarios para el mismo; como pueden ser las imágenes, sonidos, etc.
 
@@ -8,7 +8,7 @@ Las herramientas que comentamos en este capítulo, son opcionales ya que cada de
 
 Comenzaremos hablando del entorno de desarrollo, y posteriormente nos centraremos en otras herramientas como los emuladores, o incluso herramientas que podemos utilizar para manejar los gráficos.
 
-El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no nos centraremos en detalle de como utilizar cada herramienta; si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
+El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no nos centraremos en detalle de como utilizar cada herramienta si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
 
 ## Editor de Texto
 
@@ -28,7 +28,7 @@ Este editor tiene distintas características como:
 * Integración con sistemas de control de versiones (GIT).
 * Ampliable y modularizable gracias a las distintas extensiones que se pueden instalar.
 
-Visual Studio Code, tiene partes del código fuente con licencia Mit; y otras tiene licencia privativa de Microsoft. Puedes ver parte del código fuente de Visual Studio Code en su repositorio:
+Visual Studio Code, tiene partes del código fuente con licencia MIT; y otras tiene licencia privativa de Microsoft. Puedes ver parte del código fuente de Visual Studio Code en su repositorio:
 
 [https://github.com/Microsoft/vscode](https://github.com/Microsoft/vscode)
 
@@ -39,20 +39,20 @@ Para aquellos que no estén familiarizados con este editor de texto, os dejamos 
 
 [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
-Con Visual Studio code, se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándolas manualmente).
+Con Visual Studio code se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándolas manualmente).
 
 [^37]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
 [^38]: intellisense es una marca registrada de Microsoft Corporation ltd.
 
-En este libro, vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
+En este libro vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
 
 * _Extensión oficial de C/C++_: Nos permitirá programar y activar intellisense para los lenguajes de programación C/C++.
-* _Amiga Assembly_: Aunque este libro no se centra en el uso de ensamblador, si que puede ser interesante poder ver el código de ensamblador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
+* _Amiga Assembly_: Aunque este libro no se centra en el uso de ensamblador si que puede ser interesante poder ver el código de ensamblador que haya escrito con sintaxis resaltada. En este caso, se trata de poder ver con la sintaxis ya coloreada, el ensamblador para Motorola 68000.
 * _Genesis Code_: Este libro se centra en el uso de SGDK; y aunque podemos utilizar directamente SGDK a través de tareas y/o una terminal en el propio editor, suele ser bastante complicado configurar el entorno. Por ello, Genesis Code te simplifica el uso de SGDK a través de este editor. A continuación, nos centraremos en esta extensión.
 
 #### Genesis Code
 
-Genesis Code es una extensión para Visual Studio Code, que nos permitirá utilizar SGDK y sus herramientas, de forma sencilla. Genesis Code es código abierto y tiene una licencia MIT. Puedes encontrar su código fuente en la siguiente dirección:
+Genesis Code es una extensión para Visual Studio Code, que nos permitirá utilizar SGDK y sus herramientas de forma sencilla. Genesis Code es código abierto y tiene una licencia MIT. Puedes encontrar su código fuente en la siguiente dirección:
 
 [https://github.com/zerasul/genesis-code](https://github.com/zerasul/genesis-code)
 
@@ -111,6 +111,7 @@ Las opciones disponibles son:
 * GDK: sobrescribe la variable de entorno GDK apuntando a la instalación de SGDK (solo Windows).
 * GENDEV: sobrescribe la variable de entorno GENDEV apuntando a la instalación de Gendev (solo Linux).
 * Gens path: Indica la ruta del ejecutable donde se encuentre el emulador que se va a utilizar.
+* Add Status bar Buttons: Si se activa, añade botones con los comandos más utilizados a la barra de estado.
 * MARSDEV: sobrescribe la variable de entorno MARSDEV apuntando a la instalación de MarsDev.
 * Toolchain Type: Indica el tipo de herramienta que utilizará para usar SGDK; puede tener los siguientes valores:
     * sgdk/gendev: Utiliza SGDK o Gendev (windows o Linux).
@@ -121,17 +122,17 @@ Las opciones disponibles son:
 
 A la hora de desarrollar nuestro juego, es importante poder probar el progreso de este y aunque podemos usar un hardware real usando un cartucho FlashCart como _Everdrive_[^39], no es nada práctico, tener que estar transfiriendo la ROM cada vez a la tarjeta SD. Por ello, se utilizan emuladores para poder ejecutar la rom creada y ver los resultados.
 
-Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
+Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del Z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
 
-Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector, puede usar con el que mejor se maneje cuando este trabajando en su proyecto homebrew.
+Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector, puede usar con el que mejor se maneje cuando este trabajando en su proyecto Homebrew.
 
-Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware; es más, a ser posibles en distintos modelos de Mega Drive.
+Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware es más, a ser posibles en distintos modelos de Mega Drive.
 
 [^39]: Everdrive: es un Cartucho FlashCart con capacidad de poder cargar roms usando una tarjeta SD o MicroSD.
 
 ### Gens KMod
 
-Gens, es un emulador de código abierto y gratuito con licencia GPL-2.0, que permite emular Sega Mega drive, Mega CD, 32X e incluso Master System. Este emulador ha tenido muchas versiones comenzando en una versión para el sistema operativo Windows, pero se han hecho muchos ports para distintos otros Sistemas Operativos.
+Gens, es un emulador de código abierto y gratuito con licencia GPL-2.0, que permite emular Sega Mega Drive, Mega CD, 32X e incluso Master System. Este emulador ha tenido muchas versiones comenzando en una versión para el sistema operativo Windows, pero se han hecho muchos ports para distintos otros Sistemas Operativos.
 
 Tiene distintas funcionalidades como puede ser el guardado de estados, soporte para conexión por internet, mejora de audio,etc. Existen distintas versiones como el llamado _gens Plus_ que añade más mejoras como distintos efectos o Shaders.
 
@@ -209,7 +210,7 @@ Puede descargarse GIMP desde su página web Oficial:
 
 ### Aseprite
 
-A la hora de crear nuestro gráficos, con programas como GIMP, no son muy usable; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
+A la hora de crear nuestro gráficos con programas como GIMP, no son muy usable; por eso se utilizan otros programas para poder crear los Sprites o los patrones necesarios para nuestro juego.
 
 Para ello, se utilizan programas como Aseprite el cual es un programa que nos va a permitir crear nuestros sprites y sus animaciones, de forma sencilla.
 
@@ -235,7 +236,7 @@ _Aseprite_
 
 ### TILED
 
-Por último, a la hora de crear nuestros juegos, muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomendar la utilización de la herramienta Tiled.
+Por último, a la hora de crear nuestros juegos muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomendar la utilización de la herramienta Tiled.
 
 Esta herramienta de código Abierto, nos va a permitir crear nuestros propios mapas, a partir de distintos elementos gráficos y posteriormente, podremos exportarlo a nuestros juegos.
 

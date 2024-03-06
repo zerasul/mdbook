@@ -48,7 +48,7 @@ SGDK, comenzó por el año 2005; y es creado por su principal Autor _Stephane Da
 
 Repositorio SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
 
-Durante todos estos años, ha tenido una gran aceptación por la comunidad debido a que facilita mucho el desarrollo de homebrew a los entusiastas de los 16 bits. Además de que hoy en día gracias a este kit, se siguen desarrollando nuevos títulos para esta consola.
+Durante todos estos años, ha tenido una gran aceptación por la comunidad debido a que facilita mucho el desarrollo de Homebrew a los entusiastas de los 16 bits. Además de que hoy en día gracias a este kit, se siguen desarrollando nuevos títulos para esta consola.
 
 La librería que nos provee SGDK, está escrita en C aunque tiene otras herramientas que están escritas en otros lenguajes como Java.
 
