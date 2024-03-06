@@ -34,9 +34,9 @@ En el anterior fragmento corresponde a un programa que simplemente implementa un
 
 Sin embargo, esto es muy engorroso aunque puede ser muy óptimo el utilizar ensamblador; y el objetivo de este libro es utilizar herramientas más modernas. Por ello, usaremos el lenguaje de programación C.
 
-Además, existe un conjunto de herramientas para poder usar este lenguaje C para Sega Mega Drive. Este conjunto de herramientas, se llama Sega Genesis Development Kit o SGDK.
+Además, existe un conjunto de herramientas para poder usar este lenguaje C para Sega Mega Drive. Este conjunto de herramientas se llama Sega Genesis Development Kit o SGDK.
 
-Sega Genesis Development Kit, es un conjunto de herramientas como un compilador, una librería, herramientas de gestión de recursos, etc. Que nos va a permitir crear software (videojuegos) para Sega Mega Drive. SGDK, es gratuito y su código es libre; está liberado bajo la licencia MIT; excepto el compilador GCC [^26] que incorpora que tiene licencia GPL3.
+Sega Genesis Development Kit, es un conjunto de herramientas como un compilador, una librería, herramientas de gestión de recursos, etc. Estas herramientas, nos van a permitir crear software (videojuegos) para Sega Mega Drive. SGDK, es gratuito y su código es libre; está liberado bajo la licencia MIT; excepto el compilador GCC [^26] que incorpora que tiene licencia GPL3.
 
 [^26]: GCC (Gnu Compiler Collection) es un conjunto de compiladores de código abierto que se incorpora en muchas de las distribuciones GNU/Linux.
 
@@ -52,7 +52,9 @@ Durante todos estos años, ha tenido una gran aceptación por la comunidad debid
 
 La librería que nos provee SGDK, está escrita en C aunque tiene otras herramientas que están escritas en otros lenguajes como Java.
 
-Actualmente (2023), se ha publicado la versión 1.90 que incluye diferentes mejoras además de mejorar el soporte como mega Wifi[^27], además de otras mejoras como el poder importar ficheros _TMX_ para incluir TileSets y TileMaps generados a partir de la herramienta _Tiled_; veremos esta herramienta en un capítulo más adelante.
+Actualmente (2024), se ha lanzado la versión 2.00 que incluye el nuevo driver de sonido XGM2; también tiene algunas mejoras en la inicialización de los tipos de dato al usar coma flotante; además, de algunas mejoras en el Sprite Engine.
+
+También es importante mencionar que SGDK, trae soporte para utilizar el llamado Mega Wifi[^27].
 
 [^27]: Mega Wifi, es un cartucho especial que permite conectar a internet a través de Wifi; además de traer una serie de librerías para gestionar la conectividad con la red.
 
@@ -64,12 +66,12 @@ Una vez hemos conocido la historia del SGDK y de que se trata, vamos a mostrar l
 
 ## Componentes del SGDK
 
-SGDK, se compone de una serie de herramientas que nos van a ayudar a crear nuestros juegos para Sega Mega Drive. En este caso, tanto para realizar la compilación y creación de la ROM, así como la gestión de los recursos del juego.
+SGDK se compone de una serie de herramientas que nos van a ayudar a crear nuestros juegos para Sega Mega Drive. En este caso, tanto para realizar la compilación y creación de la ROM, así como la gestión de los recursos del juego.
 
 Los Componentes son:
 
 * Un compilador GCC que nos va a permitir compilar nuestro código a instrucciones para el procesador 68K. La versión actual del GCC que incluye SGDK es 6.30 (Se puede configurar, para usar un compilador más reciente). Además, incluye un depurador _GDB_ que nos va a permitir depurar nuestros juegos (lo veremos más adelante en el capítulo de depuración) Recordamos que tiene una licencia GPL3.
-* Una librería _libmd_ con todas las funciones y herramientas que nos permite desarrollar con el lenguaje C para Sega Mega Drive.
+* Una librería _libMD_ con todas las funciones y herramientas que nos permite desarrollar con el lenguaje C para Sega Mega Drive.
 * Documentación de la librería: Puede encontrar en la carpeta _doc_, toda la información de las funciones de la librería.
 * Un gestor de recursos _rescomp_; que nos va a permitir importar los recursos de nuestro juego (gráficos, sonidos, sprite, etc.).
 
@@ -83,19 +85,19 @@ GCC se incluye con la versión 6.3.0 dentro de SGDK, y usando herramientas como 
 
 [^28]: make, es una herramienta para la gestión de dependencias y para construcción de software.
 
-### LibMd
+### LibMD
 
-LibMd, es una librería que incorpora SGDK, con una serie de funciones y datos que nos van a permitir crear videojuegos para Sega Mega Drive; incorpora todo lo necesario para manejar el hardware ya sea tanto a manejar los controles, vídeo, sonido, etc.
+LibMD es una librería que incorpora SGDK, con una serie de funciones y datos que nos van a permitir crear videojuegos para Sega Mega Drive; incorpora todo lo necesario para manejar el hardware ya sea tanto a manejar los controles, vídeo, sonido, etc.
 
 Está escrita en C y puedes consultar la documentación dentro del propio SGDK, en la carpeta _doc_.
 
 ### Rescomp
 
-Rescomp, es una herramienta que nos va a permitir importar todos los recursos de nuestro juego; ya sean gráficos, sprites, sonido,etc.
+Rescomp es una herramienta que nos va a permitir importar todos los recursos de nuestro juego; ya sean gráficos, sprites, sonido,etc.
 
-Esta herramienta está escrita en Java, sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como C.
+Esta herramienta está escrita en Java sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como C.
 
-Rescomp, se basa el leer una serie de ficheros con extensión .res, que tienen definidos una serie de parámetros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
+Rescomp se basa el leer una serie de ficheros con extensión .res, que tienen definidos una serie de parámetros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
 
 Os dejamos un ejemplo de recurso usado por rescomp:
 
@@ -107,7 +109,7 @@ En el anterior ejemplo, se muestra como importar una hoja de sprites que veremos
 
 ## Juegos Realizados con SGDK
 
-Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que puedes encontrar en algunos crowdfunding. En este apartado, vamos a comentar algunos de los más conocidos, y dejaremos algunas direcciones para que podáis aprender más sobre ellos:
+Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que puedes encontrar en algunos crowdfunding. En este apartado, vamos a comentar algunos de los más conocidos y dejaremos algunas direcciones para que podáis aprender más sobre ellos:
 
 ### Xeno crisis
 
@@ -126,7 +128,7 @@ Demons of Asteborg [^30] es un juego para Sega Mega Drive, que tiene una estéti
 
 En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, en Steam e incluso Nintendo Switch.
 
-Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponible para su compra y han sacado un nuevo KickStarter para portar un juego llamado _Demons of Clawn_.
+Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponible para su compra y han sacado un nuevo KickStarter para portar un juego llamado _Daemon Clawn_.
 
 Puede encontrarse más información en su página web:
 
@@ -138,7 +140,7 @@ Puede encontrarse más información en su página web:
 
 Metal Dragon [^31] es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sin fin de enemigos.
 
-Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_ o _Life on Earth_.
+Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español _Kai Magazine Software_ el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_ o _Life on Earth_. Ahora está trabajando en un nuevo título llamado _El secreto de los 4 Vientos_.
 
 [^31]: Metal Dragon ha sido desarrollado por el estudio español Kai Magazine Software. Todos los derechos reservados.
 
@@ -147,6 +149,8 @@ Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. A
 1985 World cup  [^32] es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de futbol como el  _World Cup Italia 90_. Donde se enfrentarán frente a frente jugadores de todo el mundo.
 
 Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene una característica única; tiene integrado el llamado Mega Wi-fi; por que se permite conectar a internet via Wi-fi; y poder jugar en línea; sin necesidad de Modem; solo el propio cartucho.
+
+The same studio is currently working on a port of _Coloco_ for Sega Mega Drive.
 
 [^32]: 1985 World cup ha sido publicado por Nape Games. Todos los derechos reservados.
 
@@ -174,7 +178,7 @@ Una vez descargado y descomprimido SGDK, podemos crear la siguiente variable de 
 GDK = <directorio donde se encuentra SGDK>
 ```
 
-**NOTA:** Al descargar SGDK, ya trae una versión compilada de _libmd_; sin embargo, si se requiere compilar la librería con el código fuente descargado, podemos hacerlo con la siguiente instrucción:
+**NOTA:** Al descargar SGDK, ya trae una versión compilada de _libMD_; sin embargo, si se requiere compilar la librería con el código fuente descargado, podemos hacerlo con la siguiente instrucción:
 
 ```cmd
 %GDK%\bin\make -f %GDK%\makelib.gen
@@ -284,9 +288,11 @@ docker run --rm -v $PWD:/src/sgdk
 
 Con la instrucción anterior, se compilará y generará la ROM de Mega Drive.
 
+Además, puedes encontrar imágenes precompiladas gracias a _Doragasu_ que incluye una imagen Docker de SGDK en su repositorio Gitlab; puedes encontrar la dirección del repositorio en Referencias.
+
 ## Referencias
 
-* SGKD: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
+* SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
 * SpritesMind Foro: [http://gendev.spritesmind.net/forum/](http://gendev.spritesmind.net/forum/)
 * GCC: [https://gcc.gnu.org/](https://gcc.gnu.org/).
 * Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/).
@@ -298,3 +304,4 @@ Con la instrucción anterior, se compilará y generará la ROM de Mega Drive.
 * MarsDev: [https://github.com/andwn/marsdev](https://github.com/andwn/marsdev).
 * Docker: [https://www.docker.com/](https://www.docker.com/).
 * Aprender Docker. Un enfoque Práctico (Amazon): [https://amzn.to/35M9sCR](https://amzn.to/35M9sCR).
+* Doragasu SGDK Imágenes Docker: [https://gitlab.com/doragasu/docker-sgdk](https://gitlab.com/doragasu/docker-sgdk)
