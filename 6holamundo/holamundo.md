@@ -6,7 +6,7 @@ En este tema, comenzaremos a hablar sobre como se puede crear un nuevo proyecto;
 
 Tras comentar como crear un proyecto, nos pondremos con las manos en la masa; de tal forma que crearemos nuestro primer juego; mostrando por pantalla el famoso hola mundo. mostrando el código fuente y lo explicaremos.
 
-Por último, veremos como construir la rom propiamente dicha y ejecutarlo en un emulador, o por el contrario podemos pasarlo a un flashcart, y verlo en una consola real.
+Por último, veremos como construir la rom propiamente dicha y ejecutarlo en un emulador, o por el contrario podemos pasarlo a un Flashcart, y verlo en una consola real.
 
 ## Crear un nuevo proyecto
 
@@ -53,7 +53,7 @@ int main()
 }
 ```
 
-Este fragmento de código en C, podemos ver el hola mundo para Sega Mega Drive. En este caso, podemos ver el código más simple para mostrar por pantalla un mensaje para Mega Drive. Vamos a mostrar las funciones más importantes.
+Este fragmento de código en C podemos ver el hola mundo para Sega Mega Drive. En este caso, podemos ver el código más simple para mostrar por pantalla un mensaje para Mega Drive. Vamos a mostrar las funciones más importantes.
 
 En primer lugar, podemos ver el include de la cabecera _genesis.h_; este fichero de cabecera nos provee de acceso a todas las funciones y datos que nos da la librería LibMD que incluye SGDK.
 
@@ -63,11 +63,11 @@ En primer lugar, podemos ver el include de la cabecera _genesis.h_; este fichero
 
 Si nos centramos en la función ```main``` vemos que se realiza una llamada a la función ```VDP_drawText(const char * text,u16 x, u16 y)```; esta función, llama al chip gráfico VDP y nos va a permitir escribir un texto por pantalla, usando una fuente por defecto (o pre-cargando una fuente personalizada). Vemos que tiene 3 parámetros:
 
-* str: cadena de caracteres con la información a mostrar.
-* x: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado en Tiles.
-* y: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado en Tiles.
+* _str_: cadena de caracteres con la información a mostrar.
+* _x_: posición X donde se mostrará el texto. la coordenada X indica la columna donde se mostrará el texto. Esta expresado en Tiles.
+* _y_: posición Y donde se mostrará el texto. la coordenada Y indica la fila donde se mostrará el texto. Esta expresado en Tiles.
 
-Tanto la posición X e Y, están expresados en Tiles. Un tile es un recuadro de 8x8 pixeles que se pinta por pantalla; el VDP trabaja en esta unidad y por lo tanto debemos de tener en cuenta esta dimensión. En el ejemplo vemos que pintaremos en la posición 10,13 es decir, (80px,104px).
+Tanto la posición X e Y, están expresados en Tiles. Un tile es un recuadro de 8x8 pixeles que se pinta por pantalla; el VDP trabaja en esta unidad y por lo tanto debemos de tener en cuenta esta dimensión. En el ejemplo vemos que pintaremos en la posición (10,13) es decir, (80px,104px).
 
 Una vez hemos visto como escribir texto por pantalla, podemos observar que aparece un bucle infinito; esto es importante a la hora de diseñar videojuegos; ya que si no estuviese dicho bucle, la ejecución terminaría, y no se podría interactuar con el juego.
 
@@ -79,7 +79,7 @@ Dentro del bucle, vemos una llamada a la función ```SYS_doVBlankProcess``` esta
 
 Tras finalizar de escribir nuestro código, podemos dar el siguiente paso; generar la ROM [^42], y ejecutarla en un emulador.
 
-En este paso, se generarán todos los ficheros necesarios, y al final tendremos un fichero llamado _rom.bin_ con nuestra ROM preparada para ser ejecutada en un emulador, o en un hardware Real.
+En este paso, se generarán todos los ficheros necesarios y al final tendremos un fichero llamado _rom.bin_ con nuestra ROM preparada para ser ejecutada en un emulador, o en un hardware Real.
 
 Para compilar nuestro juego, es necesario tener configurado correctamente SGDK; ya sea usando las variables de entorno, o con la configuración de _Genesis Code_. Además de tener configurada correctamente la ruta donde se encuentra nuestro emulador.
 
@@ -101,7 +101,7 @@ Si por un casual necesitara compilar manualmente, puede hacerlo usando los coman
 make -f $GENDEV/sgdk/mkfiles/makefile.gen
 ```
 
-### Docker
+#### Docker
 
 ```bash
 docker run --rm -v $PWD:/src sgdk
@@ -243,5 +243,5 @@ En las referencias, dejamos más información acerca de la cabecera de la ROM.
 * Ohsat Games: [https://www.ohsat.com/](https://www.ohsat.com/)
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK)
 * Docker: [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
-* Danibus (aventuras en mega Drive): [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
+* Danibus (aventuras en Mega Drive): [https://danibus.wordpress.com/](https://danibus.wordpress.com/)
 * Plutiedev: [https://plutiedev.com/rom-header#devices](https://plutiedev.com/rom-header#devices)
