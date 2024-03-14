@@ -17,7 +17,7 @@ Obviamente es importante recordar que la Sega Mega Drive, tenía 2 puertos de en
 Para comprender mejor el conector DE-9 y como se compone para un controlador de 3 botones:
 
 ![DE-9](7controles/img/de-9.png "DE-9")
-_Pintout Conector DE-9_
+_Pinout Conector DE-9_
 
 Donde:
 
@@ -39,13 +39,13 @@ En este apartado, vamos a ver algunos de ellos para comentar sus característica
 
 ### Controlador de 3 Botones
 
-El controlador más conocido de Sega Mega Drive, disponía de una cruceta de direcciones, y además de 3 botones llamados A, B y C, y  de un último botón START.
+El controlador más conocido de Sega Mega Drive, disponía de una cruceta de direcciones, y además de 3 botones llamados A, B y C además de un último botón START.
 
 Algunos otros controladores de terceros, añadían algunas funcionalidades extra como el autodisparo u otras opciones.
 
-Existieron distintos diseños dependiendo de la versión de Mega Drive (Japón/Europa o América); además de muchos otros mandos de terceros que tenían muchos otros diseños.
+Existieron distintos diseños dependiendo de la versión de Mega Drive (Japón/Europa o América); muchos otros mandos de terceros que tenían otros diseños diferentes.
 
-![Controlador 3 Botones](7controles/img/controller3Button.jpg "Controlador 3 botones") 
+![Controlador 3 Botones](7controles/img/controller3Button.jpg "Controlador 3 botones")
 _Controlador 3 botones_
 
 ### Controlador de 6 botones
@@ -63,19 +63,18 @@ _Controlador 6 botones de la marca retro-bit._
 
 ### Sega Mouse
 
-Otro de los periféricos que podemos encontrar para Sega Mega Drive, es el famoso _Sega Mouse_; se trataba de un ratón con 2 botones con distintas versiones. Permitía jugar a algunos juegos que eran compatibles. Como el famoso _lemmings 2_ [^48], o el famoso _Cannon Fodder_ [^49].
+Otro de los periféricos que podemos encontrar para Sega Mega Drive es el famoso _Sega Mouse_; se trataba de un ratón con 2 botones con distintas versiones. Permitía jugar a algunos juegos que eran compatibles. Como el famoso _lemmings 2_ [^48], o _Cannon Fodder_ [^49].
 
 El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega America por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
 
-
-[^48]: Lemmings; era un juego de estrategia, donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
+[^48]: Lemmings; era un juego de estrategia donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
 [^49]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
 
 ## Programación de los controles
 
-Tras ver en detalle algunos de los dispositivos de entrada con los que podemos trabajar, vamos a mostrar como programar nuestro juego para poder utilizarlos. SGDK, provee de distintos métodos para poder interactuar con los controles; ya sea mando o incluso el ratón. Por ello, vamos a mostrar tres ejemplos de distintos métodos con los que se pueden encontrar para desarrollar nuestro juego.
+Tras ver en detalle algunos de los dispositivos de entrada con los que podemos trabajar, vamos a mostrar como programar nuestro juego para poder utilizarlos. SGDK provee de distintos métodos para poder interactuar con los controles; ya sea mando o incluso el ratón. Por ello, vamos a mostrar tres ejemplos de distintos métodos con los que se pueden encontrar para desarrollar nuestro juego.
 
-En primer lugar, veremos como saber de que tipo de controlador se esta utilizando (3 o 6 botones o mouse). Además, Vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma síncrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuales de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
+En primer lugar, veremos como saber de que tipo de controlador se esta utilizando (3, 6 botones o mouse). Además, Vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma síncrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuales de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
 
 Por último, mostraremos un ejemplo de como utilizar el ratón para Sega Mega Drive (puede usarse un emulador para utilizar el ratón de nuestro ordenador).
 
@@ -89,7 +88,7 @@ La función ```JOY_getPortType```, tiene los siguientes parámetros:
     * ```PORT_1```: indica el primer puerto de la consola.
     * ```PORT_2```: indica el segundo puerto de la consola.
 
-Esta función devuelve un valor entero ```u8``` la cual nos puede indicar el tipo de dispositivo, usando el operador ```&```. Por ejemplo:
+Esta función devuelve un valor entero ```u8``` la cual nos puede indicar el tipo de dispositivo usando el operador ```&```. Por ejemplo:
 
 ```c
 u8 value = JOY_getPortType(PORT_1);
@@ -108,7 +107,7 @@ Los valores que podemos encontrar son:
 * ```PORT_TYPE_UNKNOWN```: unidentified or no peripheral.
 * ```PORT_TYPE_EA4WAYPLAY```: EA 4-Way Play.
 
-Además, se puede detectar el tipo de controlador para cada mando detectado; si se utiliza un multitap, (como Sega Player o EA4WayPlay), se necesita saber que tipo de dispositivo hay conectado; por ello se utiliza la función ```JOY_getJoypadType```; que recibe por parámetro:
+Además, se puede detectar el tipo de controlador para cada mando detectado; si se utiliza un multitap (como Sega Player o EA4WayPlay), se necesita saber que tipo de dispositivo hay conectado; por ello se utiliza la función ```JOY_getJoypadType```; que recibe por parámetro:
 
 * ```u16 joy```: indicando el número de controlador a revisar; puede tener los siguientes valores:
     * ```JOY_1```: Para indicar el primer controlador.
@@ -118,25 +117,25 @@ Además, se puede detectar el tipo de controlador para cada mando detectado; si 
 
 Esta función devuelve un valor entero que nos va a permitir comparar con distintos valores para saber de que tipo de controlador se trata; puede tener los siguientes valores:
 
-* ```JOY_TYPE_PAD3```: 3 buttons joypad.
-* ```JOY_TYPE_PAD6```: 6 buttons joypad.
+* ```JOY_TYPE_PAD3```: 3 buttons GamePad.
+* ```JOY_TYPE_PAD6```: 6 buttons GamePad.
 * ```JOY_TYPE_MOUSE```: Sega Mouse.
 * ```JOY_TYPE_TRACKBALL```: Sega trackball.
 * ```JOY_TYPE_MENACER```: Sega Menacer gun.
 * ```JOY_TYPE_JUSTIFIER```: Sega Justifier gun.
 * ```JOY_TYPE_UNKNOWN```: Desconocido o no conectado.
 
-**NOTA**: Las funciones anteriormente mencionadas, solo actualizarán la información, si se llama a la función ```JOY_Init()``` o ```JOY_Reset()``` para inicializar el sistema de controles de SGDK; no es necesario llamarlas manualmente ya que estas funciones se llaman automáticamente al cargar el SGDK.
+**NOTA**: Las funciones anteriormente mencionadas, solo actualizarán la información si se llama a la función ```JOY_Init()``` o ```JOY_Reset()``` para inicializar el sistema de controles de SGDK; no es necesario llamarlas manualmente ya que estas funciones se llaman automáticamente al cargar el SGDK.
 
 ### Síncronos
 
-La primera manera de poder usar los controles, es de forma síncrona; esto quiere decir, que en cada frame de nuestro juego, se va a leer el estado de los botones pulsados para cada uno de los controladores que tengamos conectados.
+La primera manera de poder usar los controles es de forma síncrona; esto quiere decir que en cada frame de nuestro juego, se va a leer el estado de los botones pulsados para cada uno de los controladores que tengamos conectados.
 
-Para comprender mejor como leer el estado de los controles de esta manera, puede ver el ejemplo llamado _ej2.controls1_ que encontrará en el repositorio de ejemplos que acompañan a este libro. Este ejemplo, nos mostrará por pantalla los botones que tengamos pulsados; en este caso se basa en un controlador de 3 botones por que solo se podrán visualizar las direcciones, y los botones A,B,C y Start.
+Para comprender mejor como leer el estado de los controles de esta manera, puede ver el ejemplo llamado _ej2.controls1_ que encontrará en el repositorio de ejemplos que acompañan a este libro. Este ejemplo, nos mostrará por pantalla los botones que tengamos pulsados. En este caso se basa en un controlador de 3 botones; por que solo se podrán visualizar las direcciones y los botones A,B,C y Start.
 
 En este ejemplo, podrá ver que se ha creado un fichero llamado ```constants.h``` y que incluye una serie de constantes como las posiciones X e Y de los distintos mensajes a mostrar, en tiles. Este fichero se encuentra en el directorio _inc_; del proyecto.
 
-Si observamos el código, podemos ver que se utilizan la función ```JOY_readJoypad```, la cual permite leer el estado actual de un controlador; esta función recibe los siguientes parámetros:
+Si observamos el código, podemos ver que se utilizan la función ```JOY_readJoypad``` la cual permite leer el estado actual de un controlador; esta función recibe los siguientes parámetros:
 
 * ```u16 joy```: Indica el número de controlador; puede tener los siguientes valores:
     * ```JOY_1```: Para indicar el primer controlador.
@@ -192,9 +191,9 @@ _Ejemplo 2: Controles Síncronos_
 
 Hasta ahora hemos podido ver como poder leer los distintos controles usando la forma síncrona; es decir, que en cada frame se lee las teclas pulsadas en los distintos controles y se comprueban todos los controles se estén pulsando o no.
 
-Esto puede hacer a la larga que sea más engorroso y que puede hacer que se ralentice nuestro juego; por ello, gracias a que el procesador Motorola 68000 tiene interrupciones, podemos usar una función que maneje los eventos cuando pulsemos una tecla.
+Esto puede hacer a la larga que sea más engorroso y que puede hacer que se ralentice nuestro juego; por ello gracias a que el procesador Motorola 68000 tiene interrupciones, podemos usar una función que maneje los eventos cuando pulsemos una tecla.
 
-Una interrupción, es una señal recibida por el procesador, el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; además de realizar una serie de acciones y una vez terminada, el procesador continua con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
+Una interrupción, es una señal recibida por el procesador; el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; además de realizar una serie de acciones y una vez terminada, el procesador continua con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
 
 SGDK, nos permite crear una función para manejar los eventos de los controles de forma asíncrona; de tal forma que solo actuará si se ha pulsado una tecla:
 
@@ -202,7 +201,7 @@ SGDK, nos permite crear una función para manejar los eventos de los controles d
 
 Recibe los siguientes parámetros:
 
-* ```function*(u16 joy, u16 changed, u16 state)```: puntero a función que debe de recibir los siguientes 3 parámetros:
+* ```function*(u16 joy, u16 changed, u16 state)```: puntero a una función que debe de recibir los siguientes 3 parámetros:
     * ```u16 joy```: Controlador pulsado puede tener el valor:
         * ```JOY_1```: Controlador 1.
         * ```JOY_2```: Controlador 2.
@@ -250,7 +249,7 @@ _Ejemplo 3: Controles Asíncronos_
 
 Hasta ahora, hemos estado trabajando con los controladores; ya sean de 3 o de 6 botones; sin embargo, puede ser interesante, ofrecer soporte para usar ratón en nuestros juegos. En esta sección, vamos a ver cómo poder leer el ratón _Sega Mouse_, usando SGDK.
 
-En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador, que permita usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
+En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador que permita usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
 
 Hemos creado un nuevo ejemplo; en el repositorio de ejemplos para este libro; recuerda que puedes encontrarlo en:
 
@@ -261,6 +260,7 @@ El ejemplo que vamos a tratar aquí, es _ej4.mouse_ El cual nos va a mostrar por
 En primer lugar, se va a habilitar el soporte para usar el ratón; usando la función ```JOY_setSupport``` la cual nos va a permitir habilitar el soporte para distintos dispositivos; veamos como funciona esta función:
 
 ```JOY_setSupport```: habilita soporte para un dispositivo; recibe los siguientes parámetros:
+
 * ```port```: Puerto donde estará conectado; tiene los siguientes valores:
     * ```PORT_1```: Puerto 1 de la consola.
     * ```PORT_2```: Puerto 2 de la consola.
