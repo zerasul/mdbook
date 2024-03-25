@@ -1,10 +1,10 @@
 # 9. Sprites
 
-Ya tenemos nuestro primer ejemplo más colorido con algunos fondos. Pero hace falta algo más, para dar vida a nuestro primer juego; ya que entre otras cosas, no tenemos ni un jugador. En este caso, vamos a hablar de los Sprites.
+Ya hemos podido ver nuestro primer ejemplo más colorido con algunos fondos. Pero hace falta algo más para dar vida a nuestro primer juego; ya que entre otras cosas, no tenemos ni un jugador. En este capítulo, vamos a hablar de los Sprites.
 
-Un Sprite, es un mapa de bits (normalmente) que representa un objeto en el juego y sin necesidad de cálculos adicionales por parte de la CPU; ya sea el jugador, enemigos, objetos que podemos interactuar, etc. Los Sprites pueden ser estáticos, o tener animaciones que nos pueden ayudar a dar vida a nuestro juego.
+Un Sprite, es un mapa de bits (normalmente) que representa un objeto en el juego y sin necesidad de cálculos adicionales por parte de la CPU; ya sea el jugador, enemigos u otros objetos que podemos interactuar, etc. Los Sprites pueden ser estáticos, o tener animaciones que nos pueden ayudar a dar vida a nuestro juego.
 
-Por ello, en este capítulo, vamos a hablar sobre los Sprites; comenzando a hablar sobre que son, y como podemos utilizarlos en nuestros juegos en Sega Mega Drive. Hablaremos de como se constituyen los Sprites en Mega Drive, seguido de como importar los recursos de Sprites, usando _rescomp_, y de como se utilizan por SGDK y el motor de Sprites que integra.
+Por ello, en este capítulo vamos a hablar sobre los Sprites; comenzando a hablar sobre que son, y como podemos utilizarlos en nuestros juegos en Sega Mega Drive. Hablaremos de como se constituyen los Sprites en Mega Drive, seguido de como importar los recursos de Sprites, usando _rescomp_ y de como se utilizan por SGDK y el motor de Sprites que integra.
 
 Por último, vamos a mostrar un ejemplo de utilización de Sprites con SGDK.
 
@@ -15,7 +15,7 @@ Vamos a comentar que es un Sprite realmente; se trata de una imagen que represen
 Normalmente, un Sprite está compuesto por una serie de imágenes que representan distintos frames de una animación; además de poder representar varias animaciones dentro de una imagen. Esto se conoce como Hoja de Sprite o _spritesheet_.
 
 <div class="centered_image">
-<img src="9Sprites/img/nadia.png" title="Hoja de Sprites" alt="Hoja de Sprites" />
+<img src="9Sprites/img/jael.png" title="Hoja de Sprites" alt="Hoja de Sprites" />
 <em>Hoja de Sprites</em>
 </div>
 
@@ -36,7 +36,7 @@ También es importante saber que los Sprites se almacenaran en la VRAM por lo qu
 
 ## Importar Recursos de Sprites
 
-Tras conocer como La Sega Mega Drive trabaja con Sprites y sobre todo ver las limitaciones que nos provee el hardware, vamos a ver como podemos importar los recursos de Sprites para nuestros juegos. Para ello usaremos la herramienta que integra SGDK, usaremos _rescomp_.
+Tras conocer como La Sega Mega Drive trabaja con Sprites y sobre todo ver las limitaciones que nos provee el hardware, vamos a ver como podemos importar los recursos de Sprites para nuestros juegos. Para ello usaremos la herramienta que integra SGDK: _rescomp_.
 
 Como vimos en el anterior capítulo, con _rescomp_ podemos importar recursos de distintos tipos para poder utilizarlos en SGDK. En este apartado, vamos a ver como importar un Sprite y dividir los distintos frames que compone. Recordamos que se deben definir cada recurso en un fichero con extensión _.res_.
 
@@ -59,7 +59,7 @@ Donde:
     * 1/APLIB: algoritmo aplib (buena compresión, pero más lento).
     * 2/FAST/LZ4W: Algoritmo LZ4 (menor compresión, pero más rápido).
 * _time_: Tiempo entre frames normalmente 1/60; a más tiempo, más rápida será la animación. Si se establece a 0, no se animará el Sprite.
-* _collision_: indica la información de como será la caja para las colisiones. Esta opción, aunque esta puesta en rescomp aún no es utilizada por SGDK. Será una futura mejora. Puede tener los valores CIRCLE, Box o NONE (por defecto es NONE).
+* _collision_: indica la información de como será la caja para las colisiones. Esta opción, aunque esta puesta en rescomp aún no es utilizada por SGDK. Será una futura mejora. Puede tener los valores CIRCLE, BOX o NONE (por defecto es NONE).
 * _opt_: Indica la optimización a realizar a la hora de almacenar y cortar la imagen; puede tener los siguientes valores:
     * 0/BALANCED: Manera por defecto, trata de optimizar de manera equilibrada. Valor por defecto.
     * 1/SPRITE: reduce el número de sprites por hardware a expensas de usar más Tiles, usando un Sprite mayor.
@@ -77,15 +77,15 @@ Además de las anteriores propiedades, hay que tener en cuenta las siguientes ca
 * _Rescomp_ detecta solo las filas donde hay animaciones; ignora las filas vacías.
 * Por defecto, la colisión (collider) se calcula con el 75% de cada frame.
 
-Cuando _rescomp_, va a procesar un recurso tipo _SPRITE_, el mismo realiza los cortes de las distintas animaciones y optimiza tanto a nivel de frame, como a nivel de hardware, para poder almacenar de la manera más óptima en la VRAM.
+Cuando _rescomp_ va a procesar un recurso tipo _SPRITE_ el mismo realiza los cortes de las distintas animaciones y optimiza tanto a nivel de frame, como a nivel de hardware, para poder almacenar de la manera más óptima en la VRAM.
 
-Al procesar el recurso Sprite, generará (si no se ha especificado la opción _-noheader_), un fichero .h con la referencia a los recursos.
+Al procesar el recurso Sprite, generará (si no se ha especificado la opción _-noheader_) un fichero .h con la referencia a los recursos.
 
 ## Motor de Sprites de SGDK
 
 A la hora de trabajar con Sprites animados, es siempre bastante engorroso realizar los distintos cambios de Frame para hacer las animaciones más fluidas; de tal forma que pueda dar una mejor sensación de movimiento a la hora de trabajar con los distintos frames de un Sprite.
 
-Gracias a SGDK, podemos utilizar un pequeño motor de Sprites que integra; de esta forma no necesitaremos estar calculando _"cuando"_ es necesario cambiar de frame nuestro Sprite. Como hemos podido ver en el anterior apartado, podemos definir el tiempo entre animaciones; este parámetro será usado por el motor de Sprites para ejecutar el cambio entre los distintos frames.
+Gracias a SGDK, podemos utilizar un pequeño motor de Sprites que integra; de esta forma no necesitaremos estar calculando _"cuando"_ es necesario cambiar de frame nuestro Sprite. Como hemos podido ver en el anterior apartado, podemos definir el tiempo entre animaciones, cuando se importa el recurso; este parámetro será usado por el motor de Sprites para ejecutar el cambio entre los distintos frames.
 
 El motor de Sprites de SGDK, se basa en guardar una lista con todos los Sprites activos, de tal forma que solo se interactúa con aquellos que están en dicha lista.
 
@@ -93,24 +93,24 @@ Para poder usar el motor de Sprites, podemos usar a nivel de código dos funcion
 
 * ```SPR_init```: Inicializa el motor de Sprites con los valores por defecto. Normalmente, reserva 420 Tiles en VRAM. Además, inicializa el hardware para almacenar los Sprites. Existe otra función llamada ```SPR_initEx``` que permite pasar por parámetro el número de Tiles Reservados.
 
-* ```SPR_update```: Actualiza y muestra los Sprites activos. Gracias a esta función, cada vez que se llama recalculará los Sprites activos y cambiará de frame aquellos que lo necesiten. Es importante que esta función este antes de la llamada a ```SYS_doVBlankProcess```, para que se actualicen los frames.
+* ```SPR_update```: Actualiza y muestra los Sprites activos. Gracias a esta función, cada vez que se llama recalculará los Sprites activos y cambiará de frame aquellos que lo necesiten. Es importante que esta función este antes de la llamada a ```SYS_doVBlankProcess``` para que se actualicen los frames.
 
-Más adelante, veremos más funciones que podremos utilizar, sobre todo al ver el ejemplo de esta sección.
+Más adelante, veremos más funciones que podremos utilizar sobre todo al ver el ejemplo de esta sección.
 
 ## Trabajar con Sprites en SGDK
 
-A la hora de trabajar con Sprites en SGDK, es importante saber como trabajar con las distintas funciones que nos van a permitir modificar las características de los Sprites, como puede ser su posición, animación, frame o prioridad.
+A la hora de trabajar con Sprites en SGDK, es importante saber como trabajar con las distintas funciones que nos van a permitir modificar las características de los Sprites; como puede ser su posición, animación, frame o prioridad.
 
-Una de las primeras características que tenemos que tener en cuenta, es que a la hora de poder trabajar con Sprites, es que se calcula su posición en píxeles, no en Tiles. Aunque si se dibujan y se calcula cada frame a nivel de Tile. Por ello es importante siempre conocer la posición de un sprite tanto la coordenada X e Y en píxeles.
+Una de las primeras características que tenemos que tener en cuenta, es que a la hora de poder trabajar con Sprites, es que se calcula su posición en píxeles; no en Tiles. Aunque si se dibujan y se calcula cada frame a nivel de Tile. Por ello es importante siempre conocer la posición de un sprite tanto la coordenada X e Y en píxeles.
 
-Otro aspecto a tener en cuenta es, que los Sprites se dibujan en su propio plano; y por lo tanto, tienen una prioridad; de tal forma, que se puede establecer. Veamos de nuevo el esquema de prioridades de los distintos planos.
+Otro aspecto a tener en cuenta es, que los Sprites se dibujan en su propio plano; y por lo tanto, tienen una prioridad. Veamos de nuevo el esquema de prioridades de los distintos planos.
 
 ![Esquema de Prioridad de los Planos](9Sprites/img/esquemaplanos.png "Esquema de Prioridad de los Planos")
 _Esquema de Prioridad de los Planos_
 
-Vemos como el plano de Sprites, puede ser dibujado con baja o alta prioridad; de tal forma, que podemos hacer que el Sprite este detrás de algún plano, para poder dar una mayor sensación de profundidad.
+Vemos como el plano de Sprites, puede ser dibujado con baja o alta prioridad; de tal forma, que podemos hacer que el Sprite este detrás de algún plano; para poder dar una mayor sensación de profundidad.
 
-Por otro lado, como podemos ver, un Sprite se compone de distintas animaciones que pueden indicar distintas acciones que puede realizar el personaje (moverse en las distintas direcciones, atacar, saltar); por ello tenemos que tener en cuenta dichas animaciones. En una hoja de Sprites, cada fila corresponde a una animación; y cada columna, corresponde a un Frame de cada animación. Veamos un ejemplo:
+Por otro lado, como podemos ver un Sprite se compone de distintas animaciones que pueden indicar distintas acciones que puede realizar el personaje (moverse en las distintas direcciones, atacar, saltar); por ello tenemos que tener en cuenta dichas animaciones. En una hoja de Sprites, cada fila corresponde a una animación; y cada columna corresponde a un Frame de cada animación. Veamos un ejemplo:
 
 <div class="centered_image">
 <img src="9Sprites/img/anim.png" title="Hoja de Sprites con animaciones" alt="Hoja de Sprites con animaciones"/>
@@ -137,9 +137,9 @@ SPRITE shaSprt "sprt/sha.png" 3 4 NONE 6 BOX
 SPRITE elliSprt "sprt/elliready.png" 4 4 NONE 5 BOX
 ```
 
-Vemos que el primero, el cual llamaremos _shaSprt_ y obtendremos el fichero con el mapa de bits dentro de la carpeta sprt (recordamos que todos los recursos deben ir en la carpeta _res_), después vemos que definimos que cada Frame tiene 3 Tiles de anchura y 4 de altura; para poder realizar el corte correctamente. Por último, no usaremos compresión, y la velocidad de cambio de Frame será 6 veces por segundo.
+Vemos que el primero, el cual llamaremos _shaSprt_ y obtendremos el fichero con el mapa de bits dentro de la carpeta _sprt_ (recordamos que todos los recursos deben ir en la carpeta _res_); después vemos que definimos que cada Frame tiene 3 Tiles de anchura y 4 de altura; Para poder realizar el corte correctamente. Por último, no usaremos compresión y la velocidad de cambio de Frame será 6 veces por segundo.
 
-Para el segundo Sprite, que llamaremos _elliSprt_, haremos de igual forma; pero teniendo en cuenta, que cada Frame es de 4 tiles de anchura y 4 tiles de altura. Una vez que hemos definido ambos Sprites y también los correspondientes fondos (que reutilizaremos los del ejemplo anterior), podremos compilar el proyecto y que rescomp, nos genere los recursos y ficheros cabecera _.h_ si fuese necesario.
+Para el segundo Sprite, que llamaremos _elliSprt_ haremos de igual forma; pero teniendo en cuenta, que cada Frame es de 4 tiles de anchura y 4 tiles de altura. Una vez que hemos definido ambos Sprites y también los correspondientes fondos (que reutilizaremos los del ejemplo anterior), podremos compilar el proyecto y que rescomp nos genere los recursos y ficheros cabecera _.h_ si fuese necesario.
 
 Con estos pasos ya tendríamos importados los sprites y los fondos para utilizar en nuestro código fuente. Vamos a analizar el código fuente. En este ejemplo ya utilizaremos, tanto por un lado controles tanto síncronos como asíncronos, además de utilizar fondos.
 
@@ -158,7 +158,7 @@ Comenzaremos por incluir los recursos en nuestro código, seguido de la definici
 #define SHA_STAY 4
 ```
 
-Como podemos ver en el anterior fragmento, importamos tanto la librería ```genesis.h```, además de los ficheros cabecera (_.h_) generados con _rescomp_. Por otro lado, también vemos una serie de constantes, que corresponden a los índices de las animaciones de un Sprite; esto es recomendable para hacer el código más legible.
+Como podemos ver en el anterior fragmento, importamos tanto la librería ```genesis.h```, además de los ficheros cabecera (_.h_) generados con _rescomp_. Por otro lado, también vemos una serie de constantes; que corresponden a los índices de las animaciones de un Sprite; esto es recomendable para hacer el código más legible.
 
 Seguidamente, definiremos las variables globales necesarias para nuestro juego:
 
@@ -173,7 +173,7 @@ int shaPrio=TRUE;
 int elliPrio=FALSE;
 ```
 
-Las cuales utilizaremos durante el código del ejemplo; como pueden ser los punteros a los distintos Sprites, posición x e y de uno de ellos, y el estado de la prioridad de cada uno de los Sprites. Más adelante veremos como vamos a utilizarlos.
+Las cuales utilizaremos durante el código del ejemplo; como pueden ser los punteros a los distintos Sprites; posición x e y de uno de ellos, y el estado de la prioridad de cada uno de los Sprites. Más adelante veremos como vamos a utilizarlos.
 
 A continuación, nos centraremos en la función ```main``` donde podemos ver la inicialización de los distintos recursos:
 
@@ -186,7 +186,7 @@ VDP_setScreenWidth320();
 
 Donde podemos observar como se inicializan los controles, estableciendo la función callback para los controles asíncronos con la función ```JOY_setEventHandler``` (para más información, consulta el capítulo de controles). Además, de inicializar el motor de Sprites con la función ```SPR_init``` y posteriormente establecemos el ancho a una resolución de 320px.
 
-Después, ya comenzamos a añadir elementos a la pantalla, como pueden ser los fondos; de igual forma que hemos visto en el ejemplo del capítulo anterior:
+Después, ya comenzamos a añadir elementos a la pantalla como pueden ser los fondos; de igual forma que hemos visto en el ejemplo del capítulo anterior:
 
 ```c
 u16 index = TILE_USERINDEX;
@@ -215,7 +215,7 @@ Vemos en el fragmento anterior, que se utiliza la función ```SPR_addSprite```; 
 * _y_: posición Y por defecto en píxeles.
 * attrbute: Indica los atributos del propio Sprite. Para ello, se puede utilizar la macro ```TILE_ATTR```, para establecer dichos atributos.
 
-La macro ```TILE_ATTR``` permite establecer los atributos de un tilemap; veamos sus parámetros:
+La macro ```TILE_ATTR``` permite establecer los atributos de un Tilemap; veamos sus parámetros:
 
 * _pal_: Paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```)
 * _prio_: Indica la prioridad ```TRUE``` para alta o ```FALSE``` para baja.
@@ -241,9 +241,9 @@ Tanto la función ```SPR_addSprite``` como ```SPR_addSpriteSafe```, devuelven un
 * _attribut_ Información con los atributos establecidos con la macro ```TILE_ATTR```.
 * _VDPSpriteIndex_: Índice al primer Sprite alojado en la VDP.
 
-Puede encontrar más información en la propia documentación de SGDK.
+Para más información consulta la propia documentación de SGDK.
 
-Una vez añadidos los dos sprites, tenemos que asignar las paletas de los recursos, a cada una de las paletas disponibles en Sega Mega Drive. Recordemos que cada paleta tiene 16 colores y que el primero, corresponde a un color transparente. Dependiendo de nuestra versión de SGDK, podemos usar distintas funciones. Si se tiene la versión 1.80 o superior, podemos usar la siguiente función ```PAL_setPalette```. La cual recibe los siguientes parámetros:
+Una vez añadidos los dos sprites, tenemos que asignar las paletas de los recursos; a cada una de las paletas disponibles en Sega Mega Drive. Recordemos que cada paleta tiene 16 colores y que el primero, corresponde a un color transparente. Dependiendo de nuestra versión de SGDK, podemos usar distintas funciones. Si se tiene la versión 1.80 o superior, podemos usar la siguiente función ```PAL_setPalette```. La cual recibe los siguientes parámetros:
 
 * _pal_: Número de paleta a utilizar (```PAL0```,```PAL1```,```PAL2```,```PAL3```).
 * _data_: Datos con la paleta puede ser la del propio recurso, o establecer una personalizada.
@@ -334,7 +334,7 @@ La profundidad del Sprite, se puede establecer con la función ```SPR_setZ```, q
 * _sprite_: Puntero al sprite a modificar.
 * _Z_: Indica la profundidad del Sprite.
 
-Por último, y no menos importante, podemos ver como se leen los controles síncronos a partir de la función ```readInput```; la cual es quien reaccionará en función de los controles que hemos utilizado.
+Por último, y no menos importante podemos ver como se leen los controles síncronos a partir de la función ```readInput```; la cual es quien reaccionará en función de los controles que hemos utilizado.
 
 Veamos un fragmento de esta función:
 
@@ -352,9 +352,9 @@ void readInput(){
 ...
 ```
 
-En este fragmento, podemos ver como se lee, en primer lugar los botones pulsados por el controlador 1 usando la función ```JOY_readJoypad``` (recuerda que puedes saber más sobre de las funciones para leer la entrada, en el capítulo de controles); a continuación, se comprueba que botón se ha pulsado; los cuales para este caso, solo utilizamos los de las direcciones.
+En este fragmento, podemos ver como se lee en primer lugar los botones pulsados por el controlador 1 usando la función ```JOY_readJoypad``` (recuerda que puedes saber más sobre de las funciones para leer la entrada, en el capítulo de controles); a continuación, se comprueba que botón se ha pulsado; los cuales para este caso, solo utilizamos los de las direcciones.
 
-En cada caso, se establece la animación, y se modifica la variable con la posición. El primer caso caso, solo establece 4 direcciones y solo se puede ir a una a la vez. En próximos ejemplos estableceremos para usar 8 direcciones.
+En cada caso, se establece la animación y se modifica la variable con la posición. El primer caso, solo establece 4 direcciones y solo se puede ir a una a la vez.
 
 Una vez hemos visto el código del ejemplo, podemos compilarlo y ejecutarlo en un emulador. Obteniendo la siguiente pantalla:
 
