@@ -170,7 +170,7 @@ Una vez hemos podido ver como se tratan las imágenes y como importarlas usando 
 
 Este ejemplo, podemos verlo en el repositorio de ejemplos que acompaña a este libro, con el nombre de _ej5.backgrounds_; el cual podemos observar que vamos a mostrar 2 fondos como los que siguen:
 
-![Fondos para el ejemplo](8fondos/img/fondosejemplo.png "Fondos para el ejemplo")_Fondos a Usar para el ejemplo_
+![Fondos para el ejemplo](8fondos/img/fondosejemplo.png "Fondos para el ejemplo")_Fondos a Usar para el ejemplo (Fuente: Open Game Art)_
 
 Como vemos en la figura anterior, tenemos 2 imágenes; la primera un fondo azul imitando al cielo; y la segunda un fondo de baldosas amarillas con un fondo negro.
 
