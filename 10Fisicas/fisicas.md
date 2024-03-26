@@ -1,10 +1,10 @@
 # 10. Fisica y matemáticas en Mega Drive
 
-Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones. Y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^53].
+Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones; y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^53].
 
-Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador, puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceder a memoria o la propia división o multiplicación.
+Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceder a memoria o la propia división o multiplicación.
 
-En este tema, vamos a hablar de como el Motorola 68000 trabaja y los distintas operaciones que puede realizar. Además de entrar en detalle en trabajo con punto flotante, e incluso veremos al final como implementar la colisión entre distintos Sprites usando SGDK.
+En este tema, vamos a hablar de como el Motorola 68000 trabaja y los distintas operaciones que puede realizar. Además de entrar en detalle a la hora de trabajar con punto flotante; e incluso veremos al final como implementar la colisión entre distintos Sprites usando SGDK.
 
 Este tema puede ser algo complicado de entender; pero es necesario para poder crear de la forma más eficiente posible, nuestro videojuego sin tener perdida de frames, o que se congele la pantalla.
 
@@ -16,9 +16,9 @@ Vamos a comenzar hablando sobre el procesador Motorola 68000; ya que este es el 
 
 Vamos a mostrar en este apartado, como se realizan algunas operaciones aritméticas y como se pueden realizar de forma más eficiente.
 
-Comenzamos comentando como trabaja el procesador m68k; se trata de un procesador que tiene registros de 32bits y que puede trabajar con ellos gracias a dos ALU [^54] que tiene. Es importante conocer las limitaciones que nos provee este procesador; si bien puede trabajar perfectamente con cualquier operación matemática, si que no puede por ejemplo trabajar con números decimales, o la eficiencia a la hora de trabajar con las distintas operaciones matemáticas.
+Comenzamos comentando como trabaja el procesador m68k; se trata de un procesador que tiene registros de 32bits y que puede trabajar con ellos gracias a dos ALU [^54] que posee. Es importante conocer las limitaciones que nos provee este procesador; si bien puede trabajar perfectamente con cualquier operación matemática, si que no puede por ejemplo trabajar con números decimales, o la eficiencia a la hora de trabajar con las distintas operaciones matemáticas.
 
-Un microprocesador, no tarda lo mismo a la hora de realizar una suma, o de realizar una multiplicación o división; normalmente la duración de estas operaciones, se realizan por ciclos (la duración de un ciclo de un procesador es 1/F; donde F es la frecuencia del reloj). Vamos a mostrar el coste en ciclos que puede llegar a tardar las distintas operaciones aritméticas.
+Un microprocesador no tarda lo mismo a la hora de realizar una suma, o de realizar una multiplicación o división; normalmente la duración de estas operaciones, se realizan por ciclos (la duración de un ciclo de un procesador es 1/F; donde F es la frecuencia del reloj). Vamos a mostrar el coste en ciclos que puede llegar a tardar las distintas operaciones aritméticas.
 
 | **Operación** | **Descripción** | **Coste en ciclos** |
 |:-------------:|-----------------|---------------------|
@@ -37,7 +37,7 @@ _Tabla3: Operaciones y coste del procesador Motorola 68000_
 
 Podemos observar que tanto la multiplicación; como la división son operaciones muy costosas por lo que realizarlas puede ser poco eficiente (158 y 70 ciclos respectivamente). Por lo tanto, es necesario evitar utilizar estas operaciones.
 
-Una alternativa a multiplicar, es utilizar desplazamientos tanto a la a la izquierda; como podemos ver en la tabla anterior, un desplazamiento puede tener hasta 8 ciclos de reloj para completarse; por lo es mucho más eficiente a la hora de realizar una multiplicación o división.
+Una alternativa a multiplicar, es utilizar desplazamientos a la izquierda; como podemos ver en la tabla anterior, un desplazamiento puede tener hasta 8 ciclos de reloj para completarse; por lo es mucho más eficiente a la hora de realizar una multiplicación o división.
 
 Veamos un ejemplo:
 
@@ -72,7 +72,7 @@ Tras ver las operaciones aritméticas y como optimizarlas, vamos a mostrar otro 
 
 ## Números y tipo de Datos en SGDK
 
-A la hora de trabajar con los distintos tipos de datos; necesitamos conocer como se almacenaran en memoria y como se puede utilizar; por ejemplo a la hora de trabajar con números.
+A la hora de trabajar con los distintos tipos de datos, necesitamos conocer como se almacenaran en memoria y como se puede utilizar. Como por ejemplo, a la hora de trabajar con números.
 
 Por ello, vamos a mostrar los distintos tipos de datos numéricos que nos provee SGDK; aunque podemos seguir utilizando los clásicos de C (Ya que son definiciones a partir de estos); veamos una tabla con los distintos tipos de datos y cuanto ocupa en memoria.
 
@@ -87,15 +87,15 @@ Por ello, vamos a mostrar los distintos tipos de datos numéricos que nos provee
 
 _Tabla 4: Tipo de datos en SGDK y su equivalente en C._
 
-Vemos como hay distintos tipos de datos disponibles para los enteros por ello, tenemos que tener en cuenta siempre el valor que puede contener para evitar desbordamientos y que se realice un comportamiento inesperado.
+Vemos como hay distintos tipos de datos disponibles para los enteros por lo tanto, tenemos que tener en cuenta siempre el valor que puede contener para evitar desbordamientos y que se realice un comportamiento inesperado.
 
-Habrá podido ver, que no hemos incluido los tipos de datos numéricos con decimales; esto se debe a que el procesador Motorola 68000, no tenia soporte para punto flotante; sin embargo, si que podemos utilizarlo con SGDK.
+Habrás podido ver, que no hemos incluido los tipos de datos numéricos con decimales; esto se debe a que el procesador Motorola 68000, no tenia soporte para punto flotante. Sin embargo, si que podemos utilizarlo con SGDK.
 
 ## Punto Flotante
 
 El procesador Motorola 68000 no tiene soporte para punto flotante por lo tanto, no se pueden realizar cálculos con números decimales; por ello se deben de implementar todos los cálculos con números enteros y realizar transformaciones para trabajar con ellos.
 
-Por ello SGDK, trae una serie de datos preparados para trabajar con punto flotante; estos tipos de datos son el ```FIX16``` y el ```FIX32```; que corresponderían a los tipos ```float``` y ```double``` de C; veamos una tabla con sus datos:
+SGDK trae una serie de datos preparados para trabajar con punto flotante; estos tipos de datos son el ```FIX16``` y el ```FIX32```; que corresponderían a los tipos ```float``` y ```double``` de C; veamos una tabla con sus datos:
 
 | **Tipo SGDK** | **Tipo (C)** | **Descripción** | **Rango**               |
 |---------------|:------------:|-----------------|-------------------------|
@@ -107,7 +107,6 @@ _Tabla 5: Tipos de datos decimales en SGDK._
 Hay que tener en cuenta, que los tipos de datos ```fix16``` o ```fix32``` no son equivalentes a float o double en código. Por ejemplo:
 
 ```c
-
 fix16 a = 1.24;// Error
 ```
 
@@ -118,6 +117,8 @@ fix16 a = FIX16(1.24);
 ```
 
 En el anterior fragmento; si es una instrucción correcta para declarar en este caso una variable de tipo fix16. Además, podemos ver algunas funciones útiles para usar con los tipos de dato decimal. Veamos una tabla con algunas de ellas.
+
+Además, es importante mencionar que a partir de la versión 2.00 de SGDK, se ha mejorado la creación de los tipos de datos ```FIX16``` y ```FIX32```.
 
 | **Funciones**         | **Descripción**                                                               |
 |-----------------------|-------------------------------------------------------------------------------|
@@ -150,7 +151,7 @@ Una vez ya conocemos los distintos tipos de datos que podemos utilizar y como op
 
 ## Física y colisiones
 
-A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta tocando a otro, o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites están colisionando para poder calcular por ejemplo cuando han atacado a nuestro personaje, o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
+A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta tocando a otro o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites están colisionando para poder calcular por ejemplo, cuando han atacado a nuestro personaje; o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
 
 No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos sólo algunos de ellos. En primer lugar, podemos comprobar cuando algún Sprite colisiona usando SGDK, y un registro especial que tiene el VDP para indicar dicha situación:
 
@@ -158,7 +159,7 @@ No existe un único método para calcular la colisión entre dos Sprites por lo 
 GET_VDPSTATUS(VDP_SPRCOLLISION_FLAG)
 ```
 
-La macro ```GET_VDPSTATUS``` nos devolverá distinto de 0, cuando dos o más sprites colisionan; aunque este método nos permite indicar cuando se colisionan los Sprites, tenemos que comprobar uno a uno, cual de ellos ha sido y puede ser poco eficiente.
+La macro ```GET_VDPSTATUS``` nos devolverá distinto de 0, cuando dos o más sprites colisionan; aunque este método no nos permite saber cuales son los Sprites que han colisionado.
 
 Para comprobar mejor como los Sprites pueden colisionar, hablaremos de las cajas de colisión o comúnmente llamados colliders; y después veremos como calcular la colisión entre ellos.
 
@@ -300,7 +301,7 @@ Donde:
 * ```circle1_radius```: Radio de la primera circunferencia.
 * ```circle2_radius```: Radio de la segunda circunferencia.
 
-Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones, por desplazamientos.
+Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones por desplazamientos.
 
 ## Ejemplo de colisión de Sprites
 
@@ -310,7 +311,7 @@ Puedes encontrar el ejemplo de esta sección en el repositorio de ejemplos que a
 
 Para poder ver mejor las colisiones, hemos modificado los Sprites para dibujar el contorno de las cajas de colisión. Puedes ver esos Sprites modificados en la carpeta _res_ del ejemplo.
 
-Se ha creado una estructura, para almacenar los datos de la caja de colisión; en este ejemplo usaremos una caja rectangular para comprobar la colisión.
+Se ha creado una estructura (struct) para almacenar los datos de la caja de colisión; en este ejemplo usaremos una caja rectangular para comprobar la colisión.
 
 ```c
 typedef struct {
@@ -354,7 +355,7 @@ Una vez obtenidos dichas variables, calculamos cada punto necesario para comprob
 
 ```c
    
-   s8 box1_x1 = sprt1Collider.x;
+    s8 box1_x1 = sprt1Collider.x;
     s8 box1_y1 = sprt1Collider.y;
     s8 box1_x2 = sprt1Collider.x+sprt1Collider.w;
     s8 box1_y2 = sprt1Collider.y+sprt1Collider.h;
@@ -365,7 +366,7 @@ Una vez obtenidos dichas variables, calculamos cada punto necesario para comprob
     s8 box2_y2 = sprt2Collider.y+sprt2Collider.h;
 ```
 
-Vemos como en cada caso se calcula tanto la posición x1,y1 y la posición x2,y2 que corresponden al punto inicial y final del rectángulo que conforma la caja de colisión. Una vez se tiene cada punto, ya podemos realizar la comprobación:
+Vemos como en cada caso se calcula tanto la posición (x1,y1) y la posición (x2,y2) que corresponden al punto inicial y final del rectángulo que conforma la caja de colisión. Una vez se tiene cada punto, ya podemos realizar la comprobación:
 
 ```c
    
@@ -399,7 +400,7 @@ _Ejemplo 7: Colisiones_
 
 Tras ver este ejemplo, ya podemos ver como usar la físicas y matemáticas a la hora de trabajar con Sega Mega Drive. Desde las distintas instrucciones aritméticas que podemos hacer con el Motorola 68000, hasta pasar por repasar las colisiones entre Sprites y como podemos implementarlos en nuestros juegos.
 
-En el siguiente capítulo, ya trataremos como Sega mega Drive gestiona los colores y las distintas paletas que podemos utilizar y cambiar.
+En el siguiente capítulo, ya trataremos como Sega Mega Drive gestiona los colores y las distintas paletas que podemos utilizar y cambiar.
 
 ## Referencias
 
