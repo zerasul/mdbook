@@ -4,17 +4,17 @@ Uno de los aspectos importantes a la hora de diseñar un videojuego es el uso de
 
 Hasta ahora hemos estado trabajando con imágenes estáticas que se mostraban como uno o varios fondos. En este capítulo, trabajaremos la forma de poder crear mapas a partir de un TileSet. Además de poder utilizar distintas herramientas disponibles como puede ser Tiled o usar una de las últimas versiones de SGDK (1.80 o superior).
 
-Al final de este capítulo, mostraremos como se puede generar distintos niveles tanto de forma manual, como usando la herramienta _rescomp_ que integra SGDK (Recuerda que necesitas la versión 1.80 o superior, para algunos ejemplos).
+Al final de este capítulo, mostraremos como se puede generar distintos niveles tanto de forma manual, como usando la herramienta _rescomp_ que integra SGDK (Recuerda que necesitas la versión 1.80 o superior para algunos ejemplos).
 
 ## Tilesets y TileMaps
 
-En primer lugar, vamos a definir correctamente que son los llamados TileSets y TileMaps; esto también nos ayudará a comprender como se almacenan y como se pintan los fondos en Mega Drive usando SGDK.
+En primer lugar, vamos a definir correctamente que son los llamados TileSets y TileMaps; nos ayudará a comprender como se almacenan y como se pintan los fondos en Mega Drive usando SGDK.
 
 Un TileSet o conjunto de patrones, es un conjunto de gráficos que componen todos los elementos que puede contener un escenario o el propio videojuego. Se suelen almacenar como un mapa de bits con todos los elementos.
 
 <div class="centered_image">
 <img src="12TileSets/img/tileset.png" title="Ejemplo de TileSet (Open Game Art)" alt="Ejemplo de TileSet (Open Game Art)"/>
-<em>Ejemplo de TileSet (Open Game Art)</em>
+<em>Ejemplo de TileSet (Fuente: Open Game Art)</em>
 </div>
 
 Como podemos ver en la imagen anterior, se pueden observar los distintos elementos gráficos. Este Tileset nos va a permitir generar escenarios con los distintos elementos que lo componen.
@@ -24,9 +24,9 @@ Una vez hemos visto lo que es un TileSet, definiremos el llamado TileMap. Un Til
 ![Ejemplo TileMap](12TileSets/img/mapabosque.png "Ejemplo TileMap")
 _Ejemplo TileMap_
 
-Observamos que a partir del anterior Tileset, se ha compuesto una nueva imagen para poder generar un escenario; en este caso una escena dentro de un bosque. Aunque se podría utilizar como una imagen estática, en este capítulo, vamos a dibujarla a partir de la información del TileSet y la información del TileMap.
+Observamos que a partir del anterior Tileset, se ha compuesto una nueva imagen para poder generar un escenario; en este caso una escena dentro de un bosque. Aunque se podría utilizar como una imagen estática, en este capítulo vamos a dibujarla a partir de la información del TileSet y la información del TileMap.
 
-Es importante conocer, que a la hora de trabajar con una imagen estática en SGDK, esta se compone siempre de un TileSet, y de un TileMap por lo que se están utilizando ambos conceptos.
+Es importante conocer que a la hora de trabajar con una imagen estática en SGDK, esta se compone siempre de un TileSet y de un TileMap por lo que se están utilizando ambos conceptos.
 
 Aunque se pueden utilizar distintas herramientas para trabajar con TileSets y generar nuestros escenarios, en este libro vamos a mostrar un poco como utilizar una herramienta llamada _Tiled_.
 
@@ -46,13 +46,13 @@ A la hora de generar un mapa, podemos hacerlo con distintas capas. Cada capa pue
 ![Capas](12TileSets/img/capas.png "Capas")
 _Capas_
 
-Como podemos ver en la imagen anterior, vemos las dos capas separadas que al juntarlas y configurar el color transparente, se conforman la imagen anterior; de tal forma que la información de ambas capas se puede guardar en un TileMap que es generado por el mismo TileSet.
+Como podemos ver en la imagen anterior, vemos las dos capas separadas que al juntarlas y configurar el color transparente; se conforman la imagen anterior; de tal forma que la información de ambas capas se puede guardar en un TileMap que es generado por el mismo TileSet.
 
-Ambas capas se pueden almacenar en el mismo fichero _TMX_; los ficheros Tmx, almacenan la información de los mapas asociados a un fichero _.tsx_ que almacena la información de los TileSet.
+Ambas capas se pueden almacenar en el mismo fichero _TMX_; los ficheros Tmx almacenan la información de los mapas asociados a un fichero _.tsx_ que almacena la información de los TileSet.
 
 Para más información acerca de los ficheros TMX o TSX, puede consultar la documentación de _Tiled_.
 
-Pero para nuestro caso; como podemos importar esta información, a nuestro juego de Mega Drive, existen varias formas; pero utilizaremos la más actual; que se trata de generar la información, usando _rescomp_ dentro de las herramientas que incluye SGDK.
+Pero para nuestro caso; como podemos importar esta información a nuestro juego de Mega Drive, existen varias formas; pero utilizaremos la más actual; que se trata de generar la información, usando _rescomp_ dentro de las herramientas que incluye SGDK.
 
 Sin embargo, para este apartado necesitarás SGDK 1.80 o superior; por lo que en caso de no tener esta versión, mostraremos una forma alternativa.
 
@@ -62,7 +62,7 @@ Otro aspecto a tener en cuenta, es que Tiled también permite exportar la inform
 
 Comenzaremos en ver como se puede cargar la información tanto del TileSet, como del TileMap, usando la herramienta de gestión de recursos de SGDK, _rescomp_.
 
-Para ello, podemos cargar la información de los dos recursos, usando un fichero _.res_; donde definiremos la información de cada recurso; veamos un ejemplo:
+Para ello, podemos cargar la información de los dos recursos usando un fichero _.res_; donde definiremos la información de cada recurso; veamos un ejemplo:
 
 ```
 PALETTE palbosque   "tilesetbosque.png"
@@ -80,7 +80,7 @@ Veamos como se define un TileSet:
 ```TILESET name "file" compression optimization``` ; donde:
 
 * name: nombre del recurso
-* file: nombre del fichero con el Tileset; puede ser una imagen en formato bmp,png,tiff o un fichero tsx de TILED.
+* file: nombre del fichero con el Tileset; puede ser una imagen en formato bmp,png,tiff o un fichero .tsx de TILED.
 * compression: Compresión a utilizar; puede tener los siguientes valores:
     * -1/BEST/AUTO: automática; utiliza la mejor compresión disponible.
     * 0/NONE: ninguna compresión.
@@ -129,11 +129,11 @@ En el caso de utilizar un fichero TMX, podemos importar el recurso de la siguien
     * 2/DUPLICATE: Ignora los tiles duplicados.
 * map_base: indica la base del tilemap; es util para definir la prioridad, paleta y tileBase. Este es importante para poder cargar el offset de los tiles a cargar.
 
-**NOTA:** Si se quieren cargar los Tiles con baja prioridad, se puede establecer el nombre de la capa con el sufijo "low" o sufijo "high".
+**NOTA:** Si se quieren cargar los Tiles con baja o alta prioridad, se puede establecer el nombre de la capa con el sufijo "low" o sufijo "high".
 
 **NOTA2:** También puede realizarse la carga de la información de la prioridad nombrando la capa con el sufijo "priority".
 
-A partir de la versión 1.90 de SGDK, se dispone la posibilidad de obtener información de los objetos añadidos desde Tiled en un TMX usando rescomp; aunque ya lo añadía en la anterior versión, se ha mejorado en la última versión. Vamos a mostrar la sintaxis para añadirlo:
+A partir de la versión 1.90 de SGDK, se dispone la posibilidad de obtener información de los objetos añadidos desde Tiled en un TMX usando rescomp; aunque ya lo añadía en la anterior versión, se ha mejorado en esta última versión. Vamos a mostrar la sintaxis para añadirlo:
 
 ```OBJECTS name tmx_file layer_id fields_defs [decl_type [type_filter]]```; donde:
 
@@ -150,9 +150,9 @@ Para más información acerca de como se importan los tipos Objects desde un fic
 
 Una vez visto como importar los recursos usando ficheros TMX o TSX; vamos a ver como podemos importar la información de un TMX, a mano.
 
-Si estas utilizando la extensión para Visual Studio Code; _Genesis Code_, puedes generar un fichero .h, con la información del tilemap, usando el comando _Genesis Code: Import TMX File_; además si desde Tiled, has exportado el fichero como formato Json, también es compatible.
+Si estas utilizando la extensión para Visual Studio Code; _Genesis Code_, puedes generar un fichero .h, con la información del Tilemap con el comando _Genesis Code: Import TMX File_; además si desde Tiled; has exportado el fichero como formato Json, también es compatible.
 
-Para ello, simplemente en nuestro juego, utilizar dicho comando, y seleccionar el fichero _.tmx_ automáticamente se generará un fichero .h.
+Para ello, simplemente en Visual Studio Code utilizar dicho comando, y seleccionar el fichero _.tmx_ automáticamente se generará un fichero .h.
 
 Para más información de como importar ficheros Tmx, usando Genesis Code, consulta la documentación de dicha extensión.
 
@@ -166,7 +166,6 @@ _Fichero TMX_
 Podemos ver en la anterior imagen, que la información se encuentra en la etiqueta _data_ y que debe estar codificada como _csv_; copiaremos la lista completa de índices, y crearemos un fichero .h en la carpeta _inc_; allí guardaremos la información de la siguiente forma:
 
 ```c
-
 u16 map[1120]=481,482,483,484,485,482.....;
 ```
 
@@ -182,9 +181,9 @@ En este caso, vamos a mostrar dos ejemplos; para poder importar y utilizar los r
 
 ### Fichero TMX
 
-Comenzaremos con el ejemplo utilizando un fichero TMX; recuerda que esta versión, solo funcionará si usas la versión de SGDK 1.80 o superior. Este ejemplo llamado _ej9.tilesets1_ se encuentra en el repositorio de ejemplos que acompaña a este libro.
+Comenzaremos con el ejemplo utilizando un fichero TMX; recuerda que esta versión solo funcionará si usas la versión de SGDK 1.80 o superior. Este ejemplo llamado _ej9.tilesets1_ se encuentra en el repositorio de ejemplos que acompaña a este libro.
 
-En este ejemplo, vamos a cargar un Tileset, y luego los correspondientes TileMaps; que hemos importado usando rescomp; con la siguiente configuración:
+En este ejemplo, vamos a cargar un Tileset y luego los correspondientes TileMaps; que hemos importado usando rescomp; con la siguiente configuración:
 
 ```res
 PALETTE palbosque   "tilesetbosque.png"
@@ -222,7 +221,7 @@ int main()
 
 Podemos ver en el ejemplo, que se utilizan distintas funciones para cargar tanto el TileSet, como los TileMap; vamos a ver esas funciones:
 
-La primera función que observamos es ```VDP_loadTileSet``` la cual carga la información de un TileSet en VRAM; de tal forma que este disponible. para cargar los TileMaps; veamos los parámetros de la función:
+La primera función que observamos es ```VDP_loadTileSet``` la cual carga la información de un TileSet en VRAM; de tal forma que quede disponible. para cargar los TileMaps; veamos los parámetros de la función:
 
 * _tileset*_: Puntero donde se encuentra el recurso del Tileset a cargar.
 * _tileIndex_: Indice del tile a utilizar como base. Puede usarse como índice ```TILE_USER_INDEX``` para que use la primera posición disponible.
@@ -236,7 +235,7 @@ La primera función que observamos es ```VDP_loadTileSet``` la cual carga la inf
 
 En nuestro ejemplo se utiliza DMA para transferir la información; recuerda no sobrecargar el DMA ya que comparte bus con la CPU y podría haber cuellos de botella.
 
-Por otro lado, vamos a ver como se carga la información de los Tilemap, usando la función ```VDP_setTileMap```; esta función permite cargar la información del tilemap, la información de la paleta y prioridad, lo cargará del mapbase definido con rescomp; veamos los parámetros de esta función:
+Por otro lado, vamos a ver como se carga la información de los Tilemap, usando la función ```VDP_setTileMap```; esta función permite cargar la información del tilemap, la información de la paleta y prioridad. Se cargará del mapbase definido con rescomp; veamos los parámetros de esta función:
 
 * _Plano_: Indica el plano a utilizar; puede ser ```BG_A```o ```BG_B```.
 * _tilemap*_: Puntero al recurso donde se almacena este TileMap.
@@ -250,7 +249,7 @@ Por otro lado, vamos a ver como se carga la información de los Tilemap, usando 
     * DMA_QUEUE: Se utilizará la cola de DMA.
     * DMA_QUEUE_COPY: Se utilizará cola de DMA como copia.
 
-Existen variantes de esta función que cargan la información de la paleta o prioridad,  como ```VDP_setTileMapEx```, que se le puede indicar el mapbase. Puedes ver como utilizar esta función, en la documentación de SGDK.
+Existen variantes de esta función que cargan la información de la paleta o prioridad  como ```VDP_setTileMapEx```, que se le puede indicar el mapbase. Puedes ver como utilizar esta función, en la documentación de SGDK.
 
 Una vez tenemos este ejemplo listo, ya podemos compilar y ejecutar para ver como se carga el fondo:
 
@@ -261,7 +260,7 @@ _Ejemplo 9: Uso de TileSets usando fichero TMX_
 
 Si por el contrario no se puede utilizar un fichero TMX, podemos cargar a mano la información; creando un fichero .h (o utilizando la extensión _Genesis Code_); de tal forma que podamos cargar dicha información en nuestro juego y mostrarlo por pantalla. Este ejemplo llamado _ej10.tileset2_, puedes encontrarlo en el repositorio de ejemplos que acompaña a este libro.
 
-En primer lugar, vamos a mostrar como importaremos en este ejemplo la información; primero el Tileset y la información de la paleta, serán importados usando _rescomp_:
+En primer lugar, vamos a mostrar como importaremos en este ejemplo la información; primero el Tileset y la información de la paleta que serán importados usando _rescomp_:
 
 ```res
 PALETTE palbosque "tilesetbosque.png"
@@ -306,11 +305,11 @@ Veamos un fragmento:
         BG_B,tileMap1b,0,0,40,28,40,CPU);
 ```
 
-Observamos como se han definido dos arrays de tipo u16, que contienen 1120 posiciones; uno por cada Tile a almacenar; seguidamente se rellenan esos Tiles, usando la información almacenada en el fichero .h, y usando la macro ```TILE_ATTR_FULL``` para ir cargando en cada Tile la información de la paleta, prioridad,etc.
+Observamos como se han definido dos arrays de tipo u16, que contienen 1120 posiciones; uno por cada Tile a almacenar; seguidamente se rellenan esos Tiles usando la información almacenada en el fichero .h; y usando la macro ```TILE_ATTR_FULL``` para ir cargando en cada Tile la información de la paleta, prioridad,etc.
 
 Después de cargar cada Tile, dibujamos por pantalla cada capa, usando la función ```VDP_setTileMapDataRect```.
 
-La función ```VDP_setTileMapDataRect```, muestra por pantalla un tilemap como un rectángulo; por lo que podemos dibujar áreas de pantalla, con los Tiles almacenados; puede recibir los siguientes parámetros:
+La función ```VDP_setTileMapDataRect```, muestra por pantalla un tilemap como un rectángulo; por lo que podemos dibujar áreas de pantalla con los Tiles almacenados; puede recibir los siguientes parámetros:
 
 * _Plane_: Plano a dibujar puede ser ```BG_A``` o ```BG_B```.
 * _data_: Puntero a la primera posición donde se encuentran los datos.
@@ -332,7 +331,7 @@ Una vez que hemos terminado de revisar el código, ya podemos compilar y ejecuta
 ![Ejemplo 10: Uso de TileSets a mano](12TileSets/img/ej10.png "Ejemplo 10: Uso de TileSets a mano")
 _Ejemplo 10: Uso de TileSets a mano_
 
-Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega MegaDrive, utilizando herramientas externas como pueden ser _Tiled_, y como la versión de SGDK 1.80 o superior, permite cargar ficheros con formato TMX realizados con la misma herramienta.
+Como podemos ver, el resultado es casi el mismo (puede cambiar por la forma de cargar la paleta); y ya hemos podido ver como utilizar TileSets y TileMaps en Sega Mega Drive; utilizando herramientas externas como pueden ser _Tiled_, y como la versión de SGDK 1.80 o superior permite cargar ficheros con formato TMX realizados con la misma herramienta.
 
 ## Referencias
 
