@@ -262,6 +262,7 @@ if(changed & state & BUTTON_C){
 Podemos observar que se utilizan dos nuevas funciones, para poder reproducir un efecto de sonido. Veamos estas funciones.
 
 La función ```XGM_setPCM``` inicializa el sonido a reproducir utilizando el Driver XGM; recibe los siguientes parámetros:
+
 * _id_: Identificador que tendrá este sonido.
 * _sound_: Sonido a inicializar (nombre del recurso importado con rescomp).
 * _length_: longitud del sonido a reproducir.
