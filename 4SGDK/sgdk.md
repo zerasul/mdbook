@@ -150,7 +150,7 @@ Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. A
 
 Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene una característica única; tiene integrado el llamado Mega Wi-fi; por que se permite conectar a internet via Wi-fi; y poder jugar en línea; sin necesidad de Modem; solo el propio cartucho.
 
-The same studio is currently working on a port of _Coloco_ for Sega Mega Drive.
+Este estudio esta trabajando en un Port de _Coloco_ para Sega Mega Drive.
 
 [^32]: 1985 World cup ha sido publicado por Nape Games. Todos los derechos reservados.
 
