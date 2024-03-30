@@ -134,7 +134,7 @@ Veamos como se puede utilizar cada una de estas interrupciones.
 
 ### HBlank
 
-La Interrupción HBlank, ocurre cada vez que pinta una línea; aunque en muchas ocasiones no es necesario utilizar una función de interrupción por cada línea; por ello, Mega Drive dispone de un registro de interrupción ($0A), que va a actuar de contador e ira decrementándose hasta llegar a cero.
+La Interrupción HBlank, ocurre cada vez que pinta una línea o _scanline_; aunque en muchas ocasiones no es necesario utilizar una función de interrupción por cada línea; por ello, Mega Drive dispone de un registro de interrupción ($0A), que va a actuar de contador e ira decrementándose hasta llegar a cero.
 
 Cuando este registro llega a cero, es cuando se llamará a la función de interrupción asociada. Esto podemos controlarlo a nivel de SGDK; por lo que podemos controlar que código ejecutaremos.
 
@@ -154,6 +154,20 @@ Por último, para establecer la función que se utilizará para la interrupción
 
 * _CB_: Puntero a función callback será una función que no tendrá parámetros y no devuelve nada; aunque es necesario que tenga como prefijo ```HINTERRUPT_CALLBACK```. Es importante saber que esta función no puede realizar operaciones muy pesadas; aunque puede cambiar la paleta de colores (CRAM), Scroll o algún otro efecto.
 
+**Palette Swapping**
+
+Uno de los efectos que mucha gente se ha preguntado como se realiza, es el efecto "agua" en los títulos de _Sonic the hedgehog_. Este efecto de cambio de colores cuando Sonic estaba bajo el agua, se realizaba utilizando una técnica llamada _Palette Swapping_ o intercambio de paletas o colores.
+
+Esta técnica, se basaba en el uso de los scanlines y las correspondientes interrupciones HBlank; que trataba de cambiar los colores de una paleta "al vuelo" mientras se estaba dibujando la pantalla.
+
+Esto permitía entre otros, ampliar el número de colore simultáneos por pantalla; sin embargo, esto podía dar algunos problemas al tener que estar actualizando la CRAM e incluso, cargando diferentes recursos en cada línea, dando lugar a cuellos de botella por el uso continuado del Bus tanto por la CPU, como el uso continuo del DMA.
+
+Además, también podían aparecer los llamados _CRAM Dots_ que son algunos glitches o puntos de pantalla del intercambio al vuelo de estos colores. En sonic, se disimulaban pareciendo las "olas" del propio agua.
+
+A esta técnica también suele referirse como _Blast Processing_ como un término de Marketing apodado por _Sega of America_, para referirse a la capacidad superior a nivel hardware de la Sega Mega Drive. Esto era debido a que el chip VDP, era capaz de trabajar a más velocidad gracias al uso del DMA que tenía incorporado la Mega Drive.
+
+Para más información acerca del Palette Swapping y Blast Processing, consulta las referencias de este capítulo.
+
 ### VBlank
 
 Tras ver la interrupción horizontal, podemos ver la interrupción vertical; que ocurre cuando se termina de pintar toda la pantalla; esta interrupción es mucho mayor el tiempo que tarda en realizarse. Por ello, se puede utilizar para realizar más cambios que para las interrupciones horizontales.
@@ -169,6 +183,9 @@ Comenzaremos por la función ```SYS_setVBlankCallback``` que establece la funci�
 También existe la función ```SYS_setVIntCallback``` que establece también la función de interrupción funcionando de igual manera que la anterior. Pero en este caso, desde que se lanza la propia interrupción y se acaba de pintar la pantalla. Recibe los siguientes parámetros:
 
 * _CB_: puntero a la función de interrupción. Esta función no recibe ningún parámetro ni devuelve ningún dato.
+
+### Uso eficiente de CPU y DMA
+
 
 ## Ejemplo con Interrupciones
 
@@ -263,3 +280,5 @@ _Ejemplo 16: Interrupciones_
 * SGDK: [https://github.com/Stephane-D/SGDK](https://github.com/Stephane-D/SGDK).
 * Danibus (github): [https://github.com/danibusvlc/aventuras-en-megadrive](https://github.com/danibusvlc/aventuras-en-megadrive).
 * DragonDrive (PCM Flash): [https://dragonbox.de/](https://dragonbox.de/)
+* Palette Swapping: [https://rasterscroll.com/mdgraphics/graphical-effects/palette-swapping/](https://rasterscroll.com/mdgraphics/graphical-effects/palette-swapping/)
+* Blast Processing: [https://segaretro.org/Blast_processing](https://segaretro.org/Blast_processing)
