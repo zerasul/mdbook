@@ -111,6 +111,31 @@ Un aspecto a tener en cuenta, es que estas funciones modifican el valor de la CR
 
 Puedes encontrar más información acerca de las funciones para modificar los colores de la CRAM tanto por CPU como por DMA, dentro de la propia documentación del SGDK.
 
+### VDP Color Ramp
+
+Como hemos visto, Mega Drive trabaja con una paleta de 9 bits RGB; sin embargo, para poder trabajar con los diferentes colores que nos permite proveer, no podemos cambiar estos colores linealmente: al contrario como puede ocurrir en otros ámbitos.
+
+En RGB si tenemos una escala para cada canal de 0 a 255, no podemos ir cambiando en Mega Drive cada color unidad a unidad; esto es debido al llamado _"VDP Color Ramp"_.
+
+El _VDP Color Ramp_ principalmente es debido a los propios componentes electrónicos que componen el VDP. En el VDP, se tiene para cada canal (R,G y B) un DAC; el cual establece una escala entre 0 y 1V (0-255) pero no de forma lineal. Además, esta escala cambia si esta en modo Shadow o Highlight(También cambia en el modo de retrocompatibilidad de Master System).
+
+**NOTA**: Un DAC (_Digital Analog Converter_), es un componente electrónico que pasa una señal digital (0 o 1) a un valor analógico utilizando una escala de voltajes.
+
+Podemos ver en la siguiente tabla; que muestra una aproximación de estos valores, dependiendo del valor que se establezca en la CRAM:
+
+| Valor CRAM | Normal | Shadow | Highlight |
+|------------|--------|--------|-----------|
+|      0     |    0   |    0   |    130    |
+|      2     |   52   |   29   |    144    |
+|      4     |   87   |   52   |    158    |
+|      6     |   116  |   70   |    172    |
+|      8     |   144  |   87   |    187    |
+|      A     |   172  |   101  |    206    |
+|      C     |   206  |   116  |    228    |
+|      E     |   255  |   130  |    255    |
+
+_Tabla 7: Valores para color utilizados por el VDP (Fuente: Plutiedev)_
+
 ## Ejemplo con Efectos de Shadow y Paletas
 
 En este capítulo hemos estado trabajando con las paletas de colores y los efectos que podemos hacer en ellas. Por ello, el ejemplo que vamos a estudiar usaremos las distintas paletas de colores y su correspondientes efectos Shadow.
@@ -217,6 +242,7 @@ Con este ejemplo, ya hemos podido ver como funcionan las paletas de colores y lo
 ## Referencias
 
 * Paleta de Colores Mega Drive: [https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats#9-bit_RGB](https://en.wikipedia.org/wiki/List_of_monochrome_and_RGB_color_formats#9-bit_RGB)
+* VDP Color Ramp: [https://plutiedev.com/vdp-color-ramp](https://plutiedev.com/vdp-color-ramp)
 * Danibus (Aventuras en Mega Drive): [https://danibus.wordpress.com/2019/09/13/14-aventuras-en-megadrive-highlight-and-shadow/](https://danibus.wordpress.com/2019/09/13/14-aventuras-en-megadrive-highlight-and-shadow/)
 * Open Game Art (Night Background): [https://opengameart.org/content/background-night](https://opengameart.org/content/background-night)
 * Open Game Art (Nature TileSet): [https://opengameart.org/content/nature-tileset](https://opengameart.org/content/nature-tileset)
