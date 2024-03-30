@@ -115,7 +115,7 @@ Puedes encontrar más información acerca de las funciones para modificar los co
 
 Como hemos visto, Mega Drive trabaja con una paleta de 9 bits RGB; sin embargo, para poder trabajar con los diferentes colores que nos permite proveer, no podemos cambiar estos colores linealmente: al contrario como puede ocurrir en otros ámbitos.
 
-En RGB si tenemos una escala para cada canal de 0 a 255, no podemos ir cambiando en Mega Drive cada color unidad a unidad; esto es debido al llamado _"VDP Color Ramp"_.
+Hemos podido ver que una escala para cada canal de 0 a 255; pero no podemos ir cambiando en Mega Drive cada color unidad a unidad; esto es debido al llamado _"VDP Color Ramp"_.
 
 El _VDP Color Ramp_ principalmente es debido a los propios componentes electrónicos que componen el VDP. En el VDP, se tiene para cada canal (R,G y B) un DAC; el cual establece una escala entre 0 y 1V (0-255) pero no de forma lineal. Además, esta escala cambia si esta en modo Shadow o Highlight(También cambia en el modo de retrocompatibilidad de Master System).
 
@@ -135,6 +135,8 @@ Podemos ver en la siguiente tabla; que muestra una aproximación de estos valore
 |      E     |   255  |   130  |    255    |
 
 _Tabla 7: Valores para color utilizados por el VDP (Fuente: Plutiedev)_
+
+También es importante mencionar, que este comportamiento también cambia dependiendo del modelo o revisión del VDP que integra cada Mega Drive. Por eso es importante probar en diferentes modelos de Mega Drive.
 
 ## Ejemplo con Efectos de Shadow y Paletas
 
