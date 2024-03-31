@@ -1,8 +1,8 @@
 # 15. SRAM e interrupciones
 
-Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar toda la arquitectura de la Sega Mega Drive; vamos a revisar un apartado importante; tanto para guardar los progresos de nuestro juego, como para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
+Ya estamos acercándonos a la recta final de este libro. Hemos estado revisando tanto la parte visual, como el sonido. Además de estudiar toda la arquitectura de la Sega Mega Drive, vamos a revisar un apartado importante; tanto para guardar los progresos de nuestro juego, como para manejar las distintas interrupciones que podemos utilizar a la hora de dibujar la pantalla.
 
-En primer lugar, tenemos que saber como vamos a almacenar los datos y tener en cuenta que no todos los tipos de cartucho a utilizar. Por otro lado, veremos el uso de funciones de interrupción para poder actualizar los recursos de nuestro juego usando dichas interrupciones.
+En primer lugar, tenemos que saber como vamos a almacenar los datos y tener en cuenta que no todos los tipos de cartucho se pueden utilizar. Por otro lado, veremos el uso de funciones de interrupción para poder actualizar los recursos de nuestro juego usando dichas interrupciones.
 
 Por último, vamos a ver un ejemplo que utilizará estas interrupciones para poder realizar dichas modificaciones y ver como optimizar nuestro juego.
 
@@ -10,14 +10,14 @@ Por último, vamos a ver un ejemplo que utilizará estas interrupciones para pod
 
 Muchos hemos sufrido, el no poder guardar el progreso de nuestros juegos en Mega Drive; solo algunos juegos disponían de esta capacidad de poder guardar dicho progreso en el cartucho. Esto es debido a que estos cartuchos, tenían una memoria SRAM [^64] junto con una pila de botón (que tenemos que tener cuidado que no se agote tras tantos años); también había algunos tipos especiales como _Sonic 3_ que tenia un tipo de memoria especial sin necesidad de Pila.
 
-Por ello, si necesitamos almacenar información del progreso de nuestro juego, podemos utilizar esta memoria SRAM, necesitaremos un cartucho que tenga tanto la ROM, como dicha memoria estática.
+Por ello, si necesitamos almacenar información del progreso de nuestro juego, podemos utilizar esta memoria SRAM; necesitaremos un cartucho que tenga tanto la ROM, como dicha memoria estática.
 
 ![Cartucho con SRAM](15SRAM/img/sram.png "Cartucho con SRAM")
 _Cartucho con SRAM (DragonDrive)_
 
 [^64]: SRAM: Memoria RAM estática. Es una memoria estática de acceso aleatorio; que permite una gran velocidad pero normalmente de poco tamaño.
 
-Aunque también existe la posibilidad de crear un generador de contraseñas; de tal forma que podamos mostrar dicho código al jugador para poder posteriormente continuar el progreso.
+Aunque también existe la posibilidad de crear un generador de contraseñas; de tal forma que podamos mostrar dicho código al jugador para que pueda posteriormente continuar el progreso.
 
 ### SRAM
 
@@ -42,7 +42,7 @@ Una vez activada, podemos escribir o leer sobre la memoria. Es importante conoce
 
 Veamos que funciones necesitaremos para almacenar el anterior ```struct```; vemos que necesitaremos almacenar 2 variables de 8 bits y dos de 32 bits. Por lo que necesitaremos 10 bytes para almacenar toda la información.
 
-Podemos usar las funciones ```SRAM_writeByte```,```SRAM_writeWord``` o ```SRAM_writeLong``` para almacena información en la memoria SRAM. Veamos cada una de ellas:
+Podemos usar las funciones ```SRAM_writeByte```,```SRAM_writeWord``` o ```SRAM_writeLong``` para almacenar la información en la memoria SRAM. Veamos cada una de ellas:
 
 La función ```SRAM_writeByte``` almacena 1 byte en la SRAM en función del Offset que indica el offset en el espacio dentro de la SRAM (recuerda que cada palabra son 8 bits). Recibe los siguientes parámetros:
 
@@ -80,19 +80,19 @@ Vamos a ver como sería la operación inversa. Leer desde la memoria SRAM. En es
 
 La función ```SRAM_readByte``` lee un byte desde la memoria SRAM. Recibe el siguiente parámetro:
 
-* _offset_: Indica el offset con el que se almacenará.
+* _offset_: Indica el offset con el que se leerá.
 
 Esta función devuelve un entero de 1 byte con la información leída.
 
 La función ```SRAM_readWord``` lee una palabra (2 bytes) desde la memoria SRAM. Recibe el siguiente parámetro:
 
-* _offset_: Indica el offset con el que se almacenará.
+* _offset_: Indica el offset con el que se leerá.
 
 Esta función devuelve un entero de 2 bytes con la información leída.
 
 La función ```SRAM_readLong``` lee un entero largo (4 bytes) desde la memoria SRAM. Recibe el siguiente parámetro:
 
-* _offset_: Indica el offset con el que se almacenará.
+* _offset_: Indica el offset con el que se leerá.
 
 Esta función devuelve un entero de 4 bytes con la información leída.
 
@@ -115,7 +115,7 @@ Hemos hablado de como utilizar la SRAM; pero ahora nos quedaría hablar de otro 
 
 En los ejemplos, has podido ver que hemos ido haciendo cada acción, y después hemos esperado a que termine de repintar la pantalla; debido al uso de la función ```SYS_doVBlankProcess()```, la cual gestiona el repintado de pantalla y el hardware hasta que se ha terminado de pintar completamente la pantalla.
 
-Tenemos que tener en cuenta que esta consola esta pensada para ser usada en televisores CRT; es decir, que se van pintando por cada línea y de arriba a abajo; por lo que en cada pasada, se debe esperar a que tanto el VDP como la televisión, acaben de pintar.
+Tenemos que tener en cuenta que esta consola esta pensada para ser usada en televisores CRT; es decir, que se van pintando por cada línea  de izquierda a derecha y de arriba a abajo; por lo que en cada pasada, se debe esperar a que tanto el VDP como la televisión, acaben de pintar.
 
 Durante este tiempo de pintado, la CPU puede estar muy ociosa; de tal forma que puede ser interesante este tiempo para poder realizar operaciones y optimizar el tiempo de la CPU; ya que si se tarda mucho en realizar todas las operaciones antes de esperar al pintado, puede ocurrir una bajada en las imágenes por segundo (50 para PAL y 60 para NTSC); por lo que es mejor optimizar el uso de la CPU.
 
@@ -138,7 +138,7 @@ La Interrupción HBlank, ocurre cada vez que pinta una línea o _scanline_; aunq
 
 Cuando este registro llega a cero, es cuando se llamará a la función de interrupción asociada. Esto podemos controlarlo a nivel de SGDK; por lo que podemos controlar que código ejecutaremos.
 
-Es muy importante a tener en cuenta que el tiempo que pasa desde que se lanza la interrupción hasta que se empieza a pintar la siguiente línea, es muy corto por lo que estas funciones no pueden ser muy pesadas.
+Es muy importante, tener en cuenta que el tiempo que pasa desde que se lanza la interrupción hasta que se empieza a pintar la siguiente línea, es muy corto por lo que estas funciones no pueden ser muy pesadas.
 
 Veamos que funciones tiene SGDK para trabajar con este tipo de interrupción.
 
@@ -158,9 +158,9 @@ Por último, para establecer la función que se utilizará para la interrupción
 
 Uno de los efectos que mucha gente se ha preguntado como se realiza, es el efecto "agua" en los títulos de _Sonic the hedgehog_. Este efecto de cambio de colores cuando Sonic estaba bajo el agua, se realizaba utilizando una técnica llamada _Palette Swapping_ o intercambio de paletas o colores.
 
-Esta técnica, se basaba en el uso de los scanlines y las correspondientes interrupciones HBlank; que trataba de cambiar los colores de una paleta "al vuelo" mientras se estaba dibujando la pantalla.
+Esta técnica, se basaba en el uso de los scanlines y las correspondientes interrupciones HBlank; que cambia los colores de una paleta "al vuelo" mientras se estaba dibujando la pantalla.
 
-Esto permitía entre otros, ampliar el número de colore simultáneos por pantalla; sin embargo, esto podía dar algunos problemas al tener que estar actualizando la CRAM e incluso, cargando diferentes recursos en cada línea, dando lugar a cuellos de botella por el uso continuado del Bus tanto por la CPU, como el uso continuo del DMA.
+Esto permitía entre otros, ampliar el número de colore simultáneos por pantalla; sin embargo, esto podía dar algunos problemas al tener que estar actualizando la CRAM e incluso, cargando diferentes recursos en cada línea; dando lugar a cuellos de botella por el uso continuado del Bus tanto por la CPU, como el uso continuo del DMA.
 
 Además, también podían aparecer los llamados _CRAM Dots_ que son algunos glitches o puntos de pantalla del intercambio al vuelo de estos colores. En sonic, se disimulaban pareciendo las "olas" del propio agua.
 
@@ -172,7 +172,7 @@ Para más información acerca del Palette Swapping y Blast Processing, consulta 
 
 Tras ver la interrupción horizontal, podemos ver la interrupción vertical; que ocurre cuando se termina de pintar toda la pantalla; esta interrupción es mucho mayor el tiempo que tarda en realizarse. Por ello, se puede utilizar para realizar más cambios que para las interrupciones horizontales.
 
-Vamos a ver como podemos utilizar esta interrupción, y las funciones que nos provee SGDK para trabajar con este tipo de interrupción. Es importante conocer, que para este tipo de interrupción es muy util realizar todas las operaciones que están relacionadas con el VDP como actualizar los fondos o los propios Sprites.
+Vamos a ver como podemos utilizar esta interrupción y las funciones que nos provee SGDK para trabajar con este tipo de interrupción. Es importante conocer, que para este tipo de interrupción es muy util realizar todas las operaciones que están relacionadas con el VDP como actualizar los fondos o los propios Sprites.
 
 Es muy importante tener esto en cuenta ya que realizar estos cambios en el hilo principal, es mucho mas costoso; por lo que tenemos que evitar realizar estos cambios en dicho hilo.
 
@@ -189,7 +189,7 @@ También existe la función ```SYS_setVIntCallback``` que establece también la 
 
 ## Ejemplo con Interrupciones
 
-Ya hemos podido ver las distintas funciones para trabajar con interrupciones; por lo que podemos pasar a realizar un ejemplo de uso con estas funciones. Puedes encontrar el ejemplo de este capítulo, en el repositorio de ejemplos; que puedes encontrar en la siguiente dirección:
+Ya hemos podido ver las distintas funciones para trabajar con interrupciones; por lo que podemos pasar a realizar un ejemplo de uso con estas funciones. Puedes encontrar el ejemplo de este capítulo, en el repositorio de ejemplos que acompaña a este libro; que puedes encontrar en la siguiente dirección:
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
@@ -269,7 +269,7 @@ if(value & BUTTON_RIGHT){
 
 Podemos observar que se comprueba el valor leído del mando 1 (```JOY_1```), y se actualiza el estado del struct. De tal forma, que se actualizará cuando se realice la interrupción _VBlank_. De esta forma, el juego es mucho mas eficiente ya que toda operación con el VDP, se puede realizar en la función de interrupción; mientras que el hilo principal, sirve para actualizar el estado a pintar.
 
-Ahora podemos compilar y ejecutar el ejemplo, donde podemos ver como se puede mover el personaje; de tal forma que es más eficiente que en otros ejemplos. Ya hemos podido ver el contenido de este capítulo; donde hemos visto dos aspectos importantes a la hora de trabajar creando juegos; el uso de la SRAM por si queremos almacenar el progreso del juego, y por otro lado el uso de interrupciones.
+Ahora podemos compilar y ejecutar el ejemplo, donde podemos ver como se puede mover el personaje; de esta forma es más eficiente que en otros ejemplos. Ya hemos podido ver el contenido de este capítulo; donde hemos visto dos aspectos importantes a la hora de trabajar creando juegos. Por un lado, el uso de la SRAM por si queremos almacenar el progreso del juego, y por otro lado el uso de interrupciones.
 
 ![Ejemplo 16: Interrupciones](15SRAM/img/ej16.png "Ejemplo 16: Interrupciones")
 _Ejemplo 16: Interrupciones_

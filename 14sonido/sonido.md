@@ -345,9 +345,9 @@ Primero, vamos a ver la función ```XGM2_play```; esta función reproduce el rec
 
 * _resource_: puntero del recurso a reproducir.
 
-Otras funciones que podemos encontrar; puede ser ```XGM2_stop```. Esta función detiene la música actual. También podemos ver la función ```XG2_isPlaying```que devuelve ```TRUE``` si hay música reproduciéndose o ```FALSE``` en caso contrario.
+Otras funciones que podemos encontrar; puede ser ```XGM2_stop```. Esta función detiene la música actual. También podemos ver la función ```XG2_isPlaying``` que devuelve ```TRUE``` si hay música reproduciéndose o ```FALSE``` en caso contrario.
 
-Centrémonos en las funciones de sonido PCM para el controlador de sonido XGM2. Podemos encontrar la función ````XGM2_playPCM``` reproduce un sonido PCM utilizando un canal. Veamos los parámetros:
+Centrémonos en las funciones de sonido PCM para el controlador de sonido XGM2. Podemos encontrar la función ```XGM2_playPCM``` reproduce un sonido PCM utilizando un canal. Veamos los parámetros:
 
 * _resource_: Puntero del recurso a reproducir.
 * _len_: Len del recurso; debe ser 256 Múltiple.
