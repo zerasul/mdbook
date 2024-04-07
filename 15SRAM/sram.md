@@ -186,6 +186,28 @@ También existe la función ```SYS_setVIntCallback``` que establece también la 
 
 ### Uso eficiente de CPU y DMA
 
+Hemos podido ver en diferentes partes de este libro, el uso de CPU o DMA ya que una de las principales mejoras de la Mega Drive, es el poder utilizar este dispositivo para enviar información desde la ROM (o RAM) hasta el VDP sin intervención de la propia CPU.
+
+Sin embargo, hay un inconveniente y es que tanto la CPU como el DMA comparten el mismo BUS y tienen que compartirlo; por lo que si se abusa del DMA puede haber problemas de envío de información por el mismo bus. Estos problemas desde quedarse la pantalla congelada o glitches en los distintos tiles que se están dibujando.
+
+Hemos podido ver diferentes modos para utilizar tanto la CPU como el DMA; por lo que vamos a repasar algunos de ellos:
+
+* ```CPU```: En este modo se utiliza el propio procesador Motorola 68000 para enviar la información sin intervenir el DMA.
+* ```DMA```: En este modo se envía toda la información posible por el DMA para que sea dibujada por el propio VDP. Sin embargo, esto puede dar problemas si el bus esta ocupado por la CPU o se envía demasiada información.
+* ```DMA_QUEUE```: En este modo, se utiliza una cola para enviar poco a poco la información; en este caso se utiliza la propia interrupción _VBlank_ para enviar esta información. Aunque el envío es más lento que el anterior caso, nos evitamos en todo lo posible sobrecargar el bus.
+* ```DMA_QUEUE_COPY```: En este último modo, se realiza una copia de los datos y se envía a una cola. Es menos eficiente que el anterior caso, pero permite utilizar una copia de los datos en vez de los datos en si mismos. En ocasiones puede ser mejor utilizar esta opción.
+
+Dependiendo de las operaciones que utilicemos, puede ser útil un modo u otro. Por ejemplo a la hora de cargar Tiles de un mapa, suele ser más eficiente utilizar la cola para el DMA.
+
+Por otro lado, para cargar un fondo estático ó añadir un Sprite, dependerá si es una carga inicial, o se realiza al vuelo. En el caso de la carga inicial, puede ser más óptimo el utilizar la CPU; mientras que si se carga al vuelo, es más útil el usar la DMA.
+
+Por supuesto, esto también dependerá del número de bytes que se tengan que enviar a través del bus; para operaciones pesadas, siempre es mejor utilizar la CPU como una carga inicial y después solo cambiar el mostrar o no un Sprite por ejemplo.
+
+También otro aspecto importante, es cuando realizar estas cargas; se recomienda utilizar el tiempo de la interrupción VBlank, para realizar estos cambios. Esto suele ser útil para utilizar el tiempo más óptimo los recursos mientras se esta pintando la pantalla.
+
+Por supuesto, siempre es importante revisar la documentación de SGDK, para ver las distintas funciones y como se puede realizar esta transferencia de datos.
+
+Por último, siempre es importante el uso de las distintas herramientas que tenemos disponibles a través de los emuladores para por ejemplo, poder ver las paletas o incluso como esta utilizándose la memoria del VDP; así se puede decidir en cada momento cuando usar CPU o DMA.
 
 ## Ejemplo con Interrupciones
 
