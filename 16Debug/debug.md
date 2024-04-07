@@ -6,7 +6,7 @@ Solo queda por hablar de un tema que es bastante importante para todo aquel que 
 
 Existen muchas herramientas útiles a la hora de encontrar dichos errores. Como puede ser el poder visualizar la memoria de nuestro dispositivo, y poder ver el valor de nuestras variables, instrucción que estamos ejecutando, etc.
 
-Este tipo de herramientas como depuradores, herramientas de trazabilidad (log) e incluso ver una imagen de la memoria, están disponibles en muchos de los emuladores que hemos mencionado en este libro; como puede ser Gens KMod, Blastem o Kega Fusion, además de que el propio SGDK, nos provee algunas de estas herramientas.
+Este tipo de herramientas como depuradores, herramientas de trazabilidad (log) e incluso ver una imagen de la memoria, están disponibles en muchos de los emuladores que hemos mencionado en este libro; como puede ser _Gens KMod, Blastem o Kega Fusion_. Además, el propio SGDK nos provee algunas de estas herramientas.
 
 En este capítulo, vamos a ver que herramientas podemos usar para depurar nuestros juegos y poder detectar los fallos o errores.
 
@@ -14,11 +14,11 @@ En este capítulo, vamos a ver que herramientas podemos usar para depurar nuestr
 
 Como hemos estado hablando en este capítulo, es importante conocer y utilizar herramientas para poder detectar los errores de nuestro juego y ver que esta haciendo correctamente lo que debe; en muchas ocasiones este tipo de errores no se detectan a simple vista y necesitamos herramientas para ver que esta ocurriendo.
 
-Por ello, necesitamos poder tener una trazabilidad, y la posibilidad de utilizar un depurador para nuestro juego. SGDK, nos provee de herramientas para poder realizar esta trazabilidad.
+Por ello, necesitamos poder tener una trazabilidad y la posibilidad de utilizar un depurador para nuestro juego. SGDK, nos provee de herramientas para poder realizar esta trazabilidad.
 
 ### KLog
 
-El uso de ficheros de Traza (o logs); es común a la hora de trabajar con sistemas. Por ello, algunos emuladores son capaces de escribir una traza con mensajes que el propio programador utiliza; en muchas ocasiones se podrían poner por pantalla. Pero, es mucho mejor poder tener un fichero de trazas con estos mensajes.
+El uso de ficheros de Traza (o logs); es común a la hora de trabajar con sistemas. Algunos emuladores son capaces de escribir una traza con mensajes que el propio programador utiliza; en muchas ocasiones se podrían poner por pantalla. Pero, es mucho mejor poder tener un fichero de trazas con estos mensajes.
 
 Algunos emuladores como Gens KMod o Blastem, tienen un apartado para ver estas trazas y mostrarlo por dicha consola o fichero. Veamos como se podrían ver los mensajes en el emulador Gens con la modificación KMod.
 
@@ -29,7 +29,7 @@ Algunos emuladores como Gens KMod o Blastem, tienen un apartado para ver estas t
 
 Para acceder a este apartado, puedes encontrarlo en el menú _CPU->Debug->Messages_; y aquí podremos ver los mensajes que enviemos con unas función especial que contiene SGDK.
 
-La función para enviar información a esta traza es ```kprintf```; la cual escribe un mensaje en dicha traza en vez de escribirlo por pantalla. Esta función es análoga al uso de ```printf``` en c estándar; es decir que recibe 1 o varios parámetros:
+La función para enviar información a esta traza es ```kprintf```; la cual escribe un mensaje en dicha traza en vez de escribirlo por pantalla. Esta función es análoga al uso de ```printf``` en C estándar; es decir que recibe 1 o varios parámetros:
 
 * _fmt_: cadena de caracteres que puede contener una serie de formateadores que empiezan por `%`; que nos permitirán escribir variables de distintos tipos y formatos. Para saber como utilizar estos formatos específicos, puedes revisar la documentación estándar de C (dejamos información en las referencias). Es importante saber, que esta función tiene un buffer interno de 255 bytes; por lo que tenemos que tener esto en cuenta a la hora de poner un mensaje muy largo.
 * ...: el resto de parámetros, será cada una de las variables que sustituirá a cada uno de los formateadores incluidos en el anterior parámetro.
@@ -40,14 +40,14 @@ La función ```kprintf```, devuelve el número de bytes escritos (hasta 255) en 
 
 Hemos hablado de como utilizar la consola que trae algunos emuladores para escribir una serie de trazas. Pero en muchas ocasiones nos ocurre que necesitamos utilizar herramientas como depuradores para poder ver que esta pasando en un momento dado en nuestro programa.
 
-Por ello, vamos a mostrar en primer lugar, como se podría hacer esta depuración para nuestros juegos; primero de forma más teórica, y después entraremos en más detalle dependiendo de nuestro emulador o herramientas a utilizar.
+Vamos a mostrar en primer lugar, como se podría hacer esta depuración para nuestros juegos; primero de forma más teórica, y después entraremos en más detalle dependiendo de nuestro emulador o herramientas a utilizar.
 
-Si has trabajado con la programación anteriormente, habrás tenido que depurar muchos programas; normalmente en la propia máquina y compilar el código para la misma arquitectura que estas trabajando (normalmente x86_64 o ARM); sin embargo, en este caso no vamos a trabajar con estas arquitecturas; sino con la del Motorola 68000. Por ello necesitamos una forma de depurar este código utilizando un emulador por ejemplo. (Existen formas de depurar con hardware real; pero con mucho más costosas). Veamos un esquema para entender que es lo que queremos hacer.
+Si has trabajado con la programación anteriormente, habrás tenido que depurar muchos programas; normalmente en la propia máquina y compilar el código para la misma arquitectura que estas trabajando (normalmente x86_64 o ARM); sin embargo, en este caso no vamos a trabajar con estas arquitecturas; sino con la del Motorola 68000. Por ello necesitamos una forma de depurar este código utilizando un emulador por ejemplo. (Existen formas de depurar con hardware real; pero son mucho más costosas). Veamos un esquema para entender que es lo que queremos hacer.
 
 ![Esquema Depuración Remota](16Debug/img/depuracionremota.jpg "Esquema Depuración Remota")
 _Esquema Depuración Remota_
 
-Como podemos ver en el esquema, se disponen de distintos elementos; algunos en la máquina local, que sería el computador en el que estamos trabajando, y otros en una máquina remota que sería en este caso la propia Mega Drive o un emulador.
+Como podemos ver en el esquema, se disponen de distintos elementos; algunos en la máquina local que sería el computador en el que estamos trabajando, y otros en una máquina remota que sería en este caso la propia Mega Drive o un emulador.
 
 Si nos centramos en la máquina local, podemos ver que tenemos el editor, que puede ser cualquier editor de código o entorno de desarrollo integrado, con capacidad de conectarse a un depurador; en la imagen puedes ver que se trata de _Visual Studio Code_.
 
@@ -79,7 +79,7 @@ Puedes encontrar más herramientas para depuración o poder visualizar la memori
 
 Otro emulador que hemos mencionado por este libro, es el uso de Blastem. También dispone de opciones de depuración, incluyendo una depuración remota. Sin embargo, no funciona correctamente o esta aún en desarrollo. Por lo que el uso de depuración remota, solo esta soportado por las últimas versiones de Blastem (Recomendamos utilizar la versión Nightly; puedes encontrar más información en las referencias).
 
-En este caso, podremos utilizar un depurador interno, arrancando Blastem con la opción -d; el cual nos permitirá ejecutar paso a paso. Sin embargo, esta opción nos mostrará las instrucciones en ensamblador y tendremos que ser nosotros quienes las traduzcamos para ver que sta ocurriendo.
+En este caso, podremos utilizar un depurador interno, arrancando Blastem con la opción -d; el cual nos permitirá ejecutar paso a paso. Sin embargo, esta opción nos mostrará las instrucciones en ensamblador y tendremos que ser nosotros quienes las traduzcamos para ver qué sta ocurriendo.
 
 Si queremos utilizar una depuración remota, necesitaremos ejecutar el siguiente comando dentro de GDB:
 
@@ -93,7 +93,7 @@ Esto dirá a GDB, que se debe de conectar al puerto 1234 (se puede cambiar) y qu
 
 Sin embargo, aunque hemos podido iniciar la emulación, todavía nos queda algo; el poder conectar GDB con nuestro entorno de desarrollo para poder ver las instrucciones de nuestro código C y poder visualizar también paso a paso dichas instrucciones.
 
-Para ello, vamos a ver un ejemplo usando Visual Studio Code, con la extensión _Genesis Code_; que hemos podido ver en este libro, que es una ayuda para el desarrollo usando SGDK. Esta extensión, cuando crea un proyecto, genera una configuración en el directorio _.vscode_; esta configuración, nos ayuda a poder gestionar los ficheros .h, y además a generar la configuración para iniciar la depuración; si echamos un vistazo al fichero _launch.json_, podemos ver.
+Para ello, vamos a ver un ejemplo usando Visual Studio Code; con la extensión _Genesis Code_, que hemos podido ver en este libro. Esta extensión, cuando crea un proyecto, genera una configuración en el directorio _.vscode_; esta configuración, nos ayuda a poder gestionar los ficheros .h, y además a generar la configuración para iniciar la depuración; si echamos un vistazo al fichero _launch.json_, podemos ver.
 
 ```json
 ...
@@ -128,7 +128,7 @@ Podemos ver algunas propiedades en este fichero:
 * _name_: Nombre de la configuración que podremos ver en VSCODE.
 * _program_: Indica el nombre del binario que usará gdb para iniciar la depuración; se trata del fichero _rom.out_ que se genera al compilar en modo depuración.
 * _miDebuggerServerAddress_: Indica la dirección y puerto donde se conectará gdb para hacer la depuración remota. Debe coincidir con el puerto del emulador.
-* _sourceFileMap_: Esta propiedad es importante ya que GDB tiene establecidas unas rutas con las que se compilo y se configuró (Concretamente las del proyecto SGDK); por lo tanto se debe de mapear a nuestra carpeta de fuentes de SGDK.
+* _sourceFileMap_: Esta propiedad es importante ya que SGDK tiene establecidas unas rutas con las que se compilo y se configuró; por lo tanto se debe de mapear a nuestra carpeta de fuentes de SGDK.
 * _cwd_: Indica el directorio de trabajo.
 * _MIMode_: Indica el modo de depurador en este caso se trata de gdb.
 * _miDebuggerPath_: Ruta donde se encuentra GDB; en este caso se usa el integrado en SGDK. Puede definirse otro.
@@ -136,18 +136,20 @@ Podemos ver algunas propiedades en este fichero:
 
 Tras visualizar esta configuración, podemos generar la rom con opciones de depuración, usando el comando de _Genesis Code: Compile For Debugging_; para generar la rom añadiendo la tabla de símbolos y todo lo necesario para depurar.
 
-Por último, ya podemos ejecutar la depuración en el propio editor de Visual Studio Code; si todo va correctamente, podremos ver algo como la siguiente pantalla.
+Por último, ya podemos ejecutar la depuración en el propio editor de Visual Studio Code; Si establecemos un punto de ruptura y todo va correctamente, podremos ver algo como la siguiente pantalla.
 
 ![Depuración con VsCode](16Debug/img/vscodedebug.png "Depuración con VsCode")
 _Depuración con VsCode_
 
 **NOTA**: Para Sistemas Linux usando GENDEV, no esta disponible la depuración debido a que GENDEV no incluye las tablas de símbolos de SGDK.
 
+**NOTA2**: Un punto de ruptura, es una línea o punto en el código fuente donde el depurador detendrá la ejecución del programa y podremos ver tanto las instrucciones como las variables y sus valores.
+
 ## Ejemplo de depuración usando KLog
 
 Tras ver las herramientas y como poder depurar, vamos a mostrar el ejemplo de esta sección y de como poder utilizar las trazas correctamente; para ello, vamos a crear un ejemplo muy sencillo que nos mandará una traza cuando pulsemos un botón (A, B o C). Recuerda que este ejemplo, lo puedes encontrar en el repositorio de ejemplos que acompaña a este libro; correspondiente a la carpeta _ej17.klog_.
 
-En primer lugar definimos la función que gestionará los controles. para este ejemplo de forma asíncrona; que será la función ```handleAsyncInput```. En esta función, vamos a revisar cuando se pulsa el botón A, B o C; guardando cada botón en una variable. Veamos un fragmento:
+En primer lugar definimos la función que gestionará los controles. Para este ejemplo utilizaremos los controles de forma asíncrona. Por lo que crearemos la función ```handleAsyncInput``` para gestionar los controles. En esta función, vamos a revisar cuando se pulsa el botón A, B o C; guardando cada botón en una variable. Veamos un fragmento:
 
 ```c
 char button='\0';
@@ -173,7 +175,7 @@ Si ya compilamos y ejecutamos este ejemplo, al pulsar una tecla, podemos ver en 
 ![Consola Depuración Blastem](16Debug/img/blastemconsole.png "Consola Depuración Blastem")
 _Ejemplo 17: Consola Depuración Blastem_
 
-Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la consola de 16 bits; y esperemos que al lector le haya gustado. Además de que esperemos que esto te anime a crear tus propios juegos y publicar más software casero o "homeBrew". Por supuesto no me olvido de darte las gracias personalmente por tu lectura.
+Tras ver nuestro último ejemplo, ya damos por finalizado nuestro viaje por la consola de 16 bits; y esperemos que al lector le haya gustado. Además de que esperemos que esto te anime a crear tus propios juegos y publicar más software casero o "HomeBrew". Por supuesto no me olvido de darte las gracias personalmente por tu lectura.
 
 ## Referencias
 
