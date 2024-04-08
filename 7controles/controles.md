@@ -4,7 +4,7 @@ En el último capítulo, ya pudimos ver nuestro primer ejemplo y ver como comenz
 
 En este capítulo, ya comenzamos a hablar sobre conceptos sobre desarrollo de videojuegos y vamos a ver los distintos módulos o partes con las que tenemos que tratar a la hora de crear nuestro juego. Una de las partes más importantes a la hora de crear un videojuego; se trata de los controles para interactuar con el juego.
 
-Es una de las partes más importantes el poder usar controles ya que de otra forma, no se podría controlar al personaje o hacer cualquier acción en el juego. Ya sea a través de un controlador, o cualquier otro dispositivo que permita enviar información a la consola y esta sea capaz de actuar en consecuencia dentro de nuestro juego.
+Es una de las partes más importantes el poder usar controles ya que de otra forma, no se podría controlar al personaje o hacer cualquier acción en el juego. Ya sea a través de un controlador, o cualquier otro dispositivo que permite enviar información a la consola y esta sea capaz de actuar en consecuencia dentro de nuestro juego.
 
 En este capítulo, vamos a mostrar como utilizar estos controles; a través de distintos ejemplos para distintos dispositivos como pueden ser los controladores para Sega Mega Drive de 3 o 6 botones, o incluso el ratón _Sega Mouse_.
 
@@ -12,7 +12,7 @@ En este capítulo, vamos a mostrar como utilizar estos controles; a través de d
 
 Para Sega Mega Drive, se crearon numerosos dispositivos de entrada; desde controladores  de 3 o 6 botones, el famoso _Sega Mouse_, pistolas de luz como la famosa _The Justifier_ que permitía jugar a juegos de puntería con una pistola y sin olvidar, el Sega Activator se define como un control de movimiento para Sega Mega Drive.
 
-Obviamente es importante recordar que la Sega Mega Drive, tenía 2 puertos de entrada tipo Atari o DE-9. En el cual se conectaban los dispositivos. Aunque era ampliable gracias a otros dispositivos como el _Super Multi Play_; que permitía conectar hasta 4 controladores por puerto; o algunos juegos como el _Micro Machines 2_ [^44] que incluía 2 puertos adicionales en el propio cartucho.
+Obviamente es importante recordar que la Sega Mega Drive, tenía 2 puertos de entrada tipo Atari o DE-9. En el cual se conectan los dispositivos. Aunque era ampliable gracias a otros dispositivos como el _Super Multi Play_; que permitía conectar hasta 4 controladores por puerto; o algunos juegos como el _Micro Machines 2_ [^44] que incluía 2 puertos adicionales en el propio cartucho.
 
 Para comprender mejor el conector DE-9 y como se compone para un controlador de 3 botones:
 
@@ -28,14 +28,14 @@ Donde:
 5. Vcc
 6. C/Start
 7. GND
-8. Select (dependiendo de si esta a 1 o 0 se realizará una función u otra en los pines 6 o 9).
+8. Select (dependiendo de si está a 1 o 0 se realizará una función u otra en los pines 6 o 9).
 9. A/B
 
-[^44]: Micro Machines 2: Turbo Tournament fue un juego publicado por codemasters y que permitía jugar hasta 4 jugadores simultáneos.
+[^44]: Micro Machines 2: Turbo Tournament fue un juego publicado por Codemasters y que permitía jugar hasta 4 jugadores simultáneos.
 
-Si necesita conocer más sobre los distintos controladores y como se componen, hemos dejado información adicional en las referencias de este capítulo.
+Si necesita conocer más sobre los distintos controladores y cómo se componen, hemos dejado información adicional en las referencias de este capítulo.
 
-En este apartado, vamos a ver algunos de ellos para comentar sus características, y que versiones se pueden encontrar.
+En este apartado, vamos a ver algunos de ellos para comentar sus características, y qué versiones se pueden encontrar.
 
 ### Controlador de 3 Botones
 
@@ -52,39 +52,39 @@ _Controlador 3 botones_
 
 Otra versión del controlador para Sega Mega Drive, es el controlador de 6 botones; que añadía tres botones adicionales (X,Y y Z). Esta versión era utilizada por algunos juegos como _Comix Zone_ [^45] o incluso _Streets of Rage 3_ [^46].
 
-Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsaba al iniciar el juego, se cambiaba el modo del mismo [^47].
+Además, como había algunos juegos que no eran compatibles con el modo 6 botones, se añadió un botón adicional, que permitía usar el mando en modo "3 botones". Este botón llamado _MODE_, si se pulsa al iniciar el juego, se cambiaba el modo del mismo [^47].
 
 ![Controlador 6 botones](7controles/img/md6buttons.jpg "Controlador 6 botones")
 _Controlador 6 botones de la marca retro-bit._
 
 [^45]: Comix Zone es un videojuego desarrollado por Sega y publicado en el año 1995.
-[^46]: Streets of Rage 3, es la tercera entrega de la saga de Streets of rage, publicado en el año 1994.
+[^46]: Streets of Rage 3, es la tercera entrega de la saga de Streets of Rage, publicada en el año 1994.
 [^47]: El mando de la imagen no es oficial, pero si tiene licencia para Sega Mega Drive. En las referencias puede encontrar un enlace de compra.
 
 ### Sega Mouse
 
 Otro de los periféricos que podemos encontrar para Sega Mega Drive es el famoso _Sega Mouse_; se trataba de un ratón con 2 botones con distintas versiones. Permitía jugar a algunos juegos que eran compatibles. Como el famoso _lemmings 2_ [^48], o _Cannon Fodder_ [^49].
 
-El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega America por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
+El ratón de 2 botones, permitía usar los botones A y B; sin embargo, para usar el botón C, la propia Bola del ratón era clickable; lo cual permitía mayor compatibilidad. Sin embargo, el Sega Mouse, no llegó a Sega América por lo que solo se pudo ver en Japón y Europa. Pero si tuvo su propia versión llamada _Mega Mouse_ que tenía 3 botones y un botón start; eliminando la posibilidad de hacer click con la propia Bola del ratón.
 
-[^48]: Lemmings; era un juego de estrategia donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenia una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
+[^48]: Lemmings; era un juego de estrategia donde se controlaban unos simpáticos personajes llamados lemmings, que cada uno tenía una función y se tenía que resolver un puzzle. La versión de Mega Drive fue publicada por Sega y lanzada en el año 1992.
 [^49]: Cannon Fodder es un juego de estrategia que fue publicado para Sega Mega Drive en el año 1992.
 
 ## Programación de los controles
 
-Tras ver en detalle algunos de los dispositivos de entrada con los que podemos trabajar, vamos a mostrar como programar nuestro juego para poder utilizarlos. SGDK provee de distintos métodos para poder interactuar con los controles; ya sea mando o incluso el ratón. Por ello, vamos a mostrar tres ejemplos de distintos métodos con los que se pueden encontrar para desarrollar nuestro juego.
+Tras ver en detalle algunos de los dispositivos de entrada con los que podemos trabajar, vamos a mostrar cómo programar nuestro juego para poder utilizarlos. SGDK provee de distintos métodos para poder interactuar con los controles; ya sea mando o incluso el ratón. Por ello, vamos a mostrar tres ejemplos de distintos métodos con los que se pueden encontrar para desarrollar nuestro juego.
 
-En primer lugar, veremos como saber de que tipo de controlador se esta utilizando (3, 6 botones o mouse). Además, Vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma síncrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuales de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
+En primer lugar, veremos cómo saber de que tipo de controlador se está utilizando (3, 6 botones o mouse). Además, vamos a mostrar 2 formas de poder leer la entrada de nuestros controladores, el primero de forma síncrona, y el segundo de forma asíncrona; el primero lee en todo momento si se ha pulsado un botón y pregunta cuáles de ellos han sido. El segundo método, utiliza las interrupciones del procesador, para poder definir una rutina de interrupción para cada pulsación.
 
-Por último, mostraremos un ejemplo de como utilizar el ratón para Sega Mega Drive (puede usarse un emulador para utilizar el ratón de nuestro ordenador).
+Por último, mostraremos un ejemplo de cómo utilizar el ratón para Sega Mega Drive (puede usarse un emulador para utilizar el ratón de nuestro ordenador).
 
 ### Tipo de Controlador
 
-Si nuestro juego es compatible con distintos dispositivos; como puede ser un controlador de 3 o de 6 botones, ratón o incluso pistola, podemos usar la función ```JOY_getPortType```, para poder saber que tipo de dispositivo de entrada esta conectado a un puerto.
+Si nuestro juego es compatible con distintos dispositivos; como puede ser un controlador de 3 o de 6 botones, ratón o incluso pistola, podemos usar la función ```JOY_getPortType```, para poder saber que tipo de dispositivo de entrada está conectado a un puerto.
 
 La función ```JOY_getPortType```, tiene los siguientes parámetros:
 
-* ```u16 port``` Indica el puerto por el cual esta conectado; puede tener los siguientes valores:
+* ```u16 port``` Indica el puerto por el cual está conectado; puede tener los siguientes valores:
     * ```PORT_1```: indica el primer puerto de la consola.
     * ```PORT_2```: indica el segundo puerto de la consola.
 
@@ -115,7 +115,7 @@ Además, se puede detectar el tipo de controlador para cada mando detectado; si 
     * ...
     * ```JOY_8```: Para indicar el controlador número 8.
 
-Esta función devuelve un valor entero que nos va a permitir comparar con distintos valores para saber de que tipo de controlador se trata; puede tener los siguientes valores:
+Esta función devuelve un valor entero que nos va a permitir comparar con distintos valores para saber de qué tipo de controlador se trata; puede tener los siguientes valores:
 
 * ```JOY_TYPE_PAD3```: 3 buttons GamePad.
 * ```JOY_TYPE_PAD6```: 6 buttons GamePad.
@@ -131,7 +131,7 @@ Esta función devuelve un valor entero que nos va a permitir comparar con distin
 
 La primera manera de poder usar los controles es de forma síncrona; esto quiere decir que en cada frame de nuestro juego, se va a leer el estado de los botones pulsados para cada uno de los controladores que tengamos conectados.
 
-Para comprender mejor como leer el estado de los controles de esta manera, puede ver el ejemplo llamado _ej2.controls1_ que encontrará en el repositorio de ejemplos que acompañan a este libro. Este ejemplo, nos mostrará por pantalla los botones que tengamos pulsados. En este caso se basa en un controlador de 3 botones; por que solo se podrán visualizar las direcciones y los botones A,B,C y Start.
+Para comprender mejor cómo leer el estado de los controles de esta manera, puede ver el ejemplo llamado _ej2.controls1_ que encontrará en el repositorio de ejemplos que acompañan a este libro. Este ejemplo, nos mostrará por pantalla los botones que tengamos pulsados. En este caso se basa en un controlador de 3 botones; por que solo se podrán visualizar las direcciones y los botones A,B,C y Start.
 
 En este ejemplo, podrá ver que se ha creado un fichero llamado ```constants.h``` y que incluye una serie de constantes como las posiciones X e Y de los distintos mensajes a mostrar, en tiles. Este fichero se encuentra en el directorio _inc_; del proyecto.
 
@@ -143,13 +143,13 @@ Si observamos el código, podemos ver que se utilizan la función ```JOY_readJoy
     * ...
     * ```JOY_8```: Para indicar el controlador número 8.
 
-Esta función, devuelve un número entero ```u16```; el cual contiene el estado actual del controlador; puede usarse el operador ```&``` para saber que botones se están utilizando; como podemos ver en el ejemplo:
+Esta función, devuelve un número entero ```u16```; el cual contiene el estado actual del controlador; puede usarse el operador ```&``` para saber qué botones se están utilizando; como podemos ver en el ejemplo:
 
 ```c
   if (value & BUTTON_UP)
 ```
 
-El anterior fragmento, comprueba que se esta pulsando la dirección hacia arriba; podemos comprobar los siguientes botones:
+El anterior fragmento, comprueba que se está pulsando la dirección hacia arriba; podemos comprobar los siguientes botones:
 
 * ```BUTTON_UP```: Dirección Arriba.
 * ```BUTTON_DOWN```: Dirección Abajo.
@@ -189,13 +189,13 @@ _Ejemplo 2: Controles Síncronos_
 
 ### Asíncronos
 
-Hasta ahora hemos podido ver como poder leer los distintos controles usando la forma síncrona; es decir, que en cada frame se lee las teclas pulsadas en los distintos controles y se comprueban todos los controles se estén pulsando o no.
+Hasta ahora hemos podido ver como poder leer los distintos controles usando la forma síncrona; es decir, que en cada frame se lee las teclas pulsadas en los distintos controles y se comprueban todos los controles se están pulsando o no.
 
 Esto puede hacer a la larga que sea más engorroso y que puede hacer que se ralentice nuestro juego; por ello gracias a que el procesador Motorola 68000 tiene interrupciones, podemos usar una función que maneje los eventos cuando pulsemos una tecla.
 
-Una interrupción, es una señal recibida por el procesador; el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; además de realizar una serie de acciones y una vez terminada, el procesador continua con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
+Una interrupción, es una señal recibida por el procesador; el cual para la tarea actual, y ejecuta una función llamada subrutina de interrupción; además de realizar una serie de acciones y una vez terminada, el procesador continúa con la tarea anterior. Con una interrupción, se pueden manejar de forma óptima los eventos recibidos desde el hardware.
 
-SGDK, nos permite crear una función para manejar los eventos de los controles de forma asíncrona; de tal forma que solo actuará si se ha pulsado una tecla:
+SGDK, nos permite crear una función para manejar los eventos de los controles de forma asíncrona; de tal forma que sólo actuará si se ha pulsado una tecla:
 
 ```JOY_setEventHandler```; esta función permite definir una función que se ejecutará cuando se pulse una tecla.
 
@@ -210,7 +210,7 @@ Recibe los siguientes parámetros:
     * ```u16 changed```: Indica el botón pulsado. Por ejemplo: ```BUTTON_START```.
     * ```u16 state```: Indica el estado; es decir si ha sido pulsado o soltado. ```state=0``` indica que ha sido soltado.
 
-Una vez hemos visto como se utiliza la función para manejar los eventos de los controladores, podemos ver en el repositorio de ejemplos el ejemplo _ej3.controls2_; el cual tiene el comportamiento parecido al anterior ejemplo; sin embargo, podemos ver que se ha definido la función para manejar los distintos eventos.
+Una vez hemos visto cómo se utiliza la función para manejar los eventos de los controladores, podemos ver en el repositorio de ejemplos el ejemplo _ej3.controls2_; el cual tiene el comportamiento parecido al anterior ejemplo; sin embargo, podemos ver que se ha definido la función para manejar los distintos eventos.
 
 ```c
     JOY_init();
@@ -240,7 +240,7 @@ Vemos que la función ```inputHandler```, recibe los tres parámetros comentados
 * _changed_: botón pulsado.
 * _state_: estado del botón (pulsado o soltado).
 
-Observamos como se compara la variable changed, con state y un botón; de esta forma se comprueba que sólo se realizará la acción, cuando se pulse el botón correspondiente y no cuando se suelta.
+Observamos cómo se compara la variable changed, con state y un botón; de esta forma se comprueba que sólo se realizará la acción, cuando se pulse el botón correspondiente y no cuando se suelta.
 
 ![Ejemplo 3: Controles Asíncronos](7controles/img/ej3.png "Ejemplo 3: Controles Asíncronos")
 _Ejemplo 3: Controles Asíncronos_
@@ -249,13 +249,13 @@ _Ejemplo 3: Controles Asíncronos_
 
 Hasta ahora, hemos estado trabajando con los controladores; ya sean de 3 o de 6 botones; sin embargo, puede ser interesante, ofrecer soporte para usar ratón en nuestros juegos. En esta sección, vamos a ver cómo poder leer el ratón _Sega Mouse_, usando SGDK.
 
-En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador que permita usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
+En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador que permite usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
 
 Hemos creado un nuevo ejemplo; en el repositorio de ejemplos para este libro; recuerda que puedes encontrarlo en:
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
-El ejemplo que vamos a tratar aquí, es _ej4.mouse_ El cual nos va a mostrar por pantalla las coordenadas X e Y del ratón. No se mostrará por pantalla el cursor; esto lo veremos más adelante cuando usemos Sprites.
+El ejemplo que vamos a tratar aquí, es _ej4.mouse_ el cual nos va a mostrar por pantalla las coordenadas X e Y del ratón. No se mostrará por pantalla el cursor; esto lo veremos más adelante cuando usemos Sprites.
 
 En primer lugar, se va a habilitar el soporte para usar el ratón; usando la función ```JOY_setSupport``` la cual nos va a permitir habilitar el soporte para distintos dispositivos; veamos como funciona esta función:
 
@@ -278,7 +278,7 @@ En primer lugar, se va a habilitar el soporte para usar el ratón; usando la fun
     * ```JOY_SUPPORT_ANALOGJOY```: Sega analog joypad (Todavía no soportado).
     * ```JOY_SUPPORT_KEYBOARD```: Sega keyboard (Todavía no soportado).
 
-También podemos ver la función ```sprintf``` la cual nos va a permitir mostrar por pantalla los valores de las distintas variables. Esta función funciona exactamente igual que su homónima de la librería standard de C.
+También podemos ver la función ```sprintf``` la cual nos va a permitir mostrar por pantalla los valores de las distintas variables. Esta función funciona exactamente igual que su homónima de la librería estándar de C.
 
 Podemos observar que hay una función llamada ```read_mouse``` la cual será la encargada de leer las coordenadas del ratón.
 
