@@ -4,7 +4,7 @@ Bienvenido a este libro sobre creación y desarrollo de software Homebrew para S
 
 Aunque alguno puede pensar que soy algo joven (37 años recién cumplidos) para la Mega Drive, supongo que por el ámbito familiar y por haber tenido una de pequeño, siempre me dejo marca pasar horas y horas jugando a Sonic & Knuckles[^2] o al World Of Illusion[^3].
 
-Muchos recordaran los tiempos del spectrum donde usaban revistas donde venían pequeños juegos que debíamos escribir a mano (Normalmente en BASIC o ensamblador), donde cualquier mínimo error hacia que nuestro juego no funcionase. Por suerte, hoy en día se utilizan herramientas más modernas que usar BASIC o ensamblador. Como puede ser utilizar lenguaje C junto a alguna librería como SGDK o editores más modernos que nos ayuden en el desarrollo de nuestro juego.
+Muchos recordaran los tiempos del Spectrum donde usaban revistas donde venían pequeños juegos que debíamos escribir a mano (Normalmente en BASIC o ensamblador), donde cualquier mínimo error hacia que nuestro juego no funcionase. Por suerte, hoy en día se utilizan herramientas más modernas que usar BASIC o ensamblador. Como puede ser utilizar lenguaje C junto a alguna librería como SGDK o editores más modernos que nos ayuden en el desarrollo de nuestro juego.
 
 Por supuesto que existen lenguajes más modernos. Pero queremos recordar que normalmente se utilizaba ensamblador para los desarrollos y que al menos usando C nos abstraeremos del mismo. No quiere decir que no se pueda seguir utilizando ya que a día de hoy, muchos siguen trabajando con ensamblador.
 

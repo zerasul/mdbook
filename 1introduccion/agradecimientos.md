@@ -20,6 +20,6 @@ También agradecer a mis queridos amigos de Canarias, Jesús y Yurena, que siemp
 
 No puedo olvidarme por supuesto, a mi gente del WoW (ahora de Microsoft), como pueden ser Laikhas, Sharedia, Corvec e Hydrargiros; además de la gente de la hermandad _Leyendas del Olvidado_. Que siempre me han tenido que aguantar tantos años después.
 
-Sin olvidar a mi familia que tanto me ha dado y ahora soy yo quien quiere devolverles el favor. No olvidando por el que tuve mi primera Mega Drive y por el que creo que fue por el que seguí el camino de la tecnología; mi primo Jose Luís Egea "Tronko".
+Sin olvidar a mi familia que tanto me ha dado y ahora soy yo quien quiere devolverles el favor. No olvidando por el que tuve mi primera Mega Drive y por el que creo que fue por el que seguí el camino de la tecnología; mi primo José Luís Egea "Tronko".
 
-Por último agradecer al grupo de desarrollo de Mega Drive de Telegram; que mucho me han enseñado; además de animarme a seguir avanzando en este mundillo del homebrew; que espero que les guste y ayude en sus proyectos. Además de agradecer los consejos de Alice para las mejoras para esta segunda edición.
+Por último agradecer al grupo de desarrollo de Mega Drive de Telegram; que mucho me han enseñado; además de animarme a seguir avanzando en este mundillo del Homebrew; que espero que les guste y ayude en sus proyectos. Además de agradecer los consejos de Alice para las mejoras para esta segunda edición.

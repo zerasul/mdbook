@@ -81,7 +81,7 @@ _Cartucho ROM PCB_
 
 El VDP, es el chip gráfico que permite a la Mega Drive, poder mostrar todo su potencial. Se trata de un chip integrado Yamaha YM7101; (junto con el chip de sonido PSG, conforman el circuito integrado Sega-Yamaha IC6).
 
-El VDP de la mega drive es una evolución de su predecesor de la Sega master System. Amplia funcionalidad y aumenta su potencia. El chip VDP tiene una frecuencia de reloj de 13,423294Mhz para NTSC y de 13,300856Mhz para Sistemas PAL [^19].
+El VDP de la mega drive es una evolución de su predecesor de la Sega Master System. Amplia funcionalidad y aumenta su potencia. El chip VDP tiene una frecuencia de reloj de 13,423294Mhz para NTSC y de 13,300856Mhz para Sistemas PAL [^19].
 
 Estaba conectado a través del un bus de 16 bit al Motorola 68K y permitía distintas resoluciones:
 

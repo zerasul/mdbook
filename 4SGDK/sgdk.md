@@ -117,8 +117,8 @@ Xeno Crisis [^29], es un juego de perspectiva isométrica, que nos permite lucha
 
 Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Switch e incluso versiones para Xbox, Playstation, Neo-geo y DreamCast. También se trabaja en una versión para SNES.
 
-Puedes consultar las versiones de este juego en el kickstarter del mismo:
-[https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/](https://www.kickstarter.com/projects/1676714319/xeno-crisis-a-new-game-for-the-sega-genesis-mega-d/)
+Puedes consultar las versiones de este juego en la web del estudio:
+[https://www.bitmapbureau.com/games/xeno-crisis](https://www.bitmapbureau.com/games/xeno-crisis)
 
 [^29]: Xeno Crisis es publicado y desarrollado por el estudio Bitmap Bureau. Todos los derechos Reservados.
 
@@ -132,7 +132,7 @@ Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponi
 
 Puede encontrarse más información en su página web:
 
-[https://neofid-studios.com/en/home-3/](https://neofid-studios.com/en/home-3/)
+[https://neofid-studios.com/](https://neofid-studios.com/)
 
 [^30]: Demons of Asteborg es un juego publicado y desarrollado por neofid-studios. Todos los derechos reservados.
 
@@ -268,7 +268,7 @@ La utilización de Docker, es válida en los tres sistemas Operativos más conoc
 
 Si necesita conocer más sobre Docker, recomendamos el libro _Aprender Docker. Un enfoque Práctico_ escrito por _José Juan Sánchez_ (En las referencias de este capítulo puede encontrar un enlace al libro).
 
-Para poder utilizar SGDK con docker, primero necesitaremos generar una imagen con SGDK; por ello utilizaremos un fichero ```Dockerfile``` que nos indicará las instrucciones necesarias para generar la imagen del contenedor.
+Para poder utilizar SGDK con Docker, primero necesitaremos generar una imagen con SGDK; por ello utilizaremos un fichero ```Dockerfile``` que nos indicará las instrucciones necesarias para generar la imagen del contenedor.
 
 Para generar la imagen, descargaremos la última versión de SGDK del repositorio del mismo (el mismo paso que para Windows). Una vez hecho esto, ejecutaremos la siguiente instrucción en la carpeta donde se encuentre SGDK:
 

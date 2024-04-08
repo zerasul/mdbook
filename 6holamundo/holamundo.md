@@ -213,7 +213,7 @@ Indica donde comienza y donde termina la ROM; estos valores son calculados por S
 
 **sram_start y sram_end**
 
-Si nuestra ROM utiliza SRAM para almacenar datos, se deben definir las direcciones de inicio y de fin. también se debe definir ```sram_type```para indicar el tipo de SRAM a utilizar.
+Si nuestra ROM utiliza SRAM para almacenar datos, se deben definir las direcciones de inicio y de fin. también se debe definir ```sram_type``` para indicar el tipo de SRAM a utilizar.
 
 **modem_support**
 

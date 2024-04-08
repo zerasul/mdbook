@@ -239,7 +239,7 @@ A continuación, podemos ver la llamada a la función ```VDP_drawImageEx```; la 
 
 Hemos podido ver que para definir el Tile base por el que cargar la imagen, se puede utilizar la macro ```TILE_ATTR_FULL```; la cual recibe los siguientes parámetros:
 
-* _PalIndex_: Índice de la paleta a utilizar. Puede ser ```PAL0```, ```PAL2```, ```PAL2```, ```PAL3```. Para indicar las 4 paletas disponibles.
+* _PalIndex_: Índice de la paleta a utilizar. Puede ser ```PAL0```, ```PAL1```, ```PAL2``` o ```PAL3```. Para indicar las 4 paletas disponibles.
 * _Prioridad_: Indica la prioridad por la que se cargará. ```TRUE``` para prioridad alta, o ```FALSE```; para prioridad baja.
 * _VFLIP_: Espejado Vertical. Indica si estará espejado verticalmente (```TRUE``` para espejado o ```FALSE``` en caso contrario).
 * _HFLIP_: ESpejado Horizontal. Indica si estará espejado horizontalmente  (```TRUE``` para espejado o ```FALSE``` en caso contrario).
