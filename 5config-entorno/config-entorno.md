@@ -1,6 +1,6 @@
 # 5. Configurar Entorno de Desarrollo
 
-Ya hemos podido ver el marco de trabajo o librerías que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudaran a acelerar el proceso de creación de nuestro juego.
+Ya hemos podido ver el marco de trabajo o librerías que vamos a utilizar para desarrollar nuestros videojuegos para Sega Mega Drive. Sin embargo, para poder trabajar de forma más eficiente, necesitaremos instalar y configurar una serie de herramientas que nos ayudarán a acelerar el proceso de creación de nuestro juego.
 
 En este capítulo, vamos a ver las herramientas que se pueden utilizar a la hora de crear no sólo el código de nuestro juego; sino también, todos los recursos necesarios para el mismo; como pueden ser las imágenes, sonidos, etc.
 
@@ -8,7 +8,7 @@ Las herramientas que comentamos en este capítulo, son opcionales ya que cada de
 
 Comenzaremos hablando del entorno de desarrollo, y posteriormente nos centraremos en otras herramientas como los emuladores, o incluso herramientas que podemos utilizar para manejar los gráficos.
 
-El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no nos centraremos en detalle de como utilizar cada herramienta si que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
+El objetivo de este capítulo, es configurar un entorno de desarrollo de forma sencilla; por lo que no nos centraremos en detalle de cómo utilizar cada herramienta sino que daremos enlaces a manuales y recursos para cada una de las herramientas utilizadas, al final de este capítulo.
 
 ## Editor de Texto
 
@@ -39,10 +39,10 @@ Para aquellos que no estén familiarizados con este editor de texto, os dejamos 
 
 [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
 
-Con Visual Studio code se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándolas manualmente).
+Con Visual Studio code se puede desarrollar fácilmente y se pueden ampliar sus funcionalidades de forma muy sencilla, gracias al repositorio de extensiones que incluye (o incluso instalándose manualmente).
 
 [^37]: Visual Studio Code es una marca registrada de Microsoft Corporation Ltd.
-[^38]: intellisense es una marca registrada de Microsoft Corporation ltd.
+[^38]: intellisense es una marca registrada de Microsoft Corporation Ltd.
 
 En este libro vamos a recomendar algunas de ellas; aunque es solo una recomendación; ya que pueden usarse las que más guste al lector.
 
@@ -81,7 +81,7 @@ _Extensión Genesis Code_
 
 Una vez localizada, pulsaremos el botón _install_ (o instalar), y la extensión quedará instalada.
 
-Ademas, puede instalarse manualmente, descargando la última versión del repositorio del proyecto:
+Además, puede instalarse manualmente, descargando la última versión del repositorio del proyecto:
 
 [https://github.com/zerasul/genesis-code/releases](https://github.com/zerasul/genesis-code/releases)
 
@@ -107,16 +107,16 @@ Las opciones disponibles son:
 
 * custom-makefile: Permite usar un fichero Makefile personalizado para generar la rom. Si no se especifica, utilizará el del propio SGDK.
 * Docker Tag: Indica el nombre de la imagen Docker con SGDK. Si no se indica, se utilizará el nombre de _sgdk_.
-* Doragasu Image: Comprueba que la imagen Docker utilizada esta basada en las creadas por _Doragasu_.
+* Doragasu Image: Comprueba que la imagen Docker utilizada está basada en las creadas por _Doragasu_.
 * GDK: sobrescribe la variable de entorno GDK apuntando a la instalación de SGDK (solo Windows).
 * GENDEV: sobrescribe la variable de entorno GENDEV apuntando a la instalación de Gendev (solo Linux).
 * Gens path: Indica la ruta del ejecutable donde se encuentre el emulador que se va a utilizar.
 * Add Status bar Buttons: Si se activa, añade botones con los comandos más utilizados a la barra de estado.
 * MARSDEV: sobrescribe la variable de entorno MARSDEV apuntando a la instalación de MarsDev.
 * Toolchain Type: Indica el tipo de herramienta que utilizará para usar SGDK; puede tener los siguientes valores:
-    * sgdk/gendev: Utiliza SGDK o Gendev (windows o Linux).
-    * marsdev: Utiliza MARSDEV como entorno para llamar a SGDK.
-    * Docker: Utiliza un contenedor Docker para crear la ROM.
+    * _sgdk/gendev_: Utiliza SGDK o Gendev (windows o Linux).
+    * _marsdev_: Utiliza MARSDEV como entorno para llamar a SGDK.
+    * _Docker_: Utiliza un contenedor Docker para crear la ROM.
 
 ## Emulador
 
@@ -124,7 +124,7 @@ A la hora de desarrollar nuestro juego, es importante poder probar el progreso d
 
 Además, algunos de estos emuladores tienen herramientas que nos pueden ayudar a depurar nuestros juegos; como depuración tanto del 68K como del Z80, visor de los gráficos en el VDP, visor de Planos o Sprites,etc.
 
-Vamos a ver un par de ejemplos de emulador; es importante destacar que el lector, puede usar con el que mejor se maneje cuando este trabajando en su proyecto Homebrew.
+Vamos a ver un par de ejemplos de emuladores; es importante destacar que el lector, puede usar con el que mejor se maneje cuando esté trabajando en su proyecto Homebrew.
 
 Es importante saber, que aunque usemos un emulador, nunca se podrá emular el hardware 100%; por lo que aunque podamos emular el juego, si es interesante poder probarlo en un hardware es más, a ser posibles en distintos modelos de Mega Drive.
 
@@ -160,7 +160,7 @@ La otra forma, es a partir de la configuración de Genesis Code podemos añadir 
 
 ### Blastem
 
-Otro emulador conocido, es _Blastem_; este emulador, permite emular con bastante precisión, el hardware de la Mega Drive; además de tener una serie de herramientas como el visor de las paletas y colores del VDP. Blastem es Software libre bajo la licencia GNU GPL v3.
+Otro emulador conocido, es _Blastem_; este emulador, permite simular con bastante precisión, el hardware de la Mega Drive; además de tener una serie de herramientas como el visor de las paletas y colores del VDP. Blastem es Software libre bajo la licencia GNU GPL v3.
 
 Este emulador tiene las siguientes características:
 
@@ -193,13 +193,13 @@ A la hora de trabajar en un videojuego, es igualmente importante trabajar el có
 
 GIMP (Gnu Image Manipulation Program), es un programa de edición de imágenes en forma de mapa de bits; este programa es de código abierto y tiene una licencia GPLv3.
 
-La primera versión de este programa salió en el año 1995 en la universidad de Berkley; y desde entonces se ha convertido en parte del proyecto GNU [^40]. GIMP, nos va a ayudar a modificar las imágenes para poder usarlas en nuestros proyectos.
+La primera versión de este programa salió en el año 1995 en la universidad de Berkeley; y desde entonces se ha convertido en parte del proyecto GNU [^40]. GIMP, nos va a ayudar a modificar las imágenes para poder usarlas en nuestros proyectos.
 
 [^40]: Proyecto GNU: [https://www.gnu.org/home.es.html](https://www.gnu.org/home.es.html)
 
-Permite modificar imágenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imágenes (BMP, PNG, JPG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
+Permite modificar imágenes digitalizadas a través de sus muchas herramientas que trae integrado como pueden ser recortar, escalar, modificar las propiedades de la imagen (reordenar la paleta). GIMP, es compatible con muchos formatos de imágenes (BMP, PNG, JPEG, TIFF, PSD); por lo que puede ser una buena herramienta para convertir en los formatos que necesitemos.
 
-Además de las herramientas que trae integradas, se pueden añadir más herramientas gracias a la extensiones de este programa.
+Además de las herramientas que trae integradas, se pueden añadir más herramientas gracias a las extensiones de este programa.
 
 ![GIMP](5config-entorno/img/GIMP2.png "GIMP")
 _GIMP_
@@ -218,7 +218,7 @@ Además, también nos va a permitir manejar la paleta de colores para nuestros g
 
 Aseprite permite exportar nuestras animaciones de forma sencilla en distintos formatos, o crear un patrón que podamos utilizar posteriormente en nuestro juego.
 
-Aseprite no es código abierto, y tiene un coste de 19.99$; el cual se puede adquirir desde su página web.
+Aseprite no es código abierto, y tiene un costo de 19.99$; el cual se puede adquirir desde su página web.
 
 [https://www.aseprite.org/](https://www.aseprite.org/)
 
@@ -229,7 +229,7 @@ Entre sus muchas características, podemos ver:
 * Creación de Patrones.
 * Crear Hojas de Sprites.
 * Creación de pinceles personalizados.
-* Suavizado de lineas al dibujar.
+* Suavizado de líneas al dibujar.
 
 ![Aseprite](5config-entorno/img/asersprite.png "Aseprite")
 _Aseprite_
@@ -238,7 +238,7 @@ _Aseprite_
 
 Por último, a la hora de crear nuestros juegos muchas veces necesitaremos herramientas para poder crear nuestros niveles a partir de bibliotecas de elementos gráficos (también llamados TileSets); por ello, podemos recomendar la utilización de la herramienta Tiled.
 
-Esta herramienta de código Abierto, nos va a permitir crear nuestros propios mapas, a partir de distintos elementos gráficos y posteriormente, podremos exportarlo a nuestros juegos.
+Esta herramienta de código abierto, nos va a permitir crear nuestros propios mapas, a partir de distintos elementos gráficos y posteriormente, podremos exportarlo a nuestros juegos.
 
 TILED, tiene una licencia GPL, sin embargo, utiliza distintos componentes que tienen diferentes licencias; para más información, consultar la licencia en el repositorio de TILED.
 

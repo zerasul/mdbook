@@ -4,7 +4,7 @@ Hasta ahora, hemos visto que es la Mega Drive y su arquitectura, conociendo cada
 
 Sin embargo, este libro trata sobre desarrollo de software casero (u HomeBrew) para Sega Mega Drive; por lo que vamos a estudiar las herramientas que necesitaremos para ello.
 
-Para desarrollar software para Mega Drive, debemos conocer como funciona el procesador Motorola 68000; además de las direcciones de memoria para acceder a periféricos, vídeo, etc...
+Para desarrollar software para Mega Drive, debemos conocer cómo funciona el procesador Motorola 68000; además de las direcciones de memoria para acceder a periféricos, vídeo, etc...
 
 Esto era importante en los años 90 cuando se desarrollaba directamente en ensamblador, ya que no se disponía herramientas como compiladores muy avanzados que pudiesen compilar a ensamblador para esta arquitectura de forma eficiente. Por ello, se utilizaba el ensamblador directamente.
 
@@ -52,7 +52,7 @@ Durante todos estos años, ha tenido una gran aceptación por la comunidad debid
 
 La librería que nos provee SGDK, está escrita en C aunque tiene otras herramientas que están escritas en otros lenguajes como Java.
 
-Actualmente (2024), se ha lanzado la versión 2.00 que incluye el nuevo driver de sonido XGM2; también tiene algunas mejoras en la inicialización de los tipos de dato al usar coma flotante; además, de algunas mejoras en el Sprite Engine.
+Actualmente (2024), se ha lanzado la versión 2.00 que incluye el nuevo driver de sonido XGM2; también tiene algunas mejoras en la inicialización de los tipos de datos al usar coma flotante; además, de algunas mejoras en el Sprite Engine.
 
 También es importante mencionar que SGDK, trae soporte para utilizar el llamado Mega Wifi[^27].
 
@@ -97,7 +97,7 @@ Rescomp es una herramienta que nos va a permitir importar todos los recursos de 
 
 Esta herramienta está escrita en Java sin embargo, utiliza otras herramientas ya escritas en otros lenguajes como C.
 
-Rescomp se basa el leer una serie de ficheros con extensión .res, que tienen definidos una serie de parámetros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
+Rescomp se basa en leer una serie de ficheros con extensión .res, que tienen definidos una serie de parámetros de los distintos datos necesarios para cada recurso; rescomp, al leer este fichero, generará un fichero .h, e importará los recursos a nuestro juego.
 
 Os dejamos un ejemplo de recurso usado por rescomp:
 
@@ -115,20 +115,20 @@ Una parte importante de SGDK, es que se utiliza para juegos ya comerciales que p
 
 Xeno Crisis [^29], es un juego de perspectiva isométrica, que nos permite luchar contra hordas y hordas de Aliens mientras sobrevivimos en distintas habitaciones y zonas.
 
-Permite jugar 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Switch e incluso versiones para Xbox, Playstation, Neo-geo y DreamCast. También se trabaja en una versión para SNES.
+Permite jugar a 2 jugadores en la Sega Mega Drive; aunque también existen ya versiones para Steam (PC), Switch e incluso versiones para Xbox, Playstation, Neo-geo y DreamCast. También se trabaja en una versión para SNES.
 
 Puedes consultar las versiones de este juego en la web del estudio:
 [https://www.bitmapbureau.com/games/xeno-crisis](https://www.bitmapbureau.com/games/xeno-crisis)
 
-[^29]: Xeno Crisis es publicado y desarrollado por el estudio Bitmap Bureau. Todos los derechos Reservados.
+[^29]: Xeno Crisis es publicado y desarrollado por el estudio Bitmap Bureau. Todos los derechos reservados.
 
 ### Demons of Asteborg
 
-Demons of Asteborg [^30] es un juego para Sega Mega Drive, que tiene una estética de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego esta publicado por Neofid-studios.
+Demons of Asteborg [^30] Es un juego para Sega Mega Drive, que tiene una estética de plataformas con movimiento lateral, en el que tiene toques RPG. Este juego está publicado por _Neofid-studios_.
 
 En este caso, solo se permite 1 jugador y puede encontrarse tanto la versión de Mega Drive, en Steam e incluso Nintendo Switch.
 
-Además, han publicado un nuevo título llamado _Astrebros_, que ya esta disponible para su compra y han sacado un nuevo KickStarter para portar un juego llamado _Daemon Clawn_.
+Además, han publicado un nuevo título llamado _Astrebros_, que ya está disponible para su compra y han sacado un nuevo KickStarter para portar un juego llamado _Daemon Clawn_.
 
 Puede encontrarse más información en su página web:
 
@@ -138,31 +138,31 @@ Puede encontrarse más información en su página web:
 
 ### Metal Dragon
 
-Metal Dragon [^31] es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sin fin de enemigos.
+Metal Dragon [^31] Es un juego para Sega Mega Drive que tiene una estética de película de acción de los años 80/90; en este juego tienes que rescatar a la hija del presidente y enfrentarte a un sin fin de enemigos.
 
-Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español _Kai Magazine Software_ el que ha desarrollado este juego y recientemente esta publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_ o _Life on Earth_. Ahora está trabajando en un nuevo título llamado _El secreto de los 4 Vientos_.
+Este juego es de 1 jugador y hay versión para Sega Mega Drive, como para MSX. Además de ser un estudio Español _Kai Magazine Software_ el que ha desarrollado este juego y recientemente está publicando su juego en la revista _beep_ para Japón. Además de publicar otros juegos como _Life On mars_ o _Life on Earth_. Ahora está trabajando en un nuevo título llamado _El secreto de los 4 Vientos_.
 
 [^31]: Metal Dragon ha sido desarrollado por el estudio español Kai Magazine Software. Todos los derechos reservados.
 
 ### 1985 World Cup
 
-1985 World cup  [^32] es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de futbol como el  _World Cup Italia 90_. Donde se enfrentarán frente a frente jugadores de todo el mundo.
+1985 World cup  [^32] Es un juego para Sega Mega Drive que nos permite revivir los grandes títulos de fútbol como el  _World Cup Italia 90_. Donde se enfrentarán frente a frente jugadores de todo el mundo.
 
-Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene una característica única; tiene integrado el llamado Mega Wi-fi; por que se permite conectar a internet via Wi-fi; y poder jugar en línea; sin necesidad de Modem; solo el propio cartucho.
+Este juego permite jugar hasta 2 jugadores en la misma máquina, y además tiene una característica única; tiene integrado el llamado Mega Wi-fi; por que se permite conectar a internet vía Wi-fi; y poder jugar en línea; sin necesidad de Modem; solo el propio cartucho.
 
-Este estudio esta trabajando en un Port de _Coloco_ para Sega Mega Drive.
+Este estudio está trabajando en un Port de _Coloco_ para Sega Mega Drive.
 
-[^32]: 1985 World cup ha sido publicado por Nape Games. Todos los derechos reservados.
+[^32]: 1985 World Cup ha sido publicado por Nape Games. Todos los derechos reservados.
 
 ## Instalación del SGDK
 
-Una vez conocidos tanto la historia del SGDK, sus componentes y visto algunos juegos realizados con el mismo, vamos a pasar a dar nuestros primeros pasos.
+Una vez conocida la historia del SGDK, sus componentes y visto algunos juegos realizados con el mismo, vamos a dar nuestros primeros pasos.
 
 En este caso, veremos la instalación del mismo en los distintos Sistemas Operativos más conocidos. Es importante destacar que estas instrucciones pueden cambiar en el tiempo desde que se escribió este libro; por lo que siempre es importante leer las instrucciones del propio repositorio.
 
 ### Windows
 
-El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^33]; en este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
+El primer Sistema Operativo que vamos a ver para instalar SGDK, es Microsoft Windows [^33]. En este caso, veremos las distintas instrucciones necesarias para instalar SGDK.
 
 En primer lugar, necesitaremos descargar una serie de dependencias que se requieren para usar SGDK como por ejemplo el entorno de ejecución Java (JRE [^34]) que nos permitirá utilizar las herramientas como _rescomp_. Puede instalarse tanto la versión de Oracle, como la versión de _openjdk_ [^35]. Dejamos la URL para poder descargar la versión de Java correspondiente:
 
@@ -186,7 +186,7 @@ GDK = <directorio donde se encuentra SGDK>
 
 Recuerda que la variable ```GDK``` es opcional y puede sustituirse por la ruta donde esté el SGDK instalado.
 
-Más adelante, veremos como utilizar el SGDK de distintas formas.
+Más adelante, veremos cómo utilizar el SGDK de distintas formas.
 
 [^33]: Microsoft Windows es una marca registrada de Microsoft Corporation.
 
@@ -222,7 +222,7 @@ sudo apt install texinfo default-jre
 
 [^36]: Debian y Ubuntu son distribuciones Linux de código abierto. Ubuntu está mantenida por Canonical Ltd.
 
-Una vez instaladas las dependencias, descargaremos el paquete _.deb_ (o el tar); del repositorio de GENDEV. En el caso de instalar usando el paquete .deb, lo instalaremos con la siguiente instrucción:
+Una vez instaladas las dependencias, descargamos el paquete _.deb_ (o el tar); del repositorio de GENDEV. En el caso de instalar usando el paquete .deb, lo instalaremos con la siguiente instrucción:
 
 ```bash
 sudo dpkg -i <fichero.deb>
@@ -242,7 +242,7 @@ export GENDEV=/opt/gendev/
 make -f $GENDEV/Makefile
 ```
 
-Más adelante, veremos en detalle como utilizar SGDK, usando GENDEV.
+Más adelante, veremos en detalle cómo utilizar SGDK, usando GENDEV.
 
 ### MarsDev
 
@@ -256,7 +256,7 @@ Podéis descargar MarsDev de su repositorio:
 
 Una vez descargado, puede usarse una variable de entorno llamada ```$MARSDEV``` que apunta al directorio donde se descargó Marsdev.
 
-Si se requiere más información acerca de cómo instalar MarsDev o de como utilizarlo dejamos enlace a su página de instalación:
+Si se requiere más información acerca de cómo instalar MarsDev o de cómo utilizarlo dejamos enlace a su página de instalación:
 
 [https://github.com/andwn/marsdev/tree/master/doc](https://github.com/andwn/marsdev/tree/master/doc)
 
@@ -264,19 +264,19 @@ Si se requiere más información acerca de cómo instalar MarsDev o de como util
 
 El uso de contenedores (usando Docker u otra implementación), cada día está más extendido; ya que nos permite configurar un contenedor de tal forma que nos abstrae por parte del software del host y la configuración es mucho más sencilla.
 
-La utilización de Docker, es válida en los tres sistemas Operativos más conocidos (en el caso de macOs; aunque hay otras maneras de utilizar SGDK, muchas están deprecadas).
+La utilización de Docker, es válida en los tres sistemas operativos más conocidos (en el caso de macOS; aunque hay otras maneras de utilizar SGDK, muchas están deprecadas).
 
-Si necesita conocer más sobre Docker, recomendamos el libro _Aprender Docker. Un enfoque Práctico_ escrito por _José Juan Sánchez_ (En las referencias de este capítulo puede encontrar un enlace al libro).
+Si necesita conocer más sobre Docker, recomendamos el libro _Aprender Docker. Un enfoque práctico_ escrito por _José Juan Sánchez_ (En las referencias de este capítulo puede encontrar un enlace al libro).
 
 Para poder utilizar SGDK con Docker, primero necesitaremos generar una imagen con SGDK; por ello utilizaremos un fichero ```Dockerfile``` que nos indicará las instrucciones necesarias para generar la imagen del contenedor.
 
-Para generar la imagen, descargaremos la última versión de SGDK del repositorio del mismo (el mismo paso que para Windows). Una vez hecho esto, ejecutaremos la siguiente instrucción en la carpeta donde se encuentre SGDK:
+Para generar la imagen, descargamos la última versión de SGDK del repositorio del mismo (el mismo paso que para Windows). Una vez hecho esto, ejecutaremos la siguiente instrucción en la carpeta donde se encuentre SGDK:
 
 ```bash
 docker build -t sgdk .
 ```
 
-Esta instrucción generará la imagen de SGDK con todo lo necesario para crear nuestras ROM Para Mega Drive.
+Esta instrucción generará la imagen de SGDK con todo lo necesario para crear nuestras ROM para Mega Drive.
 
 Una vez construida la imagen, si necesitamos crear una rom, podemos hacerlo con la siguiente instrucción:
 

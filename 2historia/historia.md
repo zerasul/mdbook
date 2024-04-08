@@ -20,7 +20,7 @@ En el año 1994, aparecieron varios sistemas (3DO, Jaguar,etc...) Sega Japón es
 
 [^5]: SNES (Super Nintendo Entertainment System): es una marca registrada de Nintendo Company Ltd.
 
-[^6]: Rocket Knight Adventures es un videojuego para Sega Mega Drive Desarrollado por Konami. Todos los derechos reservados.
+[^6]: Rocket Knight Adventures es un videojuego para Sega Mega Drive desarrollado por Konami. Todos los derechos reservados.
 
 ## Especificaciones de la Mega Drive
 
@@ -29,7 +29,7 @@ Veamos las especificaciones de la Sega Mega Drive:
 1. **CPU1**: Procesador Motorola 68000 de 16bits a 7,61Mhz (PAL) o 7,67Mhz (NTSC).
 2. **CPU2**: Procesador Zilog Z80 de 8 bits.
 3. **Memoria**: 64Kb de memoria y 64Kb de memoria de vídeo más 8Kb de memoria de sonido.
-4. **Vídeo**: Procesador VDP con resolución de 320x240 (320x224 en NTSC); con capacidad de hasta 61 colores por pantalla. Aunque tenia capacidad de mostrar hasta 512 colores diferentes.
+4. **Vídeo**: Procesador VDP con resolución de 320x240 (320x224 en NTSC); con capacidad de hasta 61 colores por pantalla. Aunque tenía capacidad de mostrar hasta 512 colores diferentes.
 5. **Sonido**: 6 Canales FM gracias al chip de sonido el Yamaha YM2612 y un chip adicional de sonido de 4 canales de 8 bits SN76489.
 6. **Entrada/salida**: Slot de cartuchos por la parte superior, dos conectores para controladores, bus de expansión y entrada de auriculares estéreo(solo modelo 1).
 
@@ -60,7 +60,7 @@ Sin embargo, el slot que trae para los cartuchos no tiene el mismo formato que p
 
 Otro de los periféricos que podemos encontrar y que podemos utilizar en algunos juegos como _lemmings_, donde podemos controlar el cursor y poder controlar el movimiento del mismo.
 
-En este libro, abordaremos como usarlo en nuestros juegos, ya que SGDK, trae soporte para Sega Mouse y algunos emuladores, permiten utilizar nuestro ratón del PC como si del ratón de Mega Drive se tratara.
+En este libro, abordaremos cómo usarlo en nuestros juegos, ya que SGDK, trae soporte para Sega Mouse y algunos emuladores, permiten utilizar nuestro ratón del PC como si del ratón de Mega Drive se tratara.
 
 ### Mega CD
 
@@ -80,7 +80,7 @@ Las especificaciones técnicas de la Mega CD son:
     * 4Mb RAM principal
     * 2Mb de VRAM.
     * 512 Kb de RAM para audio.
-    * 128 Kb de cache para CD.
+    * 128 Kb de caché para CD.
     * 64 Kb como RAM backup.
 
 ![Mega CD1](2historia/img/megacd.png "Mega CD 1")
@@ -88,9 +88,9 @@ _Sega mega CD Model 1 (Fuente: SegaRetro.org)_
 
 ### 32X
 
-El accesorio 32X (conocido en Europa como Mega Drive 32X, Sega 32X en América y Super 32X en Japón), fue principalmente comercializado inicialmente en America. Se añadía a través de la ranura de cartucho de la parte superior y ampliaba la capacidad del procesador Motorola, convirtiéndolo en un procesador de 32 bits.
+El accesorio 32X (conocido en Europa como Mega Drive 32X, Sega 32X en América y Super 32X en Japón), fue principalmente comercializado inicialmente en América. Se añadía a través de la ranura de cartucho de la parte superior y ampliaba la capacidad del procesador Motorola, convirtiéndolo en un procesador de 32 bits.
 
-Este periférico añadía su propio slot de cartucho y añadiendo nuevas funcionalidades a la Mega Drive. La Sega 32X, salió el 22 de Noviembre de 1994 en América, mientras que para Europa tuvo que esperar a enero de 1995.
+Este periférico añadía su propio slot de cartucho y añadía nuevas funcionalidades a la Mega Drive. La Sega 32X, salió el 22 de Noviembre de 1994 en América, mientras que para Europa tuvo que esperar a enero de 1995.
 
 No tuvo mucho éxito ya que a la vez, Sega estaba trabajando en la Sega Saturn; una nueva consola de 32 bits. Además de su elevado precio, y que en algunos casos necesitaba tanto 32X como Mega CD a la vez, lo cual era un gran desembolso para el consumidor.
 
@@ -102,7 +102,7 @@ Características de la 32X:
 * **Co-procesador**: Nueva VDP; además de poder utilizar el procesador Motorola 68000 de Mega Drive.
 * **RAM**: 256KB (2Mb) destinados al programa; además de 2 framebuffers de 128KB (1Mb).
 * **Paleta**: 32768 colores simultáneos en pantalla.
-* **Sonido**: Se agregaban canales extra PWM digital para un total de 12 canales junto a Mega Drive (o 22 si añadimos Mega CD).
+* **Sonido**: Se agregan canales extra PWM digital para un total de 12 canales junto a Mega Drive (o 22 si añadimos Mega CD).
 
 ![32X Europeo](2historia/img/32X_EU.jpg "32X Europeo")
 _Mega Drive 32X Europeo (Fuente: SegaRetro.org)_
@@ -115,7 +115,7 @@ Se trata de un Modem que solo estuvo disponible en Japón y que se conectaba en 
 
 En los primeros modelos de este modem, sólo se podía conectar a servicios que proveía la propia Sega.
 
-Este modem, también permitía a algunos juegos jugar online siendo uno de los primeros sistemas de entretenimiento en demostrarlo.
+Este módem, también permitía a algunos juegos jugar online siendo uno de los primeros sistemas de entretenimiento en demostrarlo.
 
 Sin embargo, la tecnología aún no estaba muy desarrollada y no funcionaba como esperaba. Aunque, sí que tuvo algunos casos de utilización para contratar algunos servicios.
 
@@ -125,12 +125,12 @@ Muchos habremos jugado con controles de movimiento como los famosos mandos de la
 
 Mucho antes de estos controles de movimiento, Sega América sacó al mercado el Sega Activator. Se trataba de un octógono con 8 sensores infrarrojos.
 
-El jugador se situaba en medio y dependiendo de que lado de dicho octógono tocase, era un botón del mando. Se trató de vender con algunos juegos como "simulador de artes marciales"; pero no tuvo mucho éxito ya que solo sacaron algunos pocos juegos para este dispositivo.
+El jugador se situaba en medio y dependiendo de qué lado de dicho octógono tocase, era un botón del mando. Se trató de vender con algunos juegos como "simulador de artes marciales"; pero no tuvo mucho éxito ya que solo sacaron algunos pocos juegos para este dispositivo.
 
 El Sega activator se publicó el año 1993 en América, y posteriormente en Brasil y Rusia.
 
 [^7]: Wii es una marca registrada de Nintendo Company Ltd. Inc.
-[^8]: Kinect y Xbox, son marcas Registradas de Microsoft Inc.
+[^8]: Kinect y Xbox, son marcas registradas de Microsoft Inc.
 
 ## Juegos y Sagas conocidas
 
@@ -142,14 +142,14 @@ No podemos olvidar, a la mascota de Sega. Sonic el Erizo (_sonic the hedgehog_ [
 
 Sonic tuvo 6 juegos para Sega Mega Drive; y algunos son considerados de los mejores juegos del sistema. Como es el caso de _Sonic 2_.
 
-La principal característica de los juegos de Sonic, es la velocidad, y se trata de juegos con Scroll normalmente horizontal (aunque también tenia vertical), con una velocidad muy alta. A veces llevando al limite la consola. Junto con un gran colorido de escenarios, hacia que Sonic fuese uno de los juegos favoritos de todos los que poseían una Mega Drive.
+La principal característica de los juegos de Sonic, es la velocidad, y se trata de juegos con Scroll normalmente horizontal (aunque también tenía vertical), con una velocidad muy alta. A veces llevando al límite la consola. Junto con un gran colorido de escenarios, hace que Sonic fuese uno de los juegos favoritos de todos los que poseían una Mega Drive.
 
 Además, gracias al juego _Sonic & Knuckles_ se incorporó el sistema Lock On. Que se trataba de una ranura para cartucho en la parte superior que añadiendo otros dos títulos, se podían conseguir dos juegos adicionales.
 
 * Si se añadía Sonic 3, se permitía jugar al juego _Sonic 3 & Knuckles_; que añadía el poder jugar como Knuckles en Sonic 3, y además disponer de características adicionales.
 * Si se añadía Sonic 2, se permitía jugar como Knuckles en Sonic 2.
 
-Además de otros títulos, no solo orientado al 2D sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tenia versión para Saturn).
+Además de otros títulos, no solo orientado al 2D sino al 3D como puede ser Sonic 3D, que fue el último título publicado de sonic para este sistema (aunque también tiene versión para Saturn).
 
 ![Sonic & Knuckles con Lock on](2historia/img/SyK.png "Sonic & Knuckles con Lock on")
 _Sonic & Knuckles (PAL) con Ranura Lock On_
@@ -158,15 +158,15 @@ _Sonic & Knuckles (PAL) con Ranura Lock On_
 
 ### Streets Of Rage
 
-Las décadas de los 80 y 90, estaban caracterizados también por un genero de juego que hoy en día esta más en desuso pero no igualmente sea algo divertido.
+Las décadas de los 80 y 90, estaban caracterizados también por un género de juego que hoy en día está más en desuso pero no igualmente sea algo divertido.
 
-Estamos hablando de los _Beat'em up_; que se trataba de juegos normalmente con Scroll horizontal, que permitían que los jugadores luchar contra hordas y hordas de enemigos.
+Estamos hablando de los _Beat'em up_; que se trataba de juegos normalmente con Scroll horizontal, que permitían que los jugadores lucharan contra hordas y hordas de enemigos.
 
-Uno de los juegos más característicos de este genero, es el _Streets of Rage_ un juego que relata las aventuras de 3 personajes ex-policías que tratan de librar las calles de la corrupción librando de cualquier enemigo que se ponga delante.
+Uno de los juegos más característicos de este género, es el _Streets of Rage_ un juego que relata las aventuras de 3 personajes ex-policías que tratan de librar las calles de la corrupción librando de cualquier enemigo que se ponga delante.
 
 Con una banda sonora muy pegadiza creada por el compositor _Yuzo Koshiro_; considerado uno de los mejores compositores para la Sega Mega Drive.
 
-Esta saga, tuvo 3 entregas en la Sega Mega Drive, las cuales teñían una gran jugabilidad y una gran variedad de escenarios, enemigos, armas,etc...
+Esta saga, tuvo 3 entregas en la Sega Mega Drive, las cuales tenían una gran jugabilidad y una gran variedad de escenarios, enemigos, armas,etc...
 
 La cuarta entrega salió en el año 2020; pero ya para sistemas modernos (PC,PlayStation[^10], Xbox, Nintendo Switch[^11]).
 
@@ -179,11 +179,11 @@ En los años 90, la compañía Disney, publicó también varios títulos de sus 
 
 Desde el famoso _QuackShot_, otro también conocido es el _Castle of Illusion_ considerado en su versión de 8 Bits como uno de los mejores para Sega Master System.
 
-Sin embargo, quiero señalar un título del que tengo mucho cariño. Es el _World of illusion_; un juego protagonizado por Mickey Mouse y Donald Duck, que nos permitirá ir a un mundo de fantasia con muchos escenarios con muchos colores y animaciones.
+Sin embargo, quiero señalar un título del que tengo mucho cariño. Es el _World of illusion_; un juego protagonizado por Mickey Mouse y Donald Duck, que nos permitirá ir a un mundo de fantasía con muchos escenarios con muchos colores y animaciones.
 
 Por supuesto una de las características de este juego, es el modo 2 Jugadores; que introducía la colaboración de ambos siendo un gran juego para jugar en cooperativo.
 
-Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlábamos algún vehículo como puede ser una alfombra mágica, o una burbuja debajo del océano.
+Se trataba de un juego que mezclaba plataformas, con algunas pantallas donde controlamos algún vehículo como puede ser una alfombra mágica, o una burbuja debajo del océano.
 
 <div class="centered_image">
     <img src="2historia/img/woi.png" title="World of Illusion" alt="World of Illusion"/>

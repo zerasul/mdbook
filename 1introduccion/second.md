@@ -5,7 +5,7 @@ Esta segunda edición (2024), incluye diferentes correcciones de errores e inclu
 Entre otras se han incluido las siguientes mejoras:
 
 * Actualizado el contenido para utilizar SGDK 2.00 (Actualización de Enero de 2024).
-* Se ha actualizado el capítulo 4 para incluir actualizaciones de los distintos juegos realizado con SGDK.
+* Se ha actualizado el capítulo 4 para incluir actualizaciones de los distintos juegos realizados con SGDK.
 * Se ha actualizado el capítulo 9 para añadir una mejor imagen de una hoja de Sprites.
 * Se ha actualizado el capítulo 10 para añadir información sobre SGDK 2.00.
 * Se ha actualizado el capítulo 11 para añadir información sobre el VDP color Ramp.
