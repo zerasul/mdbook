@@ -1,4 +1,4 @@
-# 10. Fisica y matemáticas en Mega Drive
+# 10. Física y matemáticas en Mega Drive
 
 Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones; y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^53].
 

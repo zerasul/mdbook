@@ -2,15 +2,15 @@
 
 Hemos podido ya empezar a ver nuestros primeros ejemplos; pero nos falta el poder ver más colorido y poder jugar con las distintas características que nos ofrece la Sega Mega Drive.
 
-Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer para poder dar una sensación de profundidad. Sega Mega Drive permite trabajar con varios fondos (o planos), de tal forma que podemos dar esa de movimiento y de una mayor interacción.
+Uno de los apartados más significativos a la hora de trabajar con juegos, son los fondos. Estos fondos son imágenes que podemos superponer para poder dar una sensación de profundidad. Sega Mega Drive permite trabajar con varios fondos (o planos), de tal forma que podemos dar ese movimiento y de una mayor interacción.
 
 En este capítulo, nos centraremos en el uso de fondos o planos a través de SGDK y el uso de herramientas para poder gestionar estos fondos; como por ejemplo la herramienta _rescomp_.
 
-Comenzaremos por hablar de como gestiona las imágenes o los gráficos la Sega Mega Drive, e iremos explicando los distintos conceptos relacionados con los fondos.
+Comenzaremos por hablar de cómo gestiona las imágenes o los gráficos la Sega Mega Drive, e iremos explicando los distintos conceptos relacionados con los fondos.
 
 ## Imágenes en Sega Mega Drive
 
-En primer lugar, antes de entrar en más conceptos vamos a estudiar como se gestionan las imágenes o gráficos en la Sega Mega Drive, a través del VDP.
+En primer lugar, antes de entrar en más conceptos vamos a estudiar cómo se gestionan las imágenes o gráficos en la Sega Mega Drive, a través del VDP.
 
 Veamos las características de los gráficos para Sega Mega Drive:
 
@@ -22,7 +22,7 @@ Veamos las características de los gráficos para Sega Mega Drive:
 * En cada paleta, el primer color se considera transparente.
 
 [^50]: Un Tile es un fragmento de una imagen que se muestra como si fuese un mosaico; por lo que una imagen está compuesta por una serie de Tiles.
-[^51]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel solo tiene información del color que representa en dicha paleta.
+[^51]: Una imagen en formato indexado, almacena una paleta con los distintos colores que contiene; después cada píxel sólo tiene información del color que representa en dicha paleta.
 [^52]: RGB (Red Green Blue) es un formato que se define en cada píxel almacenar el color rojo, verde y azul de tal forma que se pueda ver cada color combinando estos tres colores primarios.
 
 Es importante conocer estas características a la hora de trabajar con imágenes en Mega Drive; para no perder calidad o algún color, si la paleta no está bien referenciada.
@@ -31,12 +31,12 @@ Además, hemos podido ver que solo se pueden mostrar 61 colores en pantalla. Est
 
 Toda esta información de las paletas y los distintos Tiles que se van a mostrar, se almacenan en la VRAM y son accesibles por el VDP; de tal forma que en algunas ocasiones gracias al uso del DMA, la CPU no necesita trabajar con ello; sino que el propio VDP realiza todo el trabajo de forma más eficiente.
 
-Si se necesita conocer, los distintos colores y paletas que hay almacenadas; podemos usar algunas herramientas que nos traen emuladores como _Blastem_; pulsando la tecla <kbd>c</kbd>, podremos ver el contenido de las paletas del VDP.
+Si se necesita conocer, los distintos colores y paletas que hay almacenadas; podemos usar algunas herramientas que nos trae emuladores como _Blastem_; pulsando la tecla <kbd>c</kbd>, podremos ver el contenido de las paletas del VDP.
 
 ![Visor VDP Blastem](8fondos/img/blastem.png "Visor VDP Blastem")
 _Visor VDP Blastem_
 
-Más adelante, veremos como importar imágenes y gráficos para nuestro juego usando la herramienta _rescomp_ de SGDK.
+Más adelante, veremos cómo importar imágenes y gráficos para nuestro juego usando la herramienta _rescomp_ de SGDK.
 
 ## Fondos
 
@@ -44,7 +44,7 @@ Como hemos comentado, una parte importante es el uso de fondos o planos como tam
 
 Un fondo no es más que un conjunto de Tiles que están almacenados en la memoria de vídeo; normalmente en cada fondo se establece en cada Tile un índice que apunta a un Tile de la memoria de vídeo; esto se conoce como Mapa. El conjunto de Tiles almacenados en la memoria se conoce como TileSet. Más adelante, hablaremos sobre los Tilesets y como se pueden utilizar.
 
-En este apartado, solo hablaremos sobre los fondos y como podemos utilizarlos para nuestros juegos de forma estática.
+En este apartado, solo hablaremos sobre los fondos y cómo podemos utilizarlos para nuestros juegos de forma estática.
 
 Es importante saber que un fondo se dibuja de arriba a abajo y de izquierda a derecha. De tal forma, que es más fácil de trabajar con ellos. Además, no podemos olvidar que los fondos trabajan a nivel de Tile no a nivel de píxel.
 
@@ -61,7 +61,7 @@ Como hemos comentado, Sega Mega Drive tiene disponibles 2 fondos para trabajar c
 ![Visor de Planos de Gens Kmod](8fondos/img/planeExplorer.png "Visor de Planos de Gens Kmod")
 _Visor de planos de Gens Kmod_
 
-En la anterior imagen, podemos ver el visor de fondos de _Gens KMod_ donde podremos visualizar cada fondo para ver como se dibuja.
+En la anterior imagen, podemos ver el visor de fondos de _Gens KMod_ donde podremos visualizar cada fondo para ver cómo se dibuja.
 
 Además, los fondos A, B y el plano de Sprites (que veremos en el siguiente capítulo), tienen distinta prioridad; de tal forma que podemos dar esta prioridad a cada fondo dando la sensación de profundidad.
 
@@ -76,7 +76,7 @@ Para poder importar los distintos recursos para nuestro juego, es necesario usar
 
 Esta herramienta, genera todo lo necesario para importar los distintos tipos de recursos de nuestro juego (gráficos, sprites, música, sonido, binario...). Se basa en el uso de unos ficheros que describen cada recurso; estos ficheros tienen la extensión _.res_ e incluyen toda la descripción de los recursos a importar.
 
-_Rescomp_, lee estos ficheros y generará uno o varios ficheros .s con la información del recurso y si no se indica lo contrario, un fichero cabecera de C _.h_. Veamos como use usa.
+_Rescomp_, lee estos ficheros y generará uno o varios ficheros .s con la información del recurso y si no se indica lo contrario, un fichero cabecera de C _.h_. Veamos como se usa.
 
 ```bash
 rescomp fichero.res [out.s] [-noheader]
@@ -91,19 +91,19 @@ Observamos que se reciben varios parámetros:
 Podemos importar los siguientes tipos de recurso:
 
 * _BITMAP_: Mapa de Bits.
-* _PALETTE_: Paleta de Colores.
+* _PALETTE_: Paleta de colores.
 * _TILEMAP_: Mapa de Tiles (a partir de la versión 1.80).
 * _TILESET_: Tileset; contiene un conjunto de tiles que puede usarse para generar imágenes o sprites.
-* _MAP_: Recurso tipo Mapa; contiene una paleta, un tileset y la información del mapa (a partir de SGDK 1.60).
-* _IMAGE_: Recurso tipo imagen; contiene una paleta, un tileset y un tilemap.
+* _MAP_: Recurso tipo Mapa; contiene una paleta, un Tileset y la información del mapa (a partir de SGDK 1.60).
+* _IMAGE_: Recurso tipo imagen; contiene una paleta, un Tileset y un Tilemap.
 * _SPRITE_: Recurso tipo Sprite; se usa para controlar los Sprites y las animaciones.
 * _XGM_: Recurso de música usando XGM (.vgm o .xgm).
-* _XGM2_: Recuso de música usando el nuevo driver de sonido XGM2 (a partir de SGDK 2.00).
+* _XGM2_: Recurso de música usando el nuevo driver de sonido XGM2 (a partir de SGDK 2.00).
 * _WAV_: Recurso de sonido.
 * _OBJECTS_: Objectos con información desde un fichero .tmx de Tiled. Lo veremos en el capítulo 12.
 * _BIN_: Información guardada en formato binario.
 
-Durante los próximos capítulos, veremos cada uno de estos recursos y como se utilizan. En este capítulo, nos centraremos en el uso de paleta y de imágenes como recurso.
+Durante los próximos capítulos, veremos cada uno de estos recursos y cómo se utilizan. En este capítulo, nos centraremos en el uso de paleta y de imágenes como recurso.
 
 Veamos un ejemplo de definición de recurso:
 
@@ -166,7 +166,7 @@ Donde:
 
 ## Ejemplo con fondos
 
-Una vez hemos podido ver como se tratan las imágenes y como importarlas usando la herramienta _rescomp_, ahora vamos a ver un ejemplo de como usar estas imágenes; aprovechando los dos fondos disponibles y viendo su uso de distintas prioridades.
+Una vez hemos podido ver cómo se tratan las imágenes y como importarlas usando la herramienta _rescomp_, ahora vamos a ver un ejemplo de cómo usar estas imágenes; aprovechando los dos fondos disponibles y viendo su uso de distintas prioridades.
 
 Este ejemplo, podemos verlo en el repositorio de ejemplos que acompaña a este libro, con el nombre de _ej5.backgrounds_; el cual podemos observar que vamos a mostrar 2 fondos como los que siguen:
 
@@ -192,7 +192,7 @@ IMAGE bg_b "gfx/bgb.bmp" NONE
 
 Podemos observar que se han creado 2 recursos de tipo ```IMAGE```; los cuales no tienen ninguna compresión. Si compilamos ahora nuestro proyecto de forma manual, o usando el comando de Genesis Code: _Genesis Code: Compile Project_, veremos que se generará un fichero _.h_. Este fichero lo usaremos para referenciar los recursos generados.
 
-Una vez hemos visto como se han importado estos recursos, vamos a centrarnos en el código; el cual podemos ver el código fuente:
+Una vez hemos visto cómo se han importado estos recursos, vamos a centrarnos en el código; el cual podemos ver el código fuente:
 
 ```c
 #include <genesis.h>
@@ -242,7 +242,7 @@ Hemos podido ver que para definir el Tile base por el que cargar la imagen, se p
 * _PalIndex_: Índice de la paleta a utilizar. Puede ser ```PAL0```, ```PAL1```, ```PAL2``` o ```PAL3```. Para indicar las 4 paletas disponibles.
 * _Prioridad_: Indica la prioridad por la que se cargará. ```TRUE``` para prioridad alta, o ```FALSE```; para prioridad baja.
 * _VFLIP_: Espejado Vertical. Indica si estará espejado verticalmente (```TRUE``` para espejado o ```FALSE``` en caso contrario).
-* _HFLIP_: ESpejado Horizontal. Indica si estará espejado horizontalmente  (```TRUE``` para espejado o ```FALSE``` en caso contrario).
+* _HFLIP_: Espejado Horizontal. Indica si estará espejado horizontalmente  (```TRUE``` para espejado o ```FALSE``` en caso contrario).
 * _index_: Indica el índice del que se guardará en la memoria de vídeo. Se utilizará la variable de indices para almacenarlo en memoria.
 
 Como podemos ver en el ejemplo, vemos que se carga en el Plano B el recurso llamado _bg_a_ y que se guardará en la paleta ```PAL0```; es decir, la primera paleta disponible. Además, de que estará con baja prioridad; y que se cargará usando CPU y no DMA.
@@ -267,10 +267,10 @@ Por último, podemos ver que se vuelve a aumentar el índice para almacenar en l
 
 Si compilamos y ejecutamos el ejemplo, podemos ver lo siguiente:
 
-![Ejemplo5: Fondos](8fondos/img/ej5.png "Ejemplo5: Fondos")
+![Ejemplo5: Fondos](8fondos/img/ej5.png "Ejemplo 5: Fondos")
 _Ejemplo5: Fondos_
 
-Con este ejemplo, ya podemos ver como cargar imágenes usando _recomp_ y dibujarlas en los distintos planos o fondos disponibles. En los siguientes capítulos, veremos más usos de los fondos y como podemos usar más funcionalidades que nos provee SGDK.
+Con este ejemplo, ya podemos ver cómo cargar imágenes usando _recomp_ y dibujarlas en los distintos planos o fondos disponibles. En los siguientes capítulos, veremos más usos de los fondos y cómo podemos usar más funcionalidades que nos provee SGDK.
 
 ## Referencias
 
