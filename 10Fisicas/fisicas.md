@@ -2,9 +2,9 @@
 
 Hay un aspecto importante a la hora de trabajar con ordenadores, que tenemos que tener en cuenta. Sobre todo a la hora de crear videojuegos que tienen distintas interacciones; y es que un computador no es más que una calculadora que realiza cálculos en números binarios[^53].
 
-Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceder a memoria o la propia división o multiplicación.
+Por ello, tenemos que tener en cuenta que en cada arquitectura y procesador puede tener distintos comportamientos a la hora de realizar cálculos; ya sea desde una simple suma, hasta operaciones más costosas como el acceso a memoria o la propia división o multiplicación.
 
-En este tema, vamos a hablar de como el Motorola 68000 trabaja y los distintas operaciones que puede realizar. Además de entrar en detalle a la hora de trabajar con punto flotante; e incluso veremos al final como implementar la colisión entre distintos Sprites usando SGDK.
+En este tema, vamos a hablar de cómo el Motorola 68000 trabaja y los distintas operaciones que puede realizar. Además de entrar en detalle a la hora de trabajar con punto flotante; e incluso veremos al final como implementar la colisión entre distintos Sprites usando SGDK.
 
 Este tema puede ser algo complicado de entender; pero es necesario para poder crear de la forma más eficiente posible, nuestro videojuego sin tener perdida de frames, o que se congele la pantalla.
 
@@ -12,11 +12,11 @@ Este tema puede ser algo complicado de entender; pero es necesario para poder cr
 
 ## Aritmética en Motorola 68000
 
-Vamos a comenzar hablando sobre el procesador Motorola 68000; ya que este es el procesador principal de la Sega Mega Drive y aunque también posee un procesador Zilog Z80, nos centraremos en el Motorola. Recuerda que puedes ver más información sobre la arquitectura y como funciona estos procesadores en la Sega Mega Drive en el capítulo 3.
+Vamos a comenzar hablando sobre el procesador Motorola 68000; ya que este es el procesador principal de la Sega Mega Drive y aunque también posee un procesador Zilog Z80, nos centraremos en el Motorola. Recuerda que puedes ver más información sobre la arquitectura y cómo funcionan estos procesadores en la Sega Mega Drive en el capítulo 3.
 
-Vamos a mostrar en este apartado, como se realizan algunas operaciones aritméticas y como se pueden realizar de forma más eficiente.
+Vamos a mostrar en este apartado, cómo se realizan algunas operaciones aritméticas y como se pueden realizar de forma más eficiente.
 
-Comenzamos comentando como trabaja el procesador m68k; se trata de un procesador que tiene registros de 32bits y que puede trabajar con ellos gracias a dos ALU [^54] que posee. Es importante conocer las limitaciones que nos provee este procesador; si bien puede trabajar perfectamente con cualquier operación matemática, si que no puede por ejemplo trabajar con números decimales, o la eficiencia a la hora de trabajar con las distintas operaciones matemáticas.
+Comenzamos comentando como trabaja el procesador m68k; se trata de un procesador que tiene registros de 32 bits y que puede trabajar con ellos gracias a dos ALU [^54] que posee. Es importante conocer las limitaciones que nos provee este procesador; si bien puede trabajar perfectamente con cualquier operación matemática, si que no puede por ejemplo trabajar con números decimales, o la eficiencia a la hora de trabajar con las distintas operaciones matemáticas.
 
 Un microprocesador no tarda lo mismo a la hora de realizar una suma, o de realizar una multiplicación o división; normalmente la duración de estas operaciones, se realizan por ciclos (la duración de un ciclo de un procesador es 1/F; donde F es la frecuencia del reloj). Vamos a mostrar el coste en ciclos que puede llegar a tardar las distintas operaciones aritméticas.
 
@@ -35,7 +35,7 @@ Un microprocesador no tarda lo mismo a la hora de realizar una suma, o de realiz
 
 _Tabla3: Operaciones y coste del procesador Motorola 68000_
 
-Podemos observar que tanto la multiplicación; como la división son operaciones muy costosas por lo que realizarlas puede ser poco eficiente (158 y 70 ciclos respectivamente). Por lo tanto, es necesario evitar utilizar estas operaciones.
+Podemos observar que tanto la multiplicación como la división son operaciones muy costosas por lo que realizarlas puede ser poco eficiente (158 y 70 ciclos respectivamente). Por lo tanto, es necesario evitar utilizar estas operaciones.
 
 Una alternativa a multiplicar, es utilizar desplazamientos a la izquierda; como podemos ver en la tabla anterior, un desplazamiento puede tener hasta 8 ciclos de reloj para completarse; por lo es mucho más eficiente a la hora de realizar una multiplicación o división.
 
@@ -65,14 +65,14 @@ Desplazando a la derecha, podemos ver que se puede dividir por 2. Por lo que pue
 
 **NOTA**: Es importante saber si el compilador utilizado, puede transformar las operaciones de multiplicación o división en operaciones más eficientes [^55].
 
-Tras ver las operaciones aritméticas y como optimizarlas, vamos a mostrar otro apartado a tener en cuenta a la hora de programar para Sega Mega Drive; se trata del uso de los distintos tipos de datos para poder ir optimizando el uso de memoria; ya que esta es importante a la hora de trabajar con sistemas con pocos recursos (64kb de memoria RAM).
+Tras ver las operaciones aritméticas y cómo optimizarlas, vamos a mostrar otro apartado a tener en cuenta a la hora de programar para Sega Mega Drive; se trata del uso de los distintos tipos de datos para poder ir optimizando el uso de memoria; ya que esta es importante a la hora de trabajar con sistemas con pocos recursos (64kb de memoria RAM).
 
 [^54]: (ALU); Unidad Aritmético Lógica; es el componente de un microprocesador encargado de realizar distintas operaciones matemáticas.
 [^55]: Las distintas operaciones u optimizaciones que se pueden utilizar, dependerá del compilador y la versión de este. Consulta la documentación de Gcc para más información.
 
 ## Números y tipo de Datos en SGDK
 
-A la hora de trabajar con los distintos tipos de datos, necesitamos conocer como se almacenaran en memoria y como se puede utilizar. Como por ejemplo, a la hora de trabajar con números.
+A la hora de trabajar con los distintos tipos de datos, necesitamos conocer cómo se almacenarán en memoria y cómo se puede utilizar. Como por ejemplo, a la hora de trabajar con números.
 
 Por ello, vamos a mostrar los distintos tipos de datos numéricos que nos provee SGDK; aunque podemos seguir utilizando los clásicos de C (Ya que son definiciones a partir de estos); veamos una tabla con los distintos tipos de datos y cuanto ocupa en memoria.
 
@@ -89,13 +89,13 @@ _Tabla 4: Tipo de datos en SGDK y su equivalente en C._
 
 Vemos como hay distintos tipos de datos disponibles para los enteros por lo tanto, tenemos que tener en cuenta siempre el valor que puede contener para evitar desbordamientos y que se realice un comportamiento inesperado.
 
-Habrás podido ver, que no hemos incluido los tipos de datos numéricos con decimales; esto se debe a que el procesador Motorola 68000, no tenia soporte para punto flotante. Sin embargo, si que podemos utilizarlo con SGDK.
+Habrás podido ver, que no hemos incluido los tipos de datos numéricos con decimales; esto se debe a que el procesador Motorola 68000, no tenia soporte para punto flotante. Sin embargo, sí que podemos utilizarlo con SGDK.
 
 ## Punto Flotante
 
 El procesador Motorola 68000 no tiene soporte para punto flotante por lo tanto, no se pueden realizar cálculos con números decimales; por ello se deben de implementar todos los cálculos con números enteros y realizar transformaciones para trabajar con ellos.
 
-SGDK trae una serie de datos preparados para trabajar con punto flotante; estos tipos de datos son el ```FIX16``` y el ```FIX32```; que corresponderían a los tipos ```float``` y ```double``` de C; veamos una tabla con sus datos:
+SGDK trae una serie de datos preparados para trabajar con punto flotante; estos tipos de datos son el ```FIX16``` y el ```FIX32```; que corresponden a los tipos ```float``` y ```double``` de C; veamos una tabla con sus datos:
 
 | **Tipo SGDK** | **Tipo (C)** | **Descripción** | **Rango**               |
 |---------------|:------------:|-----------------|-------------------------|
@@ -104,13 +104,13 @@ SGDK trae una serie de datos preparados para trabajar con punto flotante; estos 
 
 _Tabla 5: Tipos de datos decimales en SGDK._
 
-Hay que tener en cuenta, que los tipos de datos ```fix16``` o ```fix32``` no son equivalentes a float o double en código. Por ejemplo:
+Hay que tener en cuenta, que los tipos de datos ```Fix16``` o ```Fix32``` no son equivalentes a float o double en código. Por ejemplo:
 
 ```c
 fix16 a = 1.24;// Error
 ```
 
-Es una instrucción errónea; ya que se tiene que transformar el valor a dicho tipo; por ello podemos utilizar las distintas funciones que nos provee SGDK. Por ejemplo para declarar un tipo como ```fix16``` o ```fix32```.
+Es una instrucción errónea; ya que se tiene que transformar el valor a dicho tipo; por ello podemos utilizar las distintas funciones que nos provee SGDK. Por ejemplo para declarar un tipo como ```Fix16``` o ```Fix32```.
 
 ```c
 fix16 a = FIX16(1.24);
@@ -143,15 +143,15 @@ Además, es importante mencionar que a partir de la versión 2.00 de SGDK, se ha
 
 _Tabla 6: Funciones para utilizar con Fix16 o Fix32_
 
-Si necesita más información de como utilizar ```Fix16``` o ```Fix32```, puede consultar la documentación de SGDK, el fichero que incluye todas las definiciones:
+Si necesita más información de cómo utilizar ```Fix16``` o ```Fix32```, puede consultar la documentación de SGDK, el fichero que incluye todas las definiciones:
 
 [https://github.com/Stephane-D/SGDK/blob/master/inc/maths.h](https://github.com/Stephane-D/SGDK/blob/master/inc/maths.h)
 
-Una vez ya conocemos los distintos tipos de datos que podemos utilizar y como operar con ellos a través de las distintas funciones, vamos a centrarnos en el objetivo de este capítulo; el poder implementar físicas y colisiones entre los distintos Sprites.
+Una vez ya conocemos los distintos tipos de datos que podemos utilizar y cómo operar con ellos a través de las distintas funciones, vamos a centrarnos en el objetivo de este capítulo; el poder implementar físicas y colisiones entre los distintos Sprites.
 
 ## Física y colisiones
 
-A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite esta tocando a otro o incluso si un Sprite esta tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites están colisionando para poder calcular por ejemplo, cuando han atacado a nuestro personaje; o por el contrario, si nuestro personaje esta atacando, cuando destruir al enemigo,etc.
+A la hora de trabajar con distintos Sprites, es importante conocer si un Sprite está tocando a otro o incluso si un Sprite está tocando el suelo. Por ello es importante conocer como podemos ver si dos o más sprites están colisionando para poder calcular por ejemplo, cuando han atacado a nuestro personaje; o por el contrario, si nuestro personaje está atacando, cuando destruye al enemigo,etc.
 
 No existe un único método para calcular la colisión entre dos Sprites por lo que aquí mostraremos sólo algunos de ellos. En primer lugar, podemos comprobar cuando algún Sprite colisiona usando SGDK, y un registro especial que tiene el VDP para indicar dicha situación:
 
@@ -165,20 +165,20 @@ Para comprobar mejor como los Sprites pueden colisionar, hablaremos de las cajas
 
 Una caja de colisión o _collider_, es un área que representa dentro de un Sprite que la colisión puede ocurrir dentro de dicha área. Normalmente se representa con un rectángulo o con un círculo.
 
-Suele ser frecuente el definir en forma de caja (BOX) o en forma de círculo (CIRCLE); con SGDK, se pueden definir el tipo de collider que tendrá a la hora de importar sprites con _rescomp_; sin embargo, esta funcionalidad a día de hoy no esta del todo implementada.
+Suele ser frecuente el definir en forma de caja (BOX) o en forma de círculo (CIRCLE); con SGDK, se pueden definir el tipo de collider que tendrá a la hora de importar sprites con _rescomp_; sin embargo, esta funcionalidad a día de hoy no está del todo implementada.
 
 Vamos a centrarnos en los distintos ejemplos de colliders que se pueden utilizar para calcular las colisiones. Con estos datos, podemos calcular fácilmente las colisiones entre distintos colliders; vamos a ver algunos ejemplos entre los distintos casos.
 
 ### Punto contra Rectángulo
 
-En este primer caso, vamos a comprobar cuando un punto esta dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algún punto o si el personaje esta tocando el suelo.
+En este primer caso, vamos a comprobar cuando un punto está dentro de un rectángulo; de tal forma por ejemplo, que podamos detectar cuando se llega a algún punto o si el personaje está tocando el suelo.
 
 <div class="centered_image">
 <img src="10Fisicas/img/pointvsbox.png" title="Colisión punto contra caja" alt="Colisión punto contra caja"/>
 <em>Colisión punto contra caja</em>
 </div>
 
-Como vemos en la imagen anterior, tenemos que detectar que dicho punto esta dentro del rectángulo o caja; para ello, podemos usar la siguiente formula.
+Como vemos en la imagen anterior, tenemos que detectar que dicho punto está dentro del rectángulo o caja; para ello, podemos usar la siguiente fórmula.
 
 ```c#
 if (point_x >= box_x1) and
@@ -197,7 +197,7 @@ Donde:
 * ```box_x2```: posición X del final de la caja.
 * ```box_y2```: posición Y del final de la caja.
 
-Como podemos ver, es simplemente comprobar que el punto esta dentro de los parámetros definidos del rectángulo o caja.
+Como podemos ver, es simplemente comprobar que el punto está dentro de los parámetros definidos del rectángulo o caja.
 
 ### Rectángulo contra Rectángulo
 
@@ -208,7 +208,7 @@ Otro ejemplo más común, es el comprobar que dos rectángulos o cajas se superp
 <em>Colisión caja contra caja</em>
 </div>
 
-Como podemos ver en la imagen anterior, tenemos que comprobar cuando se superponen la caja de colisión de dos o más Sprites. Para ello podemos seguir la siguiente formula muy parecida a la usada de punto contra caja.
+Como podemos ver en la imagen anterior, tenemos que comprobar cuando se superponen la caja de colisión de dos o más Sprites. Para ello podemos seguir la siguiente fórmula muy parecida a la usada de punto contra caja.
 
 ```c#
 if (box1_x1 <= box2_x2) and
@@ -234,20 +234,20 @@ En este caso, se trata de comprobar si ambas áreas se superponen.
 
 ### Punto contra Círculo
 
-También se puede comprobar cuando un punto esta dentro de un círculo; de esta forma podemos calcular por ejemplo cuando un Sprite con un área de colisión circular toca un punto o esta por encima de dicho punto etc.
+También se puede comprobar cuando un punto está dentro de un círculo; de esta forma podemos calcular por ejemplo cuando un Sprite con un área de colisión circular toca un punto o está por encima de dicho punto etc.
 
 <div class="centered_image">
 <img src="10Fisicas/img/pointvscircle.png" title="Colisión punto contra círculo" alt="Colisión punto contra círculo"/>
 <em>Colisión punto contra círculo</em>
 </div>
 
-Para comprobar que un punto pertenece a un circulo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
+Para comprobar que un punto pertenece a un círculo, podemos basarnos en el teorema de Pitágoras para poder calcular la distancia entre el punto y el centro de la circunferencia es correcta.
 
 ```c
 distancia^2= X diferencia^2 + Y diferencia^2
 ```
 
-Teniendo en cuenta que la diferencia es el restar cada coordenada del centro del circulo con el punto. Pudiendo implementar esta formula y comprobar la colisión de la siguiente manera:
+Teniendo en cuenta que la diferencia es el restar cada coordenada del centro del círculo con el punto. Pudiendo implementar esta fórmula y comprobar la colisión de la siguiente manera:
 
 ```c#
 delta_x = circle_x - point_x
@@ -262,8 +262,8 @@ then
 
 Donde:
 
-* ```circle_x```: es la posición X del centro del circulo en píxeles.
-* ```circle_y```: es la posición Y del centro del circulo en píxeles.
+* ```circle_x```: es la posición X del centro del círculo en píxeles.
+* ```circle_y```: es la posición Y del centro del círculo en píxeles.
 * ```point_x```: posición X del punto en píxeles.
 * ```point_y```: posición Y del punto en píxeles.
 * ```circle_radius```: es el radio de la circunferencia.
@@ -279,7 +279,7 @@ El último ejemplo que veremos, es ver si dos círculos se superponen; de esta f
 <em>Colisión círculo contra círculo</em>
 </div>
 
-Como podemos ver en la anterior imagen, vemos que se pueden superponer áreas de cada circulo y tenemos que ser capaces de poder detectarlas para poder decidir que hacer con dicha colisión. Veamos una formula basada en el anterior caso.
+Como podemos ver en la anterior imagen, vemos que se pueden superponer áreas de cada círculo y tenemos que ser capaces de poder detectarlas para poder decidir qué hacer con dicha colisión. Veamos una fórmula basada en el anterior caso.
 
 ```c#
 delta_x = circle2_x - circle1_x
@@ -301,13 +301,13 @@ Donde:
 * ```circle1_radius```: Radio de la primera circunferencia.
 * ```circle2_radius```: Radio de la segunda circunferencia.
 
-Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las formulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones por desplazamientos.
+Aunque existen más combinaciones como por ejemplo una caja contra círculo, estos se pueden calcular realizando combinaciones. Además, es importante ver que hemos estudiado las fórmulas y estas incluyen multiplicaciones de tal forma que en la medida de lo posible, transformar dichas multiplicaciones por desplazamientos.
 
 ## Ejemplo de colisión de Sprites
 
-Una vez hemos visto la teoría de como poder calcular las colisiones, podemos ver el ejemplo de este capítulo. En este caso, vamos a tomar de base el ejemplo anterior, pero añadiendo la verificación de colisiones.
+Una vez hemos visto la teoría de cómo poder calcular las colisiones, podemos ver el ejemplo de este capítulo. En este caso, vamos a tomar de base el ejemplo anterior, pero añadiendo la verificación de colisiones.
 
-Puedes encontrar el ejemplo de esta sección en el repositorio de ejemplos que acompaña a este libro; en este caso, se encuentra en la carpeta _ej7.collisions_; que encontraras tanto el código fuente como los recursos de este ejemplo.
+Puedes encontrar el ejemplo de esta sección en el repositorio de ejemplos que acompaña a este libro; en este caso, se encuentra en la carpeta _ej7.collisions_; que encontrarás tanto el código fuente como los recursos de este ejemplo.
 
 Para poder ver mejor las colisiones, hemos modificado los Sprites para dibujar el contorno de las cajas de colisión. Puedes ver esos Sprites modificados en la carpeta _res_ del ejemplo.
 
@@ -380,7 +380,7 @@ Vemos como en cada caso se calcula tanto la posición (x1,y1) y la posición (x2
             }
 ```
 
-Vemos como si la comprobación es correcta se devolverá ```TRUE``` (o 1); mientras si no se cumple, se devolverá ```FALSE``` (o 0); por lo que no habría colisión. Por último, mostraremos el fragmento de código donde se realiza la llamada a la función ```checkCollision```:
+Vemos cómo si la comprobación es correcta se devolverá ```TRUE``` (o 1); mientras si no se cumple, se devolverá ```FALSE``` (o 0); por lo que no habría colisión. Por último, mostraremos el fragmento de código donde se realiza la llamada a la función ```checkCollision```:
 
 ```c
 
@@ -398,9 +398,9 @@ Por último, ya solo nos queda compilar y ejecutar el ejemplo; ya sea de forma m
 ![Ejemplo 7: Colisiones](10Fisicas/img/ejemplo7.png "Ejemplo 7: Colisiones")
 _Ejemplo 7: Colisiones_
 
-Tras ver este ejemplo, ya podemos ver como usar la físicas y matemáticas a la hora de trabajar con Sega Mega Drive. Desde las distintas instrucciones aritméticas que podemos hacer con el Motorola 68000, hasta pasar por repasar las colisiones entre Sprites y como podemos implementarlos en nuestros juegos.
+Tras ver este ejemplo, ya podemos ver como usar la física y matemáticas a la hora de trabajar con Sega Mega Drive. Desde las distintas instrucciones aritméticas que podemos hacer con el Motorola 68000, hasta pasar por repasar las colisiones entre Sprites y como podemos implementarlos en nuestros juegos.
 
-En el siguiente capítulo, ya trataremos como Sega Mega Drive gestiona los colores y las distintas paletas que podemos utilizar y cambiar.
+En el siguiente capítulo, trataremos como Sega Mega Drive gestiona los colores y las distintas paletas que podemos utilizar y cambiar.
 
 ## Referencias
 

@@ -154,7 +154,7 @@ Además de otros títulos, no solo orientado al 2D sino al 3D como puede ser Son
 ![Sonic & Knuckles con Lock on](2historia/img/SyK.png "Sonic & Knuckles con Lock on")
 _Sonic & Knuckles (PAL) con Ranura Lock On_
 
-[^9]: _Sonic the Hedgehog_ es una Marca registrada de Sega enterprise Inc.
+[^9]: _Sonic the Hedgehog_ es una marca registrada de Sega Enterprise Inc.
 
 ### Streets Of Rage
 

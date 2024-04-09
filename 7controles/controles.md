@@ -249,7 +249,7 @@ _Ejemplo 3: Controles Asíncronos_
 
 Hasta ahora, hemos estado trabajando con los controladores; ya sean de 3 o de 6 botones; sin embargo, puede ser interesante, ofrecer soporte para usar ratón en nuestros juegos. En esta sección, vamos a ver cómo poder leer el ratón _Sega Mouse_, usando SGDK.
 
-En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador que permite usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
+En primer lugar, no todos tenemos acceso a un Sega Mouse; por lo que es necesario utilizar un emulador que permite usar el ratón de nuestro ordenador dentro del propio emulador. En este caso recomendamos el emulador _Kega Fusion_ o Fusion. Este emulador, permite usando la tecla <kbd>F12</kbd>, capturar el ratón de nuestro ordenador.
 
 Hemos creado un nuevo ejemplo; en el repositorio de ejemplos para este libro; recuerda que puedes encontrarlo en:
 
