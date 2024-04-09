@@ -1,12 +1,12 @@
 # 13. Scroll
 
-Hasta ahora, hemos estado trabajando con fondos e imágenes que ocupaban todo el ancho de la pantalla; pero que ocurre si una imagen es más grande que lo que permite la pantalla; y si nuestro escenario va cambiando conforme nuestro personaje o personajes se mueven; en estos casos se utiliza el llamado Scroll o desplazamiento.
+Hasta ahora, hemos estado trabajando con fondos e imágenes que ocupaban todo el ancho de la pantalla; pero qué ocurre si una imagen es más grande que lo que permite la pantalla; y si nuestro escenario va cambiando conforme nuestro personaje o personajes se mueven; en estos casos se utiliza el llamado Scroll o desplazamiento.
 
-Un Scroll o desplazamiento, no es más que la posibilidad de ir desplazando los elementos de un plano en una dirección. De esta forma, que podemos dar la sensación de movimiento.
+Un Scroll o desplazamiento, no es más que la posibilidad de ir desplazando los elementos de un plano en una dirección. De esta forma, podemos dar la sensación de movimiento.
 
-En este capítulo, vamos a mostrar como utilizar las capacidades de desplazamiento que nos permite Mega Drive; gracias al VDP.
+En este capítulo, vamos a mostrar cómo utilizar las capacidades de desplazamiento que nos permite Mega Drive; gracias al VDP.
 
-Veremos los distintos tipos de Scroll que hay, y además de ver en que direcciones podemos realizarlo.
+Veremos los distintos tipos de Scroll que hay, y además de ver en qué direcciones podemos realizarlo.
 
 Además, veremos distintos casos de uso con el Scroll o desplazamiento.
 
@@ -14,7 +14,7 @@ Además, veremos distintos casos de uso con el Scroll o desplazamiento.
 
 Como hemos comentado el Scroll o desplazamiento, es la capacidad de desplazar partes de la imagen que estamos mostrando; para el caso de la Sega Mega Drive, se trata de la capacidad de desplazar los tiles de cada plano en distintas direcciones.
 
-El VDP, permite realizar distintos tipos de desplazamiento: Desplazamiento de plano (A y B) ó de una porción de pantalla (por línea o por columna); esto permite realizar distintos efectos y dar una mejor sensación de movimiento. Este efecto es comúnmente conocido como _Parallax_.
+El VDP, permite realizar distintos tipos de desplazamiento: Desplazamiento de plano (A y B) o de una porción de pantalla (por línea o por columna); esto permite realizar distintos efectos y dar una mejor sensación de movimiento. Este efecto es comúnmente conocido como _Parallax_.
 
 Podemos diferenciar el Scroll por dirección, que podremos encontrar de dos tipos:
 
@@ -24,7 +24,7 @@ Podemos diferenciar el Scroll por dirección, que podremos encontrar de dos tipo
 Además, dependiendo de la porción de pantalla desplazada, podemos encontrar tres tipos:
 
 * _Línea_: El VDP permite desplazar horizontalmente hasta 224 líneas; aunque verticalmente, tiene capacidad de desplazar algunas porciones.
-* _Plano_: El VDP permite desplazar completamente de forma horizontal como vertical.
+* _Plano_: El VDP permite desplazar el completamente de forma horizontal como vertical.
 * _Tile_: Se puede realizar desplazamiento de los distintos Tiles de una línea.
 
 En este apartado, vamos a centrarnos en estos tipos de Scroll y veremos como puede realizarse en cada una de las direcciones propuestas.
@@ -46,9 +46,9 @@ Esto es debido a que el VDP, permite almacenar planos de mayor capacidad que la 
 ![Esquema desplazamiento](13Scroll/img/esquemascroll.png "Esquema desplazamiento")
 _Esquema desplazamiento_
 
-Como podemos ver en el esquema, la parte visible solo tiene por ejemplo 320px de ancho; y SGDK, reserva hasta 640px de ancho para poder almacenar el resto de imagen; lo que quede de la imagen seguirá almacenada en la ROM y tendrá que ser desplazada a la parte oculta para poder realizar un desplazamiento.
+Como podemos ver en el esquema, la parte visible sólo tiene por ejemplo 320px de ancho; y SGDK, reserva hasta 640px de ancho para poder almacenar el resto de imagen; lo que quede de la imagen seguirá almacenada en la ROM y tendrá que ser desplazada a la parte oculta para poder realizar un desplazamiento.
 
-Se permite un plano de 512x256px con la configuración habitual; de tal forma que podemos almacenar más imagen de la visible, y posteriormente desplazarlo tanto horizontalmente, como verticalmente.
+Se permite un plano de 512x256px con la configuración habitual; de tal forma que podemos almacenar más imagen de la visible, y posteriormente desplazar tanto horizontalmente, como verticalmente.
 
 ### Scroll por Tile
 
@@ -63,7 +63,7 @@ Toda la información de desplazamiento tanto vertical como horizontal, se almace
 Hemos podido ver la teoría de como realizar Scroll por línea, plano o Tiles; por lo que para poder entender mejor como se realizan estos desplazamientos, vamos a ver tres ejemplos:
 
 * _Ejemplo de desplazamiento por líneas_; vamos a ver deformar un logo para hacer un efecto usando desplazamiento
-* _Ejemplo de desplazamiento de plano_; en este caso, vamos a realizar el famoso efecto paralax para que podamos ver como desplazamos el plano, para mostrar un mapa mayor.
+* _Ejemplo de desplazamiento de plano_; en este caso, vamos a realizar el famoso efecto parallax para que podamos ver como desplazamos el plano, para mostrar un mapa mayor.
 * _Ejemplo de desplazamiento por Tiles_; en este último ejemplo, vamos a ver como utilizando 1 Tile y un Tilemap, podemos generar un efecto de lluvia usando desplazamiento por Tiles.
 * Ejemplo de desplazamiento de Plano utilizando la estructura _Map_.
 
@@ -71,7 +71,7 @@ Recuerda; que todos los ejemplos que mencionamos en este libro, los tienes dispo
 
 [https://github.com/zerasul/mdbook-examples](https://github.com/zerasul/mdbook-examples)
 
-### Scroll por lineas
+### Scroll por líneas
 
 En este primer ejemplo, vamos a centrarnos en realizar desplazamiento por líneas; recordamos que se pueden realizar desplazamiento de las 224 líneas (o 240) horizontales que tenemos disponibles. Este ejemplo corresponde a la carpeta _ej11.linescroll_; que encontrarás en el repositorio de ejemplos.
 
@@ -80,7 +80,7 @@ Para este ejemplo, usaremos una imagen con un logo recordando a la pantalla de i
 ![Imagen Ejemplo](13Scroll/img/logo.png "Imagen de Ejemplo")
 _Imagen de ejemplo_
 
-Lo que vamos a hacer es realizar un desplazamiento de cada línea; las líneas pares irán hacia un lado y las impares, hacia el otro. Veamos como podemos realizarlo.
+Lo que vamos a hacer es realizar un desplazamiento de cada línea; las líneas pares irán hacia un lado y las impares, hacia el otro. Veamos cómo podemos realizarlo.
 
 En primer lugar, necesitaremos dibujar la imagen en el plano a utilizar:
 
@@ -91,10 +91,10 @@ VDP_drawImageEx(BG_B,&logo,
     ,0,0,TRUE,DMA);
 ```
 
-Una vez dibujado, vamos a configurar que tipo de Scroll vamos a utilizar tanto horizontalmente, como verticalmente. Para ello, utilizaremos la función ```VDP_setScrollingMode```; la cual permite configurar que tipo o modo de Scroll utilizaremos. Veamos que parámetros recibe esta función:
+Una vez dibujado, vamos a configurar que tipo de Scroll vamos a utilizar tanto horizontalmente, como verticalmente. Para ello, utilizaremos la función ```VDP_setScrollingMode```; la cual permite configurar que tipo o modo de Scroll utilizaremos. Veamos qué parámetros recibe esta función:
 
 * _HScrollMode_: Modo a utilizar para desplazamiento horizontal. Puede tomar los siguientes valores:
-    * ```HSCROLL_LINE```: Incida que será un desplazamiento horizontal por líneas.
+    * ```HSCROLL_LINE```: Indica que será un desplazamiento horizontal por líneas.
     * ```HSCROLL_PLANE```: Indica que será un desplazamiento horizontal del plano.
     * ```HSCROLL_TILE```: Indica que será un desplazamiento horizontal por Tile.
 * _VScrollMode_: Modo a utilizar para desplazamiento vertical. Puede tomar los siguientes valores:
@@ -147,7 +147,7 @@ Esta función llamada ```VDP_setHorizontalScrollLine``` permite realizar desplaz
 
 Habrás podido ver, que estamos mandando información de cada una de las líneas, se desplacen o no. Esto no es lo más eficiente, ya que podemos crear un array sólo con la información de las líneas a desplazar. De tal forma que será más eficiente y menos consumo de recursos realizará el hardware.
 
-Una vez hemos podido explicar el código y como funciona este ejemplo, ya podemos compilar y ejecutar, para poder ver en un emulador como queda tal efecto.
+Una vez hemos podido explicar el código y cómo funciona este ejemplo, ya podemos compilar y ejecutar, para poder ver en un emulador como queda tal efecto.
 
 ![Ejemplo 11: Scroll de línea](13Scroll/img/ej11.png "Ejemplo 11: Scroll de línea")
 _Ejemplo 11: Scroll de línea_
@@ -160,25 +160,25 @@ Recordamos que el VDP, permite almacenar un plano de hasta 512x256px; pero en RO
 
 Este ejemplo puedes encontrarlo en el repositorio de ejemplos bajo el nombre de _ej12.planescroll_; en este caso, usaremos un plano fijo y un segundo plano, que iremos desplazando horizontalmente cuando fuese necesario.
 
-En este ejemplo, no solo desplazaremos el plano; sino que iremos generando los Tiles necesarios conforme fuese necesario de tal forma que vamos a ir descubriendo el escenario poco a poco. Vamos a ver las imágenes que usaremos como planos.
+En este ejemplo, no solo desplazamos el plano; sino que iremos generando los Tiles necesarios conforme fuese necesario de tal forma que vamos a ir descubriendo el escenario poco a poco. Vamos a ver las imágenes que usaremos como planos.
 
-El primer plano, que usaremos como cielo se trata de una imagen estática que dibujaremos en el plano B.
+El primer plano, que usaremos como cielo, se trata de una imagen estática que dibujaremos en el plano B.
 
 <div class="centered_image">
 <img src="13Scroll/img/Sky_pale.png" title="Imagen de Fondo 1" alt="Imagen de Fondo 1"/>
 <em>Imagen de Fondo 1 (Fuente: Open Game Art)</em>
 </div>
 
-Después, tendremos el fondo que iremos desplazando que se trata de una imagen de 640x224 píxeles; que almacenaremos en memoria ROM y que iremos mostrando conforme sea necesaria.
+Después, tendremos el fondo que iremos desplazando que se trata de una imagen de 640 x 224 píxeles; que almacenaremos en memoria ROM y que iremos mostrando conforme sea necesaria.
 
 ![Imagen de Fondo 2](13Scroll/img/map1.png "Imagen de Fondo 2")
 _Imagen de Fondo 2 (Fuente: Open Game Art)_
 
-Como vemos en la anterior imagen, el color de fondo rojo será el color transparente (es el primer color de la paletas de colores). Con estos dos fondos y un Sprite, es con lo que vamos a trabajar.
+Como vemos en la anterior imagen, el color de fondo rojo será el color transparente (es el primer color de las paletas de colores). Con estos dos fondos y un Sprite, es con lo que vamos a trabajar.
 
 Una vez que tengamos las imágenes, vamos a revisar el código. Hemos decidido dividir en tres partes; la función principal, la función de manejo de los controles y por último una función para actualizar la pantalla cuando sea necesaria.
 
-Comenzaremos hablando de la función principal; donde inicializaremos todas las variables y dibujaremos los fondos. Veamos un fragmento:
+Comenzaremos hablando de la función principal; donde inicializamos todas las variables y dibujaremos los fondos. Veamos un fragmento:
 
 ```c
 struct{
@@ -200,7 +200,7 @@ Vemos que se inicializan una serie de variables globales; vamos a mostrar su uti
 * _xord_: Indica si se necesita desplazar o no.
 * _countpixel_: Esta variable nos va a ayudar a que se genere un nuevo Tile cuando sea necesario; recuerda que el movimiento de los Sprites es a nivel de pixel, mientras los fondos a nivel de Tiles.
 * _col_update_: Indica si hay que actualizar una columna o no; será necesario para generar una nueva columna.
-* _ind_: Indice para calcular los Tiles a almacenar en VRAM.
+* _ind_: Índice para calcular los Tiles a almacenar en VRAM.
 
 Con estas variables, vamos a realizar el desplazamiento; pero antes lo que realizaremos será dibujar ambos planos y dibujar los Sprites necesarios.
 
@@ -232,7 +232,7 @@ Una vez dibujada la pantalla y los Sprites, pasaremos a configurar el modo de Sc
 
 Como vemos en el fragmento anterior, configuraremos tanto el desplazamiento horizontal como el vertical, como desplazamiento de Plano. Después dentro del bucle del juego, llamaremos al resto de funciones y se actualizará la tabla de Sprites.
 
-Vamos a ver como funcionan el resto de funciones; como el caso de la función ```void inputHandle()```, que gestiona la entrada de los botones. En este caso, se trata de que cuando el personaje se mueva a la derecha y llegue a cierto punto, se desplace y pueda avanzar por el escenario. Sin embargo, en este caso solo implementaremos el desplazamiento hacia la izquierda por lo que si el Sprite se mueve en dirección contraria no avanzará.
+Vamos a ver cómo funcionan el resto de funciones; como el caso de la función ```void inputHandle()```, que gestiona la entrada de los botones. En este caso, se trata de que cuando el personaje se mueva a la derecha y llegue a cierto punto, se desplace y pueda avanzar por el escenario. Sin embargo, en este caso solo implementaremos el desplazamiento hacia la izquierda por lo que si el Sprite se mueve en dirección contraria no avanzará.
 
 Veamos un fragmento de la función:
 
@@ -248,7 +248,7 @@ Veamos un fragmento de la función:
  }
 ```
 
-En este fragmento, podemos ver que si se ha pulsado el botón derecha y el personaje esta a más de 220 píxeles a la derecha, se pondrá la variable ```xord``` a 1; indicando que habrá un desplazamiento. Además de que se actualizará la animación del Sprite.
+En este fragmento, podemos ver que si se ha pulsado el botón derecha y el personaje está a más de 220 píxeles a la derecha, se pondrá la variable ```xord``` a 1; indicando que habrá un desplazamiento. Además de que se actualizará la animación del Sprite.
 
 En caso contrario, se pondrá la variable ```xord``` a cero indicando que no hay desplazamiento; además de actualizar posición y animación del Sprite.
 
@@ -264,7 +264,7 @@ if(xord>0){
 }
 ```
 
-En este caso, vemos que si la variable ```xord``` es mayor que cero, se actualizará el desplazamiento y el contador de pixeles; de tal forma que si el contador es mayor que 7, se necesitará calcular un nuevo Tile. Veamos un último fragmento para ver como generamos dicho Tile al final del plano.
+En este caso, vemos que si la variable ```xord``` es mayor que cero, se actualizará el desplazamiento y el contador de píxeles; de tal forma que si el contador es mayor que 7, se necesitará calcular un nuevo Tile. Veamos un último fragmento para ver cómo generamos dicho Tile al final del plano.
 
 ```c
 if(player.offset>640) player.offset=0;
@@ -279,13 +279,13 @@ if(player.offset>640) player.offset=0;
     VDP_setHorizontalScroll(BG_A,-player.offset);
 ```
 
-Vemos como al inicio, se comprueba que el offset no sea mayor que el tamaño del plano; si ocurre, se vuelve a inicializar el offset a cero para dar sensación de infinito. Una vez hecho esto, comprobaremos que ```countpixel``` sea cero; si es así, se calculará la columna a actualizar; veamos esa formula:
+Vemos como al inicio, se comprueba que el offset no sea mayor que el tamaño del plano; si ocurre, se vuelve a inicializar el offset a cero para dar sensación de infinito. Una vez hecho esto, comprobaremos que ```countpixel``` sea cero; si es así, se calculará la columna a actualizar; veamos esa fórmula:
 
 ```c
 col_update=(((player.offset+320)>>3)&79);
 ```
 
-En este caso se calcula el offset sumando 320 y haciendo un desplazamiento hacia la derecha de 3 posiciones (que será lo mismo que dividir por 8; pero más eficiente ya que la operación de división en el Motorola 68000, puede durar hasta 158 ciclos). Por último, se generará una nueva columna al final del Plano; veamos ese fragmento:
+En este caso se calcula el offset sumando 320 y haciendo un desplazamiento hacia la derecha de 3 posiciones (que será lo mismo que dividir por 8; pero más eficiente ya que la operación de división en el Motorola 68000, puede durar hasta 158 ciclos). Por último, se generará una nueva columna al final del Plano; veamos este fragmento:
 
 ```c
 VDP_setMapEx(BG_A,map1.tilemap,
@@ -318,9 +318,9 @@ _Ejemplo 12: Scroll por plano_
 
 ### Scroll por Tile
 
-Aun queda un modo de Desplazamiento o Scroll que ver; se trata de la capacidad de desplazar a nivel de Tile o conjunto de Tiles el plano; esto puede ser util para crear distintos efectos y poder dar una mayor experiencia al jugador. Vamos a ver por ejemplo, como hacer un efecto de lluvia, usando desplazamiento por Tiles. En este caso, vamos a usar el ejemplo que se encuentra en el repositorio de ejemplos; dentro de la carpeta con nombre _ej13.tilescroll_. En este ejemplo, vamos a crear un efecto lluvia, usando un TileMap y desplazamiento de 2 Tiles Verticalmente.
+Aún queda un modo de Desplazamiento o Scroll que ver; se trata de la capacidad de desplazar a nivel de Tile o conjunto de Tiles el plano; esto puede ser util para crear distintos efectos y poder dar una mayor experiencia al jugador. Vamos a ver por ejemplo, cómo hacer un efecto de lluvia, usando desplazamiento por Tiles. En este caso, vamos a usar el ejemplo que se encuentra en el repositorio de ejemplos; dentro de la carpeta con nombre _ej13.tilescroll_. En este ejemplo, vamos a crear un efecto lluvia, usando un TileMap y desplazamiento de 2 Tiles Verticalmente.
 
-En primer lugar, vamos a usar un fondo y un TileMap que generaremos a partir de un pequeño TileSet; por lo que importaremos cada recurso usando _rescomp_ con la información de los recursos a importar:
+En primer lugar, vamos a usar un fondo y un TileMap que generamos a partir de un pequeño TileSet; por lo que importamos cada recurso usando _rescomp_ con la información de los recursos a importar:
 
 ```res
 PALETTE rainplt "rain.png"
@@ -328,14 +328,14 @@ TILESET rain "rain.png" NONE NONE
 IMAGE city "city3.png" NONE NONE
 ```
 
-Vemos que importamos una imagen, un tileSet y la correspondiente paleta. El fondo a utilizar recuerda a una ciudad por la noche; mostramos la imagen del fondo.
+Vemos que importamos una imagen, un TileSet y la correspondiente paleta. El fondo a utilizar recuerda a una ciudad por la noche; mostramos la imagen del fondo.
 
 <div class="centered_image">
 <img src="13Scroll/img/city3.png" title="Fondo ejemplo 13" alt="Fondo ejemplo 13"/>
 <em>Fondo ejemplo 13 (Fuente: Open Game Art)</em>
 </div>
 
-Una vez vista esta imagen, vamos a revisar el código fuente; comenzaremos viendo como dibujar cada fondo. Uno como imagen, y el otro usaremos el TileSet _rain_ para generar un TileMap para simular la lluvia. Veamos un fragmento:
+Una vez vista esta imagen, vamos a revisar el código fuente; comenzaremos viendo cómo dibujar cada fondo. Uno como imagen, y el otro usaremos el TileSet _rain_ para generar un TileMap para simular la lluvia. Veamos un fragmento:
 
 ```c
  u16 ind = TILE_USER_INDEX;
@@ -352,7 +352,7 @@ VDP_setTileMapDataRect(BG_A,tileMap,
 0,0,40,32,40,DMA_QUEUE);
 ```
 
-Como puede observar, creamos un TileMap a partir de los Tiles que componen el TileSet que hemos cargado; y dibujamos la pantalla usando un rectángulo de 40x32 Tiles (Todo el espacio disponible a lo Alto). Una vez cargado el TileMap en el fondo A, dibujaremos la imagen en el fondo B, ambos con baja prioridad; por lo que el fondo B estará detrás del fondo A; dando sensación de profundidad.
+Como puede observar, creamos un TileMap a partir de los Tiles que componen el TileSet que hemos cargado; y dibujamos la pantalla usando un rectángulo de 40 x 32 Tiles (Todo el espacio disponible a lo Alto). Una vez cargado el TileMap en el fondo A, dibujaremos la imagen en el fondo B, ambos con baja prioridad; por lo que el fondo B estará detrás del fondo A; dando sensación de profundidad.
 
 ```c
 VDP_drawImageEx(BG_B,&city,
@@ -374,8 +374,7 @@ VDP_setScrollingMode(
     HSCROLL_PLANE,VSCROLL_2TILE);  
 ```
 
-Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazaremos horizontalmente); y el scroll vertical como ```VSCROLL_COLUMN``` que indica que se realiza desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
-
+Hemos configurado el Scroll horizontal, como de tipo plano (en este ejemplo no desplazamos horizontalmente); y el scroll vertical como ```VSCROLL_COLUMN``` que indica que se realiza desplazamiento cada 2 Tiles; ya que en Mega Drive no se puede realizar scroll vertical de 1 solo Tile.
 
 Una vez configurado, pasaremos a cargar un vector con los valores de Desplazamiento:
 
@@ -401,12 +400,12 @@ while(1)
     }
 ```
 
-Veras que se realiza un desplazamiento cada 5 unidades; que será el numero de Tiles que se desplazará por cada tramo; además de que vemos que usamos la función ```VDP_setVerticalScrollTile```; es la que realiza el desplazamiento. Esta función recibe los siguientes parámetros:
+Verás que se realiza un desplazamiento cada 5 unidades; que será el numero de Tiles que se desplazará por cada tramo; además de que vemos que usamos la función ```VDP_setVerticalScrollTile```; es la que realiza el desplazamiento. Esta función recibe los siguientes parámetros:
 
 * _plane_: Fondo a desplazar los Tiles; puede ser  ```BG_A```, ```BG_B```.
 * _firstcol_: Primera columna a desplazar.
 * _scroll_: Array con los valores a desplazar.
-* ncols: Numero de Columnas a desplazar.
+* ncols: Número de columnas a desplazar.
 * _tm_: método de transferencia; permite utilizar la CPU, o los distintos valores de DMA; puede tener los siguientes valores:
     * CPU: se utilizará la CPU.
     * DMA: se utilizará DMA.
@@ -422,11 +421,11 @@ _Ejemplo 13_
 
 Aún queda por comentar una forma de realizar scroll; como habrás podido ver, en el ejemplo de desplazamiento por plano, es bastante engorroso tener que calcular el siguiente Tile a mostrar. Debido a esto, se pueden usar unas funciones alternativas, gracias a la estructura ```Map```.
 
-Esta estructura fue añadida dentro de la versión 1.60 de SGDK; por lo que solo se podrá usar este ejemplo en dicha versión o superior. Un _Map_ es una estructura que almacena una gran cantidad de información acerca de una imagen o escenario; por lo que usar este tipo de funciones tenemos que tener cuidado para no realizar cuellos de botella con la CPU o DMA.
+Esta estructura fue añadida dentro de la versión 1.60 de SGDK; por lo que solo se podrá usar este ejemplo en dicha versión o superior. Un _Map_ es una estructura que almacena una gran cantidad de información acerca de una imagen o escenario; por lo que para usar este tipo de funciones tenemos que tener cuidado para no realizar cuellos de botella con la CPU o DMA.
 
 Para este ejemplo, vamos a reutilizar el ejemplo 12 para desplazar un plano; pero vamos a realizar una modificación para utilizar la estructura _Map_, en vez de realizar nosotros el desplazamiento.
 
-Vamos a comenzar, mostrando como vamos a importar los recursos; ya que ya no serán dos imágenes; sino una imagen, un tileset, una paleta y por último un Map.
+Vamos a comenzar, mostrando cómo vamos a importar los recursos; ya que ya no serán dos imágenes; sino una imagen, un Tileset, una paleta y por último un Map.
 
 ```res
 PALETTE pltmap "map1.png"
@@ -435,7 +434,7 @@ MAP map1 "map1.png" map_tileset NONE 0
 IMAGE sky "Sky_pale.png" NONE 
 ```
 
-Como podemos observar, cargamos una paleta, un Tileset y un Mapa a partir de la imagen que queremos mostrar. Veamos como se importa un recurso de tipo Map:
+Como podemos observar, cargamos una paleta, un Tileset y un Mapa a partir de la imagen que queremos mostrar. Veamos cómo se importa un recurso de tipo Map:
 
 ```
 MAP name "file" tileset-ref compression offset
@@ -453,7 +452,7 @@ MAP name "file" tileset-ref compression offset
 
 **NOTA**: Recuerda que para cargar ficheros TMX, necesitaras SGDK versión 1.80 o superior.
 
-Una vez cargados los recursos con _rescomp_, ya podemos crear el mapa y realizar Scroll; veamos como se crea el mapa.
+Una vez cargados los recursos con _rescomp_, ya podemos crear el mapa y realizar Scroll; veamos cómo se crea el mapa.
 
 ```c
 Map* map=MAP_create(&map1,BG_A,
@@ -471,7 +470,7 @@ La función ```Map_create```; crea un nuevo struct Map que nos permitirá tener 
 
 Esta función, devuelve un puntero a una estructura ```Map``` con toda la información del mapa o escenario a mostrar.
 
-Tras ver como crear un mapa, vamos a pasar a como realizar Scroll; en este caso se utiliza la función ``` MAP_scrollTo```; que realiza el Scroll del mapa y recalcula los Tiles conforme se van necesitando. Ya no es necesario contar los Tiles e ir generandolos fuera de pantalla; ya lo realiza esta función por nosotros. Veamos los parámetros que recibe:
+Tras ver cómo crear un mapa, vamos a pasar a como realizar Scroll; en este caso se utiliza la función ``` MAP_scrollTo```; que realiza el Scroll del mapa y recalcula los Tiles conforme se van necesitando. Ya no es necesario contar los Tiles e ir generandolos fuera de pantalla; ya lo realiza esta función por nosotros. Veamos los parámetros que recibe:
 
 * _map_: Puntero con la información del mapa creado (que devuelve la función ```Map_create```).
 * _x_: Desplazamiento en eje X (En pixeles).
