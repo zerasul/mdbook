@@ -1,14 +1,14 @@
 # 14. Música y Sonido
 
-Por ahora, hemos estado trabajando principalmente con la parte visual; como mostrar fondos, sprites, colores ,fondos,etc. Pero un juego no esta completo si no tiene su sonido. Tanto los efectos de sonido, como la música que nos haga mejorar la experiencia de juego.
+Por ahora, hemos estado trabajando principalmente con la parte visual; como mostrar fondos, sprites, colores ,fondos,etc. Pero un juego no está completo si no tiene su sonido. Tanto los efectos de sonido, como la música que nos haga mejorar la experiencia de juego.
 
-Por ello, es importante conocer como añadir sonido a nuestro juego; desde los distintos efectos como el ataque, voz del personaje o incluso algún efecto más sofisticado. Es importante poder añadirlos y disfrutarlos una vez nuestro juego esta en marcha.
+Por ello, es importante conocer cómo añadir sonido a nuestro juego; desde los distintos efectos como el ataque, voz del personaje o incluso algún efecto más sofisticado. Es importante poder añadirlos y disfrutarlos una vez nuestro juego esté en marcha.
 
 No podemos olvidar la música; ya que para muchos la banda sonora de juegos de Mega Drive, ha sido nuestra infancia y hoy en día solo con escuchar un par de acordes, ya nos transporta a aquella época. De ahí la gran importancia de la música en un videojuego.
 
-En este capítulo, vamos a mostrar como la Mega Drive es capaz de reproducir sonido e incluso música y como podemos añadirla a nuestro juego y tener una mejor experiencia del mismo.
+En este capítulo, vamos a mostrar cómo la Mega Drive es capaz de reproducir sonido e incluso música y como podemos añadirla a nuestro juego y tener una mejor experiencia del mismo.
 
-Comenzaremos hablando del sistema de sonido que trae la Sega Mega Drive, y como funcionan los distintos elementos que la componen. Además, hablaremos de como se puede crear esta música y por último, veremos algún ejemplo de como añadir música y sonido a nuestros juegos usando SGDK.
+Comenzaremos hablando del sistema de sonido que trae la Sega Mega Drive, y cómo funcionan los distintos elementos que la componen. Además, hablaremos de cómo se puede crear esta música y por último, veremos algún ejemplo de cómo añadir música y sonido a nuestros juegos usando SGDK.
 
 ## Sistema de Sonido de la Sega Mega Drive
 
@@ -29,11 +29,11 @@ Permite emitir hasta 5 señales FM a la vez; y una de samples aunque hay que ten
 
 ### PSG
 
-Además del chip de sonido Yamaha YM2612, la Sega Mega Drive tiene un chip de sonido para sonido 8 bits gracias al chip SN76496 de Texas Instruments[^58];  permite emitir sonido por varios canales y además, de ser el chip utilizado para emitir sonido en modo retrocompatibilidad (Master System).
+Además del chip de sonido Yamaha YM2612, la Sega Mega Drive tiene un chip de sonido para sonido 8 bits gracias al chip SN76496 de Texas Instruments[^58]  permite emitir sonido por varios canales y además, de ser el chip utilizado para emitir sonido en modo retrocompatibilidad (Master System).
 
-[^58]: Texas Instruments es una marca Registrada. Todos los derechos reservados.
+[^58]: Texas Instruments es una marca registrada. Todos los derechos reservados.
 
-Este chip permite emitir sonido por 4 canales; 3 para generación de ondas (tonos), y otro para ruido (noise). Este chip esta incluido dentro del propio VDP, y permite ser utilizado junto al YM2612 como sistema de sonido para la Sega Mega Drive.
+Este chip permite emitir sonido por 4 canales; 3 para generación de ondas (tonos), y otro para ruido (noise). Este chip está incluido dentro del propio VDP, y permite ser utilizado junto al YM2612 como sistema de sonido para la Sega Mega Drive.
 
 Este chip también es utilizado en otros proyectos de electrónica casera, como el proyecto Durango.
 
@@ -83,7 +83,7 @@ Entre sus características, tiene:
 
 ### XGM2
 
-Es importante conocer, la segunda versión de este Driver el XGM2, ha sido liberado en enero de 2024; incluido en su versión beta, en la versión 2.00 de SGDK. Este driver incluye mejoras con respecto a la anterior versión ya que tenia bastantes problemas a la hora de compilar y generar los ficheros binarios; ya que consumían mucho espacio en la ROM (20/25% de la ROM podía ser la música). Este nuevo driver, incluye las siguientes funcionalidades:
+Es importante conocer, la segunda versión de este Driver el XGM2, ha sido liberado en enero de 2024; incluido en su versión beta, en la versión 2.00 de SGDK. Este driver incluye mejoras con respecto a la anterior versión ya que tenía bastantes problemas a la hora de compilar y generar los ficheros binarios; ya que consumían mucho espacio en la ROM (20/25% de la ROM podía ser la música). Este nuevo driver, incluye las siguientes funcionalidades:
 
 * Ejecuta 100% en el Z80 (utiliza el m68K para calcular los tiempos).
 * Soporte para pausa y reproducción de música.
@@ -97,13 +97,13 @@ Puedes encontrar más información sobre el driver XGM2, en la documentación de
 
 ## Crear música y Sonido
 
-Hemos estado hablando de los Drivers que son los encargados de dar las instrucciones al procesador Z80 para orquestar los distintos chips de sonido; pero otro aspecto muy importante, es hablar sobre como podemos crear la música de nuestro juego. Para ello, se suelen utilizar Trackers o secuenciadores; para crear las distintas instrucciones que después el Driver leerá y procederá a ejecutar en los chips de sonido.
+Hemos estado hablando de los Drivers que son los encargados de dar las instrucciones al procesador Z80 para orquestar los distintos chips de sonido; pero otro aspecto muy importante, es hablar sobre cómo podemos crear la música de nuestro juego. Para ello, se suelen utilizar Trackers o secuenciadores; para crear las distintas instrucciones que después el Driver leerá y procederá a ejecutar en los chips de sonido.
 
 Aunque muchos Drivers ya tenían integrados algunos editores, como el _GEMS_ o el _MUCOM88_. Hoy en día se utilizan programas más modernos y sofisticados para poder crear la música en nuestro ordenador de forma mucho más sencilla.
 
 ### Deflemask
 
-En este libro, comentaremos el uso de Deflemask; que es uno de los más utilizados. Este programa nos va a permitir crear nuestra música y exportarlo a los distintos sistemas. Entre sus características tiene:
+En este libro, comentaremos el uso de Deflemask; que es uno de los más utilizados. Este programa nos va a permitir crear nuestra música y exportarla a los distintos sistemas. Entre sus características tiene:
 
 * Emulación en tiempo real de los distintos Chips de sonido (entre ellos el YM2612).
 * Soporte para dispositivos MIDI [^62].
@@ -120,10 +120,10 @@ _Deflemask_
 
 ## Ejemplo con música y Sonido
 
-Tras ver como se compone el sistema de sonido, los Drivers y como crear el sonido.
+Tras ver cómo se compone el sistema de sonido, los Drivers y como crear el sonido.
 Vamos a ver dos ejemplos; el primer ejemplo vamos a utilizar el Driver original XGM, y todas las funciones relacionadas con el mismo.
 
-El segundo ejemplo, se va a utilizar el nuevo driver XGM2. Además, también vamos a revisar todas las funciones relacionadas con este nuevo Driver de sonido. Además, vamos a repasar como importar los recursos para cada uno de los ejemplos.
+El segundo ejemplo, se va a utilizar el nuevo driver XGM2. Además, también vamos a revisar todas las funciones relacionadas con este nuevo Driver de sonido. Además, vamos a repasar cómo importar los recursos para cada uno de los ejemplos.
 
 ### XGM
 
@@ -139,7 +139,7 @@ XGM name "file" timing options
 
 Donde:
 
-* _name_: Nombre del recurso para referenciarlo.
+* _name_: Nombre del recurso para referenciar.
 * _file_: Ruta dentro de la carpeta _res_ al fichero que contiene la música.
 * _timing_: Indica el tempo a cargar; dependiendo del tipo de sistema puede tener el siguiente valor:
     * -1/AUTO: (NTSC o PAL dependiendo de la información almacenada en el VGM).
@@ -149,7 +149,7 @@ Donde:
 
 Como has podido ver, se le pueden pasar más parámetros adicionales para la herramienta _xgmtool_; esta herramienta es la que se utiliza para pasar del fichero VGM, a binario. Si necesitas más información sobre _xgmtool_, puedes consultar la documentación de SGDK.
 
-Si por otro lado queremos importar un fichero con un efecto de sonido, podemos importar un fichero Wav; con dicho sonido. Vamos a ver como podemos importar un fichero Wav usando _rescomp_.
+Si por otro lado queremos importar un fichero con un efecto de sonido, podemos importar un fichero Wav; con dicho sonido. Vamos a ver cómo podemos importar un fichero Wav usando _rescomp_.
 
 ```res
 WAV name wav-file driver out-rate far
@@ -157,7 +157,7 @@ WAV name wav-file driver out-rate far
 
 Donde:
 
-* _name_: Nombre del recursos para referenciarlo.
+* _name_: Nombre del recursos para referenciar.
 * _wav-file_: Ruta del fichero wav dentro de la carpeta res.
 * _driver_: Driver de sonido a utilizar; puede ser:
     * 0/PCM: Driver de 1 solo canal de 8 bits.
@@ -168,7 +168,7 @@ Donde:
 * _out-rate_: Rate de salida para decodificar la salida. Solo utilizado para Z80_DRIVER_PCM.
 * _far_: Parámetro adicional para añadir información al final de la ROM (usado para Bank-switch).
 
-Una vez hemos podido ver como se pueden importar cada uno de los recursos, vamos a mostrar que recursos de sonido vamos a importar en este ejemplo:
+Una vez hemos podido ver cómo se pueden importar cada uno de los recursos, vamos a mostrar que recursos de sonido vamos a importar en este ejemplo:
 
 ```res
 XGM music1 "music/infiltration_phase.vgm" AUTO
@@ -207,7 +207,7 @@ sounds[2]=sound3;
 
 Como podemos ver se ha inicializado los tres efectos de sonido y se ha establecido la variable a 1. De tal forma que cargaremos el primer sonido por defecto.
 
-Tras ver las variables globales y como las vamos a inicializar, pasaremos a revisar la función ```inputHandler```; la cual es la encargada de gestionar cada vez que pulsamos un botón en el controlador. Vamos a revisar esta función:
+Tras ver las variables globales y cómo las vamos a inicializar, pasaremos a revisar la función ```inputHandler```; la cual es la encargada de gestionar cada vez que pulsamos un botón en el controlador. Vamos a revisar esta función:
 
 ```c
 void inputHandler(u16 joy, u16 changed,
@@ -229,9 +229,9 @@ if(changed & state & BUTTON_A){
 }
 ```
 
-Al pulsar el botón A, se va a parar la música anterior y se volverá a reproducir la primera melodia. Como puedes ver, se utilizan varias funciones que son propias del uso del driver XGM. Veamos estas funciones.
+Al pulsar el botón A, se va a parar la música anterior y se volverá a reproducir la primera melodía. Como puedes ver, se utilizan varias funciones que son propias del uso del driver XGM. Veamos estas funciones.
 
-La función ```XGM_isPlaying```, devuelve distinto de cero si el driver XGM, esta reproduciendo una canción.
+La función ```XGM_isPlaying```, devuelve distinto de cero si el driver XGM está reproduciendo una canción.
 
 La función ```XGM_stopPlay```, para la reproducción de la música actual del driver XGM.
 
@@ -273,7 +273,7 @@ La función ```XGM_startPlayPCM``` reproduce un efecto de sonido previamente ini
 * _prioridad_: define la prioridad con la que se reproducirá el sonido puede tener un valor de entre 0 y 15; siendo 0 la menor y 15 la mayor.
 * _channel_: canal a reproducir el sonido; puede seleccionar los distintos canales permitidos por el driver XGM. En este caso, ```SOUND_PCM_CH4``` indica que se utilizará el canal 4 como PCM. Consulta la documentación de SGDK, para saber todos los canales disponibles.
 
-Una vez hemos visto que ocurre al pulsar el botón C, vamos a ver que ocurre cuando se pulsa el botón Start.
+Una vez hemos visto que ocurre al pulsar el botón C, vamos a ver qué ocurre cuando se pulsa el botón Start.
 
 ```c
 if(changed & state & BUTTON_START){
@@ -282,9 +282,9 @@ if(changed & state & BUTTON_START){
 }
 ```
 
-En este caso se trata de parar la reproducción tanto de la música, como del efecto de sonido que este reproduciéndose. Para ello se utilizan dos funciones; ```XGM_stopPlay``` que para la reproducción de la música actual.
+En este caso se trata de parar la reproducción tanto de la música, como del efecto de sonido que esté reproduciéndose. Para ello se utilizan dos funciones; ```XGM_stopPlay``` que para la reproducción de la música actual.
 
-Por otro lado, la función ```XGM_stopPlayPCM```; para la reproducción del efecto de sonido que se este reproduciendo en un canal especifico; recibe los siguientes parámetros:
+Por otro lado, la función ```XGM_stopPlayPCM```; para la reproducción del efecto de sonido que se este reproduciendo en un canal específico; recibe los siguientes parámetros:
 
 * _channel_: canal que parará la reproducción del sonido. Tiene los mismos datos que en la anterior función. Consulta la documentación de SGDK, para saber todos los canales disponibles.
 
@@ -307,7 +307,7 @@ Vamos ahora a centrarnos en el nuevo Driver XGM2; para este caso, vamos a reutil
 
 **NOTA**: Necesitarás SGDK 2.00 o superior para este ejemplo.
 
-Veamos en primer lugar, como importar los recursos usando _rescomp_. En este caso, vamos a utilizar un nuevo tipo de objeto, para importar la música utilizando este nuevo driver:
+Veamos en primer lugar, cómo importar los recursos usando _rescomp_. En este caso, vamos a utilizar un nuevo tipo de objeto, para importar la música utilizando este nuevo driver:
 
 ```res
 XGM2 nombre "fichero" opciones
@@ -333,7 +333,7 @@ La función ```XGM2_setFMVolume```; establece el volumen actual del sonido FM; r
 
 * _volume_: un entero entre 0 y 100; para establecer el volumen del sonido FM.
 
-Una vez que hemos terminado de revisar los botones y de como funciona cada caso, ya podemos compilar y ejecutar nuestro ejemplo. Dejamos para el lector, el poder revisar como mostramos la pantalla cargando una imagen y un TileSet. Si todo va correctamente, podrás ver y oir este ejemplo en el emulador.
+Una vez que hemos terminado de revisar los botones y de cómo funciona cada caso, ya podemos compilar y ejecutar nuestro ejemplo. Dejamos para el lector, el poder revisar cómo mostramos la pantalla cargando una imagen y un TileSet. Si todo va correctamente, podrás ver y oír este ejemplo en el emulador.
 
 Por otro lado, la función ```XGM2_setPSGVolume``` controla el volumen del chip PSG. Recibe el siguiente parámetro:
 
