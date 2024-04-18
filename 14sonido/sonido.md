@@ -313,7 +313,7 @@ Veamos en primer lugar, cómo importar los recursos usando _rescomp_. En este ca
 XGM2 nombre "fichero" opciones
 ```
 
-Where:
+Donde:
 
 * _name_: Nombre del recurso.
 * _file_: Fichero VGM; este debe encontrarse en la carpeta _res_.
