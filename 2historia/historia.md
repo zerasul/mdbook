@@ -6,11 +6,11 @@ Sega trató de superar con los modelos Mark 2 y Mark 3 de la Sega Master System 
 
 El 29 de Octubre de 1988, Sega lanzó la Sega Mega Drive que es conocida durante su desarrollo como "Mark V" a través de la revista _beep!_. Sin embargo, no tuvo mucho éxito al principio y solo se vendieron unas 400.000 unidades.
 
-Más adelante, Sega América trató de negociar con Atari para que distribuyera Mega Drive en América; sin embargo lo rechazaron (se centraron en lanzar _Atari ST_). Fue entonces, cuando Sega distribuyó bajo su propia subsidiaria Sega of America la Sega Mega Drive con el nombre de Sega Genesis. La Sega Genesis, fue lanzada el 9 de enero de 1989.
+Más adelante, Sega América trató de negociar con Atari para que distribuyera Mega Drive en América; sin embargo lo rechazaron (se centraron en lanzar _Atari ST_). Fue entonces, cuando Sega distribuyó bajo su propia subsidiaria Sega of America, la Sega Mega Drive con el nombre de Sega Genesis. La Sega Genesis, fue lanzada el 9 de enero de 1989.
 
 En Europa, La Sega Mega Drive se lanzó el 30 de noviembre de 1990; aprovechando el éxito tenido con la Sega Master System y que ya había publicados más juegos como _Altered Beast_, _Golden Axe_,etc...
 
-Fue en el año 1992, cuando Sega lanzó grandes éxitos de su catálogo; como Sonic 2 y se puso a la venta el primer modelo de Sega CD. Sin embargo, no tuvo mucho éxito por carecer de poco catálogo y un elevado precio.
+Fue en el año 1992, cuando Sega lanzó grandes éxitos de su catálogo; como Sonic 2 y se puso a la venta el primer modelo de Sega CD. Sin embargo, este no tuvo mucho éxito por carecer de poco catálogo y un elevado precio.
 
 En 1993, Sega presentó la Mega Drive 2 con un rediseño de la misma. Sin embargo, ese año Nintendo superó a Sega en plena guerra de los 16 bits.
 
